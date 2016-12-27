@@ -14,7 +14,7 @@
 - Swift
 - JavaScript
 
-## [Cocoa 基础](Cocoa基础/index.md)
+## [Cocoa 基础](Cocoa基础)
 - NSObject
 - String
 - Number
