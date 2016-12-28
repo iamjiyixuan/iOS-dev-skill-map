@@ -1,7 +1,7 @@
 # iOS 开发技能图谱
 
-## [编程语言](编程语言/index.md)
-- C
+## [编程语言](编程语言)
+- [C](编程语言/C)
 - Objective-C
     - Class
     - Protocol
