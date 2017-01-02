@@ -3,13 +3,6 @@
 ## [编程语言](编程语言)
 - [C](编程语言/C)
 - [Objective-C](编程语言/Objective-C)
-    - Class
-    - Protocol
-    - Property
-    - Category
-    - Block
-    - Runtime
-    - ARC
 - [C++](编程语言/C++)
 - [Swift](编程语言/Swift)
 - JavaScript

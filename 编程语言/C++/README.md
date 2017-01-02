@@ -3,12 +3,12 @@
 ## 参考资料
 
 ### 书籍
-0. [《C++ Primer》](https://book.douban.com/subject/1767741/) by Stanley B.Lippman / Josée LaJoie / Barbara E.Moo
+0. [《C++ Primer》](https://book.douban.com/subject/1767741/) by Stanley B.Lippman, Josée LaJoie, Barbara E.Moo
 0. [《Effective C++》](https://book.douban.com/subject/5387403/) by Scott Meyers
 0. [《More Effective C++》](https://book.douban.com/subject/5908727/) by Scott Meyers
 0. [《Exceptional C++》](https://book.douban.com/subject/10785602/) by Herb Sutter
 0. [《More Exceptional C++》](https://book.douban.com/subject/5908728/) by Herb Sutter
-0. [《深度探索C++对象模型》](https://book.douban.com/subject/10427315/) by Stanley B.Lippman / 侯捷（译）
+0. [《深度探索C++对象模型》](https://book.douban.com/subject/10427315/) by Stanley B.Lippman (著) / 侯捷 (译)
 0. [《Effective STL》](https://book.douban.com/subject/24534868/) by Scott Meyers
 0. [《STL源码剖析》](https://book.douban.com/subject/1110934/) by 侯捷
 
