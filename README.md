@@ -2,7 +2,7 @@
 
 ## [编程语言](编程语言)
 - [C](编程语言/C)
-- Objective-C
+- [Objective-C](编程语言/Objective-C)
     - Class
     - Protocol
     - Property
@@ -10,9 +10,10 @@
     - Block
     - Runtime
     - ARC
-- C++
-- Swift
+- [C++](编程语言/C++)
+- [Swift](编程语言/Swift)
 - JavaScript
+- 汇编语言
 
 ## [Cocoa 基础](Cocoa基础)
 - NSObject
@@ -30,6 +31,7 @@
     - Auto Layout
 - 控件
 - 手势
+- 动画
 
 ## [网络](网络/index.md)
 - HTTP/HTTPS
