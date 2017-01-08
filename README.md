@@ -1,10 +1,10 @@
 # iOS 开发技能图谱
 
-## [编程语言](编程语言)
-- [C](编程语言/C)
-- [Objective-C](编程语言/Objective-C)
-- [C++](编程语言/C++)
-- [Swift](编程语言/Swift)
+## [编程语言](编程语言/README.md)
+- [C](编程语言/C/README.md)
+- [Objective-C](编程语言/Objective-C/README.md)
+- [C++](编程语言/C++/README.md)
+- [Swift](编程语言/Swift/README.md)
 - JavaScript
 - 汇编语言
 
