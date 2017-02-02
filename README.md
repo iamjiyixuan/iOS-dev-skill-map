@@ -88,6 +88,26 @@
 
 ## [安全](安全/README.md)
 
+## [操作系统](操作系统/README.md)
+- Unix
+  - BSD
+- Darwin
+- 内核：XNU
+- 可执行文件：Mach-O
+
+## [硬件设备](硬件设备/硬件设备.README.md)
+- iPhone
+  - 4 / 4S
+  - 5 / 5C / 5S
+  - 6 / 6 Plus / 6S / 6S Plus
+  - SE
+  - 7 / 7 Plus
+- iPad
+  - 1, 2, 3, 4
+  - Air 1, 2
+  - Mini 1, 2, 3, 4
+  - Pro
+
 ## [职业生涯](职业生涯/README.md)
 - 技术人员发展之路
 - 工程师文化
