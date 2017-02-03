@@ -13,15 +13,15 @@
 - String
 - Number
 - 集合
-    - Array
-    - Set
-    - Dictionary
+  - Array
+  - Set
+  - Dictionary
 - Notification
 - KVO
 
 ## [UI](UI//README.md)
 - 布局
-    - Auto Layout
+  - Auto Layout
 - 控件
 - 转场
 - 手势
@@ -42,8 +42,8 @@
 - SQLite
 - 缓存
 - 数据格式
-   - xml
-   - json
+  - xml
+  - json
 
 ## [并发编程](并发编程/README.md)
 - GCD
@@ -53,7 +53,7 @@
 ## [多媒体](多媒体/README.md)
 - 图片
 - 音视频
-    - AVFoundation
+  - AVFoundation
 
 ## [LBS](LBS/README.md)
 
@@ -64,23 +64,31 @@
 - MVC
 - 设计模式
 
+## Hybrid
+- html5
+
 ## [软件工程](软件工程/README.md)
 - 脚本
-    - Shell
-    - Ruby
-    - Python
-    - Perl
-    - Node.js
+  - Shell
+  - Ruby
+  - Python
+  - Perl
+  - Node.js
 - 包管理
-    - CocoaPods
-    - Carthage
+  - CocoaPods
+  - Carthage
 - 版本管理
-    - git
-    - svn
+  - git
+  - svn
+- 测试
+  - 单元测试
+  - 自动化UI测试
+  - 卡顿测试
 - 持续集成
-    - xcodebuild
-    - xctool
+  - xcodebuild
+  - xctool
 - 进度管理
+- 编写文档
 
 ## [逆向工程](逆向工程/README.md)
 
