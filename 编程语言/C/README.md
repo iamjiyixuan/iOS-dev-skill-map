@@ -58,6 +58,34 @@ C 程序一般包含以下部分：
 - 结构（Structure）
 - 注释（Comments）
 
+我们先来看一段简单的代码，它的运行结果就是在控制台输出一段文本：
+```
+#include <stdio.h>
+
+int main(int argc, const char * argv[])
+{
+    /* my first program in C */
+    const char * str = "Hello, World!\n";
+    printf("%s", str);
+
+    return 0;
+}
+```
+
+Xcode 8 环境执行结果：
+```
+Hello, World!
+Program ended with exit code: 0
+```
+
+简单解释一下：
+- `#include` 是一个预编译指令，表示引入 `stdio.h` 这个头文件。
+- `int main () { ... }` 是一个函数，`{}` 中括起来的部分就是函数具体做的事情。`main` 函数是所有 C 程序的入口函数，它有两个参数 `argc` 和 `argv`。这两参数现阶段还用不到，暂时不做解释。
+- `/* my first program in C */` 是注释，不会影响程序的运行结果。
+- `str` 是变量，这里表示一个字符串，字符串的内容是“Hello, World!\n”。`\n` 是换行符。
+- `const char * str = "Hello, World!\n";` 是一个语句，语句必须用 `;` 分割。
+- `printf` 也是一个函数，其功能就是在控制台输出文本。
+
 ### 第三阶段：掌握常用的标准库函数
 
 ### 第四阶段：深入理解指针和内存管理
