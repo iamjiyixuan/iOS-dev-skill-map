@@ -59,7 +59,7 @@ C 程序一般包含以下部分：
 - 注释（Comments）
 
 我们先来看一段简单的代码，它的运行结果就是在控制台输出一段文本：
-```
+``` C
 #include <stdio.h>
 
 int main(int argc, const char * argv[])
