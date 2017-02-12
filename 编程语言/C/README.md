@@ -44,10 +44,12 @@ IDE，全称 Integrated Development Environment，即集成开发环境，它是
 
 ### 第二阶段：熟悉基本语法
 
-C 语言的语法不算复杂，建议快速的过一遍，现阶段做到大致了解，能够看懂别人写的示例程序即可。关于学习资料，我推荐：
+C 语言的语法不算复杂，建议快速的过一遍，现阶段做到大致了解，能够看懂别人写的示例程序即可。关于学习资料：
 - 如果你习惯看书，这一阶段建议看[《C程序设计语言》](https://book.douban.com/subject/1139336/)这一本就可以了，C 语言之父编写的书，几乎是学习 C 语言必读的。这类经典的书比较适合精度，随着你经验慢慢积累水平不断提高 ，需要时不时拿出来温习，温故而知新。
 - 如果你的英文水平尚可，我再推荐一个英文在线教程 [C Tutorial](https://www.tutorialspoint.com/cprogramming/index.htm)，内容比较浅，每一章节篇幅都很短，适合快速阅读。
-- 此外，[C reference](http://en.cppreference.com/w/c) 可以当做手册来查阅。
+- 此外，[C reference](http://en.cppreference.com/w/c) 和 [Standard C++ Library reference](http://www.cplusplus.com/reference/) 可以当做手册来查阅。
+
+#### C 程序的组成
 
 C 程序一般包含以下部分：
 - 预编译指令（Preprocessor Commands）
@@ -58,7 +60,9 @@ C 程序一般包含以下部分：
 - 结构（Structure）
 - 注释（Comments）
 
-我们先来看一段简单的代码，它的运行结果就是在控制台输出一段文本：
+#### Hello World
+
+我们先来看一段简单的代码，它的运行结果就是在控制台输出 `Hello, World!`：
 ``` C
 #include <stdio.h>
 
@@ -87,6 +91,53 @@ Program ended with exit code: 0
 - `printf` 也是一个函数，其功能就是在控制台输出文本。
 
 ### 第三阶段：掌握常用的标准库函数
+
+C 标准库（C standard library，也称 libc）定义了那些我们在写 C 程序时可以直接调用的函数，例如 `printf()` 函数。这些标准库函数被定义在了若干个 `.h` 头文件中。那么问题来了，标准库函数究竟有哪些呢？事实上，这和你选择哪种 C 标准来写代码有关系。所谓的标准其实就是一种规范，只有大家都遵守统一规范才能保证你写的程序可以在别人的机器上正确的运行。而 C 语言是一门相当古老的编程语言，随着时间的推移，它的规范也在不断的改进和扩充。
+
+#### C 标准
+
+不同标准的 C 语言会有不同数量的标准库函数。截止到目前，主要的 C 语言标准有：
+- ANSI C / C89 / C90
+  - assert.h
+  - ctype.h
+  - errno.h
+  - float.h
+  - iso646.h
+  - limits.h
+  - locale.h
+  - math.h
+  - setjmp.h
+  - signal.h
+  - stdarg.h
+  - stddef.h
+  - stdio.h
+  - stdlib.h
+  - string.h
+  - time.h
+  - wchar.h
+  - wctype.h
+- C99
+  - complex.h
+  - fenv.h
+  - stdbool.h
+  - stdint.h
+  - tgmath.h
+- C11
+  - stdalign.h
+  - stdatomic.h
+  - stdnoreturn.h
+  - threads.h
+  - uchar.h
+
+现阶段主要需要熟悉 ANSI C 标准库函数。
+
+#### C POSIX library
+C POSIX library 是 C 语言的 POSIX 系统下的标准库。包含了一些在 C 语言标准库之外的函数。
+
+> POSIX（ Portable Operating System Interface）是  IEEE 制定的一套标准，定义了操作系统应该为应用程序提供的接口标准。最初设计这套标准的目的是为了提高类 UNIX 环境下应用程序的可移植性。
+
+#### The GNU C Library (glibc)
+C 标准库的开源实现。
 
 ### 第四阶段：深入理解指针和内存管理
 
