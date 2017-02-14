@@ -1,6 +1,6 @@
 # Cocoa 基础
 
-## NSObject
+## 一、NSObject
 
 ### 扩展阅读
 - API Reference
@@ -9,7 +9,7 @@
 - [Foundation: NSObject Class](http://southpeak.github.io/2015/01/31/cocoa-foundation-nsobject-class/) by 南峰子
 - [Foundation: NSObject Protocol](http://southpeak.github.io/2015/01/31/cocoa-foundation-nsobject-protocol/) by 南峰子
 
-## String
+## 二、字符串
 
 ### Unicode
 
@@ -28,3 +28,19 @@
   - [字符串本地化](https://objccn.io/issue-9-3/)
   - [字符串解析](https://objccn.io/issue-9-4/)
   - [字符串渲染](https://objccn.io/issue-9-5/)
+
+## 三、对象间通信
+
+- Method Invocation
+- Delegate
+- Block
+- Notification
+- Target-Action
+- KVO
+
+Ref:
+- [消息传递机制](https://objccn.io/issue-7-4/) by ObjC 中国
+
+### Notification
+
+- [浅谈 iOS Notification](http://www.jianshu.com/p/2503e3e5fc64) by 简书 XcodeMen 邓凯辉
