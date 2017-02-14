@@ -141,17 +141,135 @@ C 标准库的开源实现。
 
 ### 第四阶段：深入理解指针和内存管理
 
-#### 内存管理
-- 内存区域
-  - 栈（stack）
-  - 堆（heap）
-  - 静态区：全局变量、静态变量、字符串常量等
-  - 代码区：存放程序执行代码
-- 相关函数
-  - malloc
-  - calloc
-  - realloc
-  - free
+#### 栈内存
+- 编译器自动管理（分配与释放）
+- 从高地址开始分配，下开口栈，后进先出
+- 最大上限预先设置，可能会溢出
+
+``` C
+#include <stdio.h>
+
+int main(int argc, const char * argv[])
+{
+    char a = 'a'; // char 占 1 字节
+    char b = 'b';
+    printf("%p\n", &a); // 0x7fff5fbff7e7
+    printf("%d\n", a);  // 97
+    printf("%p\n", &b); // 0x7fff5fbff7e6
+    printf("%d\n", b);  // 98
+    return 0;
+}
+```
+
+变量  | 地址 | 值
+---- | ---- | ----
+a  | 0x7fff5fbff7e7 | 0110 0001
+b  | 0x7fff5fbff7e6 | 0110 0010
+
+``` C
+#include <stdio.h>
+
+int main(int argc, const char * argv[])
+{
+    int a = 'a'; // int 占 4 字节
+    int b = 'b';
+    printf("%p\n", &a); // 0x7fff5fbff7ec
+    printf("%d\n", a);  // 97
+    printf("%p\n", &b); // 0x7fff5fbff7e8
+    printf("%d\n", b);  // 98
+    return 0;
+}
+```
+
+变量  | 地址 | 值
+---- | ---- | ----
+a  | 0x7fff5fbff7ec | 0110 0001
+   | 0x7fff5fbff7eb | 0000 0000
+   | 0x7fff5fbff7ea | 0000 0000
+   | 0x7fff5fbff7e9 | 0000 0000
+b  | 0x7fff5fbff7e8 | 0110 0010
+   | 0x7fff5fbff7e7 | 0000 0000
+   | 0x7fff5fbff7e6 | 0000 0000
+   | 0x7fff5fbff7e5 | 0000 0000
+
+函数中局部变量占用的内存，在函数返回后会被回收
+``` C
+#include <stdio.h>
+
+void test()
+{
+    char a = 'a';
+    char b = 'b';
+    printf("%p\n", &a);
+    printf("%d\n", a);
+    printf("%p\n", &b);
+    printf("%d\n", b);
+}
+
+int main(int argc, const char * argv[])
+{
+    test();
+    test();
+
+    return 0;
+}
+
+输出结果：
+0x7fff5fbff7df
+97
+0x7fff5fbff7de
+98
+0x7fff5fbff7df
+97
+0x7fff5fbff7de
+98
+```
+上述示例说明函数内的局部变量 `a` 和 `b` 在函数返回后就被回收了，`0x7fff5fbff7df` 和 `0x7fff5fbff7de` 这两块内存被循环使用了。
+
+#### 堆内存
+- 调用 `malloc` 等函数手动申请，调用 `free` 手动释放
+
+64 位编译器下，各数据类型所占字节大小。
+``` C
+int main(int argc, const char * argv[])
+{
+    printf("%lu\n", sizeof(char));      // 1
+    printf("%lu\n", sizeof(int));       // 4
+    printf("%lu\n", sizeof(float));     // 4
+    printf("%lu\n", sizeof(double));    // 8
+    printf("%lu\n", sizeof(short));     // 2
+    printf("%lu\n", sizeof(long));      // 8
+    printf("%lu\n", sizeof(long long)); // 8
+    printf("%lu\n", sizeof(void *));    // 8
+
+    return 0;
+}
+```
+> 注：sizeof 是一个运算符而不是函数，编译器在编译时就计算出了 sizeof 的结果。
+
+``` C
+int main(int argc, const char * argv[])
+{
+    void * a = malloc(1 * sizeof(char)); // 指针占 8 字节
+    void * b = malloc(4 * sizeof(char));
+    void * c = malloc(1 * sizeof(char));
+    void * d = malloc(2 * sizeof(char));
+
+    printf("%p\n", &a); // 0x7fff5fbff7e8
+    printf("%p\n", &b); // 0x7fff5fbff7e0
+    printf("%p\n", &c); // 0x7fff5fbff7d8
+    printf("%p\n", &d); // 0x7fff5fbff7d0
+
+    printf("%p\n", a); // 0x100700000
+    printf("%p\n", b); // 0x100700010
+    printf("%p\n", c); // 0x100700020
+    printf("%p\n", d); // 0x100700030
+
+    return 0;
+}
+```
+
+#### 函数的调用过程
 
 ### 第五阶段：算法与数据结构
 
