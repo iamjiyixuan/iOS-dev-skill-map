@@ -43,4 +43,18 @@ Ref:
 
 ### Notification
 
+特点：
+- 一对多
+
+关键类：
+- 通知 Notification
+- 通知中心 NSNotificationCenter
+- 通知队列 NSNotificationQueue
+
+关键操作：
+- 注册监听者
+- 移除监听者
+- 发送通知
+
+扩展阅读：
 - [浅谈 iOS Notification](http://www.jianshu.com/p/2503e3e5fc64) by 简书 XcodeMen 邓凯辉
