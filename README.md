@@ -2,27 +2,44 @@
 
 ## [编程语言](编程语言/README.md)
 - [C](编程语言/C/README.md)
+  - 标准库（libc）
+  - 指针
+  - 内存管理
 - [Objective-C](编程语言/Objective-C/README.md)
+  - 类与对象
+    - NSObject
+  - 协议
+  - Category
+  - Runtime
+    - 消息机制
+    - Method Swizzling
+  - 引用计数
 - [C++](编程语言/C++/README.md)
 - [Swift](编程语言/Swift/README.md)
 - JavaScript
 - 汇编语言
 
 ## [Cocoa 基础](Cocoa基础/README.md)
-- NSObject
-- String
-- Number
+- NSString
+- NSNumber
 - 集合
-  - Array
-  - Set
-  - Dictionary
+  - NSArray
+  - NSSet
+  - NSDictionary
+- NSPredicate
 - Notification
 - KVO
 
-## [UI](UI//README.md)
+## [UI](UI/README.md)
 - 布局
+  - frame
   - Auto Layout
+  - Masonry
 - 控件
+  - UIView
+  - UIButton
+  - UITableview
+  - UICollectionView
 - 转场
 - 手势
 - 动画
@@ -46,9 +63,12 @@
   - json
 
 ## [并发编程](并发编程/README.md)
+- 进程
+- 线程
 - GCD
-- NSOperation
+- OperationQueue
 - 锁
+- Runloop
 
 ## [多媒体](多媒体/README.md)
 - 图片
@@ -58,14 +78,20 @@
 ## [LBS](LBS/README.md)
 
 ## [架构](架构/README.md)
-- 面向对象
-- 面向协议
-- 函数式编程
+- 面向对象（OOP）
+- 面向切面（AOP）
+- 面向协议（POP）
+- 函数式编程（FP）
 - MVC
+- MVVM
 - 设计模式
+  - 单例
+  - 工厂
+- 组件化
 
 ## Hybrid
 - html5
+- Weex
 
 ## [软件工程](软件工程/README.md)
 - 脚本
@@ -77,7 +103,7 @@
 - 包管理
   - CocoaPods
   - Carthage
-- 版本管理
+- 代码管理
   - git
   - svn
 - 测试
@@ -87,12 +113,18 @@
 - 持续集成
   - xcodebuild
   - xctool
-- 进度管理
-- 编写文档
+- 发布
+- 热修复
+  - JSPatch
+- 异常上报
+- 运营统计
+- 任务管理
+- 文档
 
 ## [逆向工程](逆向工程/README.md)
+- 越狱
 
-## [算法](算法/README.md)
+## [算法与数据结构](算法与数据结构/README.md)
 
 ## [安全](安全/README.md)
 
