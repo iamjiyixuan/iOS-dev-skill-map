@@ -78,15 +78,19 @@
 ## [LBS](LBS/README.md)
 
 ## [架构](架构/README.md)
-- 面向对象（OOP）
-- 面向切面（AOP）
-- 面向协议（POP）
-- 函数式编程（FP）
+- 面向对象编程（Object-Oriented Programming）
+- 面向切面编程（Aspect-Oriented Programming）
+  - Aspects
+- 面向协议编程（Protocol-Oriented Programming）
+- 函数式编程（Functional Programming）
+- 响应式编程（Reactive Programming）
+  - ReactiveCocoa
 - MVC
 - MVVM
 - 设计模式
   - 单例
   - 工厂
+  - 观察者
 - 组件化
 
 ## Hybrid
