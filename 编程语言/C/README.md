@@ -281,7 +281,7 @@ int main(int argc, const char * argv[])
 }
 ```
 
-#### 函数的调用过程
+#### 函数调用与函数指针
 
 ### 第五阶段：算法与数据结构
 
@@ -295,18 +295,21 @@ int main(int argc, const char * argv[])
 - [跟我一起写 Makefile](http://blog.csdn.net/haoel/article/details/2886) by 陈皓 2004
 
 ## 参考资料
-### 网站
-[cppreference.com](http://zh.cppreference.com/w/首页)
+### 站点
+- [C Tutorial](https://www.tutorialspoint.com/cprogramming/index.htm)
+- [C reference](http://en.cppreference.com/w/c)
+- [Standard C++ Library reference](http://www.cplusplus.com/reference/)
 
 ### 书籍
-0. [《C程序设计语言》](https://book.douban.com/subject/1139336/) by Brian W. Kernighan, Dennis M. Ritchie
-0. [《C和指针》](https://book.douban.com/subject/3012360/) by Kenneth A.Reek
-0. [《C专家编程》](https://book.douban.com/subject/2377310/) by Peter Van Der Linden
-0. [《C陷阱与缺陷》](https://book.douban.com/subject/2778632/) by Andrew Koenig
+- [《C程序设计语言》](https://book.douban.com/subject/1139336/) by Brian W. Kernighan, Dennis M. Ritchie
+- [《C和指针》](https://book.douban.com/subject/3012360/) by Kenneth A.Reek
+- [《C专家编程》](https://book.douban.com/subject/2377310/) by Peter Van Der Linden
+- [《C陷阱与缺陷》](https://book.douban.com/subject/2778632/) by Andrew Koenig
 
 ### 文章
-0. [如何学好C语言](http://coolshell.cn/articles/4102.html) by CoolShell 陈皓 2011
-0. [深入理解C语言](http://coolshell.cn/articles/5761.html) by CoolShell 陈皓 2011
-0. [C语言的演变史](http://coolshell.cn/articles/1984.html) by CoolShell 陈皓 2009
-0. [C语言-内存管理基础](http://www.jianshu.com/p/b2380e47d005) by 简书 CoderYQ 2017
-0. [C语言-内存管理深入](http://www.jianshu.com/p/ccb337572498) by 简书 CoderYQ 2017
+- [如何学好C语言](http://coolshell.cn/articles/4102.html) by CoolShell 陈皓 2011
+- [深入理解C语言](http://coolshell.cn/articles/5761.html) by CoolShell 陈皓 2011
+- [C语言的演变史](http://coolshell.cn/articles/1984.html) by CoolShell 陈皓 2009
+- [C语言-内存管理基础](http://www.jianshu.com/p/b2380e47d005) by 简书 CoderYQ 2017
+- [C语言-内存管理深入](http://www.jianshu.com/p/ccb337572498) by 简书 CoderYQ 2017
+- [Learn to Read Dissasembly for Fun and Profit](http://www.jeremyong.com/blog/2014/10/26/learn-to-read-dissasembly-for-fun-and-profit/) by /dev/something 2014
