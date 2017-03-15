@@ -12,3 +12,8 @@
 0. [《Swift 进阶》](https://www.objccn.io/products/advanced-swift/) by Chris Eidhof, Airspeed Velocity (著) / 王巍 (译)
 0. [《函数式 Swift》](https://www.objccn.io/products/functional-swift/) by Chris Eidhof, Florian Kugler, Wouter Swierstra (著) /
 陈聿菡, 杜欣, 王巍 (译)
+
+### 示例代码
+0. [LeetCode_Swift](https://github.com/soapyigu/LeetCode_Swift) by 故胤道长
+0. [Swift30Projects](https://github.com/soapyigu/Swift30Projects) by 故胤道长
+0. [30DaysofSwift](https://github.com/allenwong/30DaysofSwift) by Allen朝辉
