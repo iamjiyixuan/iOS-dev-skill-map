@@ -1,5 +1,7 @@
 # iOS 开发技能图谱
 
+![image](Images/iOS-dev-skill-map.png)
+
 ## [编程语言](编程语言/README.md)
 - [C](编程语言/C/README.md)
   - 标准库（libc）

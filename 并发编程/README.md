@@ -22,7 +22,7 @@ Run Loop 本质上就是一个事件处理循环。
 - NSRunLoop（Foundation层）
 - CFRunLoop（Core Foundation层）
 
-### event, source，handler
+### event, source, handler
 > A run loop receives events from two different types of sources.
 
 source 分两类：
