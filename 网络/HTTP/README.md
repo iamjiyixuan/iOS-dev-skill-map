@@ -1,6 +1,6 @@
 # HTTP
 
-## 一、HTTP 协议
+## 一、HTTP 协议工作原理
 
 ## 二、URL Loading System
 
@@ -11,14 +11,14 @@
 - file://
 - data://
 
-## 三、NSURLSession API
+## 三、NSURLSession
 
 如何管理 NSURLSession 对象？
 
 ## 参考资料
 
 ### 官方文档
-- [URL Session Programming Guide](https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/URLLoadingSystem/URLLoadingSystem.html)
+- [URL Session Programming Guide](https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/URLLoadingSystem/URLLoadingSystem.html) Updated 2016-09-13
 
 ### 文章
 - [NSURLSession Tutorial: Getting Started](https://www.raywenderlich.com/110458/nsurlsession-tutorial-getting-started) by raywenderlich 2016
@@ -28,7 +28,7 @@
     - [HTTPS从原理到应用(三)：SSL/TLS协议](http://www.jianshu.com/p/c93612b3abac)
     - [HTTPS从原理到应用(四)：iOS中HTTPS实际使用](http://www.jianshu.com/p/ce2a9bc519f5)
 - [iOS对HTTPS证书链的验证](http://www.jianshu.com/p/74830162717e) by 简书 XcodeMen 2016
-- [译] URL加载系统 by 南峰子 2014
+- [译] URL加载系统 by 南峰子 2014（注：官方文档已更新）
     - [URL加载系统之一：基本结构](http://southpeak.github.io/2014/07/11/url-load-system-1/)
     - [URL加载系统之二：NSURLSession](http://southpeak.github.io/2014/07/11/url-load-system-2/)
     - [URL加载系统之三：NSURLConnection](http://southpeak.github.io/2014/07/15/url-load-system-3/)
