@@ -1,6 +1,6 @@
 # [译] URL Session Programming Guide
 
-译文参考: [URL加载系统 ](http://southpeak.github.io/2014/07/11/url-load-system-1/) by 南峰子 2014
+参考译文: [URL加载系统 ](http://southpeak.github.io/2014/07/11/url-load-system-1/) by 南峰子 2014
 
 ## 1. 关于 URL 加载系统
 
@@ -105,14 +105,17 @@ NSURLSession *ephemeralSession = [NSURLSession sessionWithConfiguration:ephemera
 NSURLSession *backgroundSession = [NSURLSession sessionWithConfiguration:backgroundConfiguration delegate:delegate delegateQueue:operationQueue];
 ```
 
-## 3. 编解码 URL 数据
+## 3. 编码与解码 URL 数据
 
-## （四）重定向与其他请求变更
+## 4. 重定向与其他请求变更
 
-## （五）认证与 TLS 链验证
+## 5. 认证与 TLS 链验证
+一个 `NSURLRequest` 对象经常会遇到认证请求，或者需要从其所连接的服务端请求证书。当需要认证请求时，`NSURLSession` 会通知它们的代理对象，以便能正确地做处理。
 
-## （六）理解缓存
+### 5.1 决定如何响应一个认证请求
 
-## （七）Cookie 与自定义协议
+## 6. 理解缓存
 
-## （八）URL Session 生命周期
+## 7. Cookie 与自定义协议
+
+## 8. URL Session 生命周期
