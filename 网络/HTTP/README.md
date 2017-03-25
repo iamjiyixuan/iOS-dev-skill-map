@@ -44,4 +44,7 @@
 - [SDWebImage](https://github.com/rs/SDWebImage)
 - [YYWebImage](https://github.com/ibireme/YYWebImage)
 - [OHHTTPStubs](https://github.com/AliSoftware/OHHTTPStubs)
-- [Alamofire](https://github.com/Alamofire/Alamofire)
+- [Alamofire](https://github.com/Alamofire/Alamofire) - Swift 版 AFNetworking
+- [Kingfisher](https://github.com/onevcat/Kingfisher) - Swfit 版 SDWebImage
+- [XMPPFramework](https://github.com/robbiehanson/XMPPFramework)
+- [CocoaAsyncSocket](https://github.com/robbiehanson/CocoaAsyncSocket)
