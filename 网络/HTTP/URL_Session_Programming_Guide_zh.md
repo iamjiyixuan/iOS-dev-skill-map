@@ -6,17 +6,25 @@
 <!-- TOC -->
 
 - [1. 关于 URL 加载系统](#1-关于-url-加载系统)
-    - [如何使用该文档](#如何使用该文档)
+    - [1.1. 初见](#11-初见)
+        - [URL 加载](#url-加载)
+        - [辅助类](#辅助类)
+        - [重定向](#重定向)
+        - [认证与证书](#认证与证书)
+        - [Cache Management](#cache-management)
+        - [Cookie 存储](#cookie-存储)
+        - [Protocol Support](#protocol-support)
+    - [1.2. 如何使用该文档](#12-如何使用该文档)
 - [2. 使用 NSURLSession](#2-使用-nsurlsession)
-    - [2.1 理解 URL Session 的概念](#21-理解-url-session-的概念)
+    - [2.1. 理解 URL Session 的概念](#21-理解-url-session-的概念)
         - [会话类型](#会话类型)
         - [任务类型](#任务类型)
         - [后台传输注意事项](#后台传输注意事项)
-    - [2.2 创建并配置会话](#22-创建并配置会话)
+    - [2.2. 创建并配置会话](#22-创建并配置会话)
 - [3. 编码与解码 URL 数据](#3-编码与解码-url-数据)
 - [4. 重定向与其他请求变更](#4-重定向与其他请求变更)
 - [5. 认证与 TLS 链验证](#5-认证与-tls-链验证)
-    - [5.1 决定如何响应一个认证请求](#51-决定如何响应一个认证请求)
+    - [5.1. 决定如何响应一个认证请求](#51-决定如何响应一个认证请求)
 - [6. 理解缓存](#6-理解缓存)
 - [7. Cookie 与自定义协议](#7-cookie-与自定义协议)
 - [8. URL Session 生命周期](#8-url-session-生命周期)
@@ -25,7 +33,66 @@
 
 ## 1. 关于 URL 加载系统
 
-### 如何使用该文档
+这篇指南描述一些 Foundation 框架中的类。这些类与 URL 相关并可以通过标准的 Internet 协议与服务端进行通信。这些类通常被统称为 URL 加载系统。
+
+URL 加载系统是类与协议的集合。这些类帮助我们可以通过 URL 访问内容。`NSURL` 类处于核心地位，通过它我们可以操作 URL 和其指向的资源。
+
+我们可以使用 `Foundation` 提供的类加载 URL 的内容、上传数据至服务端、管理 cookie 存储、控制响应缓存、处理证书存储和认证、实现自定义协议扩展。
+
+URL 加载系统支持通过以下协议访问资源：
+- File Transfer Protocol (ftp://)
+- Hypertext Transfer Protocol (http://)
+- Hypertext Transfer Protocol with encryption (https://)
+- Local file URLs (file:///)
+- Data URLs (data://)
+
+还支持代理服务和 SOCKS 网关。
+
+> Important: On Apple platforms, a networking security feature called App Transport Security (ATS) is available to apps and app extensions, and is enabled by default. It improves privacy and data integrity by ensuring your app’s network connections employ only industry-standard protocols and ciphers without known weaknesses.
+For more information, see NSAppTransportSecurity.
+
+> Note: In addition to the URL loading system, OS X and iOS provide APIs for opening URLs in other applications, such as Safari. These APIs are not described in this document.
+For more information about Launch Services in OS X, read Launch Services Programming Guide.
+For more information about the openURL: method in the NSWorkSpace class in OS X, read NSWorkspace Class Reference.
+For more information about the openURL: method in the UIApplication class in iOS, read UIApplication Class Reference.
+
+### 1.1. 初见
+The URL loading system includes classes that load URLs along with a number of important helper classes that work with those URL loading classes to modify their behavior. The major helper classes fall into five categories: protocol support, authentication and credentials, cookie storage, configuration management, and cache management.
+
+![image](https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/URLLoadingSystem/Art/nsobject_hierarchy_2x.png)
+
+#### URL 加载
+URL 加载系统中最常用的类允许我们通过 URL 从源获取内容。我们可以使用 `NSURLSession` 获取内容。你应该使用哪个方法很大程度上取决于是要将数据保存到内存还是下载到磁盘。
+
+有两种方式从 URL 获取数据：
+- 对于简单的请求，使用 `NSURLSession` API直接从 `NSURL` 对象获取数据，数据可以是 `NSData` 对象也可以是一个在磁盘上的文件。
+- 对于更复杂的请求（比如上传数据）需要提供一个 `NSURLRequest` 或 `NSMutableURLRequest` 对象给 `NSURLSession`。
+
+无论你选择哪种方式，我们都有两种方式来获得响应数据：
+- block
+- delegate
+
+除了数据本身，响应对象还封装了与请求相关的元数据，比如 MIME 类型和内容长度。
+
+> 注：通过 `NSURLSession` 下载不会有缓存。如果需要缓存，我们必须自己将数据写入磁盘。
+
+#### 辅助类
+
+
+#### 重定向
+一些协议，比如 HTTP，允许服务端告知我们访问的内容已经被移到了另一个 URL。URL 加载类能够通过 delegate 通知我们。如果我们提供了合适的代理方法，我们可以决定是否要重定向，返回重定向后的响应结果还是返回错误。
+
+#### 认证与证书
+一些服务器对某些内容的访问有限制，需要用户提供证书来通过认证并获得访问权限。
+
+#### Cache Management
+
+#### Cookie 存储
+由于 HTTP 是一种无状态协议，客户端经常使用 cookies 来提供 URL 请求数据的持久存储。URL 加载系统提供了用来创建和管理 cookies、将 cookies 作为 HTTP 请求的一部分发出、从 Web 服务端响应中取出 cookies。OS X 和 iOS 提供 `NSHTTPCookieStorage` 类来管理 `NSHTTPCookie` 对象。在 OS X 中，cookie 存储被所用应用共享；而 iOS 中，cookie 存储是每个应用独立一份。
+
+#### Protocol Support
+
+### 1.2. 如何使用该文档
 首先阅读 [使用 NSURLSession](#2-使用-nsurlsession) 了解 URL 加载系统。然后阅读 [URL Session 生命周期](#8-url-session-生命周期) 来深入学习 `NSURLSession` 是如何与其 delegates 相互作用的。以下章节提供了关于 URL 加载系统其他方面的信息：
 - [编码与解码 URL 数据](#3-编码与解码-url-数据) 介绍如何对字符串进行编码使其能够安全的在 URL 中使用
 - [重定向与其他请求变更]() 介绍当你的请求发生变化时你能做什么
@@ -44,7 +111,7 @@
 
 `NSURLSession` API 提供了 status 和 progress 属性，并作为额外的信息传递给代理。同时它支持取消、重启（恢复）、挂起操作，并支持断点续传功能。
 
-### 2.1 理解 URL Session 的概念
+### 2.1. 理解 URL Session 的概念
 会话（Session）中任务（Task）的行为取决于三点：会话的类型、任务的类型以及创建任务时应用是否处于前台。
 
 #### 会话类型
@@ -71,7 +138,7 @@
 
 > 注：iOS 8 和 OS X 10.10 以前，后台会话不支持数据任务。
 
-### 2.2 创建并配置会话
+### 2.2. 创建并配置会话
 `NSURLSession` 提供了丰富的配置选项：
 - 支持缓存、cookie、认证及协议的私有存储
 - 认证
@@ -133,7 +200,7 @@ NSURLSession *backgroundSession = [NSURLSession sessionWithConfiguration:backgro
 ## 5. 认证与 TLS 链验证
 一个 `NSURLRequest` 对象经常会遇到认证请求，或者需要从其所连接的服务端请求证书。当需要认证请求时，`NSURLSession` 会通知它们的代理对象，以便能正确地做处理。
 
-### 5.1 决定如何响应一个认证请求
+### 5.1. 决定如何响应一个认证请求
 
 ## 6. 理解缓存
 
