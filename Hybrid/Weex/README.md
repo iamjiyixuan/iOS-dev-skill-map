@@ -5,9 +5,10 @@
 - [1. 初见](#1-初见)
     - [1.1. Weex 是什么？](#11-weex-是什么)
     - [1.2. Weex 的目标是什么？](#12-weex-的目标是什么)
+    - [1.3. 学习 Weex 之前，你需要了解什么？](#13-学习-weex-之前你需要了解什么)
 - [2. 搭建开发环境](#2-搭建开发环境)
 - [3. hello-weex](#3-hello-weex)
-    - [3.1. 初始化](#31-初始化)
+    - [3.1. 新建 Weex 工程](#31-新建-weex-工程)
     - [3.2. Weex 工程标准结构](#32-weex-工程标准结构)
     - [3.3. 安装](#33-安装)
     - [3.4. 启动服务](#34-启动服务)
@@ -16,6 +17,11 @@
         - [3.5.2. 初始化 Weex 环境](#352-初始化-weex-环境)
         - [3.5.3. 渲染页面](#353-渲染页面)
     - [3.6. hello-weex for Android](#36-hello-weex-for-android)
+        - [3.6.1. 新建工程，设置依赖](#361-新建工程设置依赖)
+        - [3.6.2. 新建 ImageAdapter](#362-新建-imageadapter)
+        - [3.6.3. 新建 WeexApplication](#363-新建-weexapplication)
+        - [3.6.4. 修改 AndroidManifest.xml 启用 WeexApplication](#364-修改-androidmanifestxml-启用-weexapplication)
+        - [3.6.5. MainActivity](#365-mainactivity)
 - [4. 工作原理](#4-工作原理)
 - [5. 参考资料](#5-参考资料)
 
@@ -33,6 +39,12 @@
 - 一套代码同时支持 iOS、Android、浏览器（H5）三端运行
 - 打造三端一致的 native 应用
 
+### 1.3. 学习 Weex 之前，你需要了解什么？
+- Node.js
+- HTML + CSS + JavaScript 前端知识
+- Vue.js 框架
+- iOS 或 Android Native 知识
+
 ## 2. 搭建开发环境
 - [dotWe](http://dotwe.org/vue) - Weex 在线调试工具
 - Node.js & npm
@@ -40,7 +52,7 @@
 
 ## 3. hello-weex
 
-### 3.1. 初始化
+### 3.1. 新建 Weex 工程
 ```
 $ weex init hello-weex
 
@@ -174,11 +186,11 @@ GET /weex.html 304 1ms
     };
     
     _instance.onFailed = ^(NSError *error) {
-        //process failure
+        // process failure
     };
     
     _instance.renderFinish = ^ (UIView *view) {
-        //process renderFinish
+        // process renderFinish
     };
     [_instance renderWithURL:self.url options:@{@"bundleUrl":[self.url absoluteString]} data:nil];
 }
@@ -200,8 +212,203 @@ GET /weex.html 304 1ms
 
 ### 3.6. hello-weex for Android
 
+#### 3.6.1. 新建工程，设置依赖
+app/build.gradle
+```
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 23
+    buildToolsVersion "25.0.2"
+    defaultConfig {
+        applicationId "android.neegle.net.helloweexandroid"
+        minSdkVersion 15
+        targetSdkVersion 23
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    compile 'com.android.support:appcompat-v7:23.1.1'
+    compile 'com.android.support:recyclerview-v7:23.1.1'
+    compile 'com.android.support:support-v4:23.1.1'
+    compile 'com.android.support:appcompat-v7:23.1.1'
+    compile 'com.alibaba:fastjson:1.1.46.android'
+    compile 'com.taobao.android:weex_sdk:0.10.0'  // 0.10.0 以上版本才支持 Vue.js
+    testCompile 'junit:junit:4.12'
+}
+```
+
+#### 3.6.2. 新建 ImageAdapter
+``` Java
+import android.widget.ImageView;
+
+import com.taobao.weex.adapter.IWXImgLoaderAdapter;
+import com.taobao.weex.common.WXImageStrategy;
+import com.taobao.weex.dom.WXImageQuality;
+
+/**
+ * Created by jiyixuan on 2017/3/29.
+ */
+
+public class ImageAdapter implements IWXImgLoaderAdapter {
+
+    @Override
+    public void setImage(String url, ImageView view, WXImageQuality quality, WXImageStrategy strategy) {
+        //实现你自己的图片下载。
+    }
+}
+```
+
+#### 3.6.3. 新建 WeexApplication
+``` Java
+import android.app.Application;
+
+import com.taobao.weex.InitConfig;
+import com.taobao.weex.WXSDKEngine;
+import com.taobao.weex.common.WXException;
+
+/**
+ * Created by jiyixuan on 2017/3/29.
+ */
+
+public class WeexApplication extends Application {
+
+    @Override
+    public void onCreate() {
+        super.onCreate();
+        InitConfig config = new InitConfig.Builder().setImgAdapter(new ImageAdapter()).build();
+        WXSDKEngine.initialize(this, config);
+    }
+}
+```
+#### 3.6.4. 修改 AndroidManifest.xml 启用 WeexApplication
+```
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="android.neegle.net.helloweexandroid">
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+
+    <application
+        android:name=".WeexApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
+```
+
+#### 3.6.5. MainActivity
+```
+package android.neegle.net.helloweexandroid;
+
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.view.View;
+
+import com.taobao.weex.IWXRenderListener;
+import com.taobao.weex.WXSDKInstance;
+import com.taobao.weex.common.WXRenderStrategy;
+import com.taobao.weex.utils.WXFileUtils;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class MainActivity extends AppCompatActivity implements IWXRenderListener {
+
+    private static final String WEB_URL="http://192.168.1.186:8080/dist/app.weex.js";
+    WXSDKInstance mWXSDKInstance;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        mWXSDKInstance = new WXSDKInstance(this);
+        mWXSDKInstance.registerRenderListener(this);
+
+        Map<String, Object> options = new HashMap<>();
+        // 加载服务器 js
+//        options.put(WXSDKInstance.BUNDLE_URL, WEB_URL);
+//        mWXSDKInstance.render("WXSample",WEB_URL,options, null, WXRenderStrategy.APPEND_ONCE);
+        // 加载本地 js
+        options.put(WXSDKInstance.BUNDLE_URL, "file://build/hello.js");
+        mWXSDKInstance.render("WXSample",WXFileUtils.loadAsset("build/app.weex.js", this),options, null, WXRenderStrategy.APPEND_ONCE);
+    }
+
+    @Override
+    public void onViewCreated(WXSDKInstance instance, View view) {
+        setContentView(view);
+    }
+
+    @Override
+    public void onRenderSuccess(WXSDKInstance instance, int width, int height) {
+    }
+    @Override
+    public void onRefreshSuccess(WXSDKInstance instance, int width, int height) {
+    }
+    @Override
+    public void onException(WXSDKInstance instance, String errCode, String msg) {
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if(mWXSDKInstance!=null){
+            mWXSDKInstance.onActivityResume();
+        }
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        if(mWXSDKInstance!=null){
+            mWXSDKInstance.onActivityPause();
+        }
+    }
+    @Override
+    protected void onStop() {
+        super.onStop();
+        if(mWXSDKInstance!=null){
+            mWXSDKInstance.onActivityStop();
+        }
+    }
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if(mWXSDKInstance!=null){
+            mWXSDKInstance.onActivityDestroy();
+        }
+    }
+}
+```
+
 ## 4. 工作原理
 
 ## 5. 参考资料
 - [weex 官网](http://weex.apache.org/cn/)
+- [Vue.js](https://vuejs.org)
 - [Weex 是如何在 iOS 客户端上跑起来的](http://www.jianshu.com/p/41cde2c62b81) by 一缕殇流化隐半边冰霜 2017
