@@ -62,7 +62,7 @@ $ ssh root@192.168.1.183
 $ scp root@192.168.1.183:/var/mobile/Containers/Data/Application/5695E941-F58D-4775-AFD4-9D5883CBE3F8/Documents/kunlun.sqlite ./tmp
 
 // 电脑 -> 越狱设备
-$ scp ./1.txt oot@192.168.1.183:/var/mobile/Containers/Data/Application/5695E941-F58D-4775-AFD4-9D5883CBE3F8/Documents
+$ scp ./1.txt root@192.168.1.183:/var/mobile/Containers/Data/Application/5695E941-F58D-4775-AFD4-9D5883CBE3F8/Documents
 ```
 
 ### 2.3. 找到可执行文件的位置
