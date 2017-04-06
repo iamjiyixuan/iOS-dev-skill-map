@@ -95,6 +95,37 @@ file: /Users/jiyixuan/weex_workspace/hello-weex/weex.html created.
 └── weex.html
 ```
 
+src/foo.vue
+```
+<template>
+  <div class="wrapper" @click="update">
+    <image :src="logoUrl" class="logo"></image>
+    <text class="title">Hello {{target}}</text>
+  </div>
+</template>
+
+<style>
+  .wrapper { align-items: center; margin-top: 120px; }
+  .title { font-size: 48px; }
+  .logo { width: 360px; height: 82px; }
+</style>
+
+<script>
+  export default {
+    data: {
+      logoUrl: 'https://alibaba.github.io/weex/img/weex_logo_blue@3x.png',
+      target: 'World'
+    },
+    methods: {
+      update: function (e) {
+        this.target = 'Weex'
+        console.log('target:', this.target)
+      }
+    }
+  }
+</script>
+```
+
 ### 3.3. 安装
 
 ```
@@ -104,7 +135,37 @@ $ npm install
 
 ### 3.4. 启动服务
 
-执行 `npm run serve` 启动一个本地服务，并在浏览器打开 `http://localhost:8080/index.html` 查看 Weex h5 页面
+运行 `npm run dev` 开启 watch 模式
+
+```
+$ npm run dev
+
+> hello-weex@0.1.0 dev /Users/jiyixuan/weex_workspace/hello-weex
+> webpack --watch
+
+Hash: 341195b95f4773f47824
+Version: webpack 1.14.0
+Time: 1037ms
+      Asset     Size  Chunks             Chunk Names
+app.weex.js  4.41 kB       0  [emitted]  app
+    + 5 hidden modules
+Hash: 4356d9addcb039cb794d
+Version: webpack 1.14.0
+Time: 1121ms
+     Asset     Size  Chunks             Chunk Names
+app.web.js  15.4 kB       0  [emitted]  app
+    + 10 hidden modules
+```
+
+此时，根目录下会生成一个 dist 目录：
+```
+dist
+├── app.web.js
+└── app.weex.js 这个文件就是以后供移动端访问的
+```
+
+运行 `npm run serve` 启动静态服务器
+
 ```
 $ npm run serve
 
@@ -125,6 +186,8 @@ GET /node_modules/vue/dist/vue.runtime.js 200 6ms - 172.52kb
 GET /node_modules/weex-vue-render/index.js 200 7ms - 713.49kb
 GET /weex.html 304 1ms
 ```
+
+浏览器打开 `http://localhost:8080/index.html` 查看 Weex h5 页面
 
 ### 3.5. hello-weex for iOS
 
@@ -410,5 +473,6 @@ public class MainActivity extends AppCompatActivity implements IWXRenderListener
 
 ## 5. 参考资料
 - [weex 官网](http://weex.apache.org/cn/)
-- [Vue.js](https://vuejs.org)
+- [Vue.js 官网](https://vuejs.org)
 - [Weex 是如何在 iOS 客户端上跑起来的](http://www.jianshu.com/p/41cde2c62b81) by 一缕殇流化隐半边冰霜 2017
+- [由FlexBox算法强力驱动的Weex布局引擎](http://www.jianshu.com/p/d085032d4788) by 一缕殇流化隐半边冰霜 2017
