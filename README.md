@@ -98,7 +98,12 @@
 - 组件化
 
 ## [Hybrid](Hybrid/README.md)
-- html5
+- 对 WEB 前端的技术和开发模式有基本认识
+  - HTML, JavaScript, CSS
+  - [Backbone.js](http://backbonejs.org) - 前端 MVC 框架
+  - [Angular.js](https://angular.io) - 前端 MVVM 框架
+  - [React.js](https://facebook.github.io/react/)
+  - [Vue.js](https://vuejs.org) - 前端 MVVM 框架
 - react-native
 - Weex
 
