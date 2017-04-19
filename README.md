@@ -98,12 +98,17 @@
 - 组件化
 
 ## [Hybrid](Hybrid/README.md)
-- 对 WEB 前端的技术和开发模式有基本认识
-  - HTML, JavaScript, CSS
-  - [Backbone.js](http://backbonejs.org) - 前端 MVC 框架
-  - [Angular.js](https://angular.io) - 前端 MVVM 框架
-  - [React.js](https://facebook.github.io/react/)
-  - [Vue.js](https://vuejs.org) - 前端 MVVM 框架
+- 对 WEB 前端技术的发展和开发模式应该有基本的认识
+  - HTML
+  - JavaScript
+  - CSS
+    - Flexbox
+  - Ajax
+  - 2009年，JavaScript 运行时 [Node.js](https://nodejs.org/en/) 诞生
+  - 2010年，MVC 框架 [Backbone.js](http://backbonejs.org) 和 MVVM 框架 [Angular.js](https://angular.io) 诞生
+  - 2012年，打包工具 [webpack](https://webpack.github.io) 和自动化工具 [Grunt](https://gruntjs.com) 诞生
+  - 2013年，[React.js](https://facebook.github.io/react/) 诞生
+  - 2014年，MVVM 框架 [Vue.js](https://vuejs.org) 诞生
 - react-native
 - Weex
 
