@@ -99,18 +99,29 @@
 
 ## [Hybrid](Hybrid/README.md)
 - 对 WEB 前端技术的发展和开发模式应该有基本的认识
-  - HTML
+  - HTML5
   - JavaScript
   - CSS
     - Flexbox
   - Ajax
-  - 2009年，JavaScript 运行时 [Node.js](https://nodejs.org/en/) 诞生
-  - 2010年，MVC 框架 [Backbone.js](http://backbonejs.org) 和 MVVM 框架 [Angular.js](https://angular.io) 诞生
-  - 2012年，打包工具 [webpack](https://webpack.github.io) 和自动化工具 [Grunt](https://gruntjs.com) 诞生
-  - 2013年，[React.js](https://facebook.github.io/react/) 诞生
-  - 2014年，MVVM 框架 [Vue.js](https://vuejs.org) 诞生
-- react-native
-- Weex
+  - 2009年，JavaScript 运行时 [Node.js](https://nodejs.org/en/) 发布
+  - 2010年，MVC 框架 [Backbone.js](http://backbonejs.org) 和 MVVM 框架 [Angular.js](https://angular.io) 发布
+  - 2012年，打包工具 [webpack](https://webpack.github.io) 和自动化工具 [Grunt](https://gruntjs.com) 发布
+  - 2013年，Facebook 发布 [React.js](https://facebook.github.io/react/) 发布，是一套全新的开发模式
+    - Virtual DOM
+    - JSX 语法，需要通过 Babel 转码器翻译为 JavaScript 引擎（包括浏览器和 Node）认识的代码才能运行
+    - React 组件
+    - 状态管理模式
+      - [Flux](http://facebook.github.io/flux/) 架构
+      - [MobX](https://mobx.js.org) 架构
+      - [Redux](https://github.com/reactjs/redux) 架构
+  - 2014年，MVVM 框架 [Vue.js](https://vuejs.org) 发布
+    - 与 React 一样，都基于 Virtual DOM
+    - 模板语法
+    - 状态管理模式 
+      - [vuex](https://vuex.vuejs.org/zh-cn/)
+- 2015年，Facebook 发布基于 React 的移动端开发框架 [React Native](http://facebook.github.io/react-native/)
+- 2017年，阿里发布跨平台用户界面开发框架 [Weex](https://weex.apache.org)，一次编写多端运行，并支持 Vue 语法。
 
 ## [软件工程](软件工程/README.md)
 - 脚本
