@@ -97,33 +97,42 @@
 
 ## [Hybrid](Hybrid/README.md)
 - 对 WEB 前端技术的发展和开发模式应该有基本的认识
-  - HTML5
-  - 1995年，JavaScript 诞生
+  - HTML
+  - 1995 年，JavaScript 诞生
     - DOM
-  - 1996年，CSS 诞生
+  - 1996 年，CSS 诞生
     - [Flexbox](https://www.w3.org/TR/css-flexbox-1/)
   - Ajax
     - XMLHttpRequest
-  - 2009年，JavaScript 运行时 [Node.js](https://nodejs.org/en/) 发布
-  - 2010年，MVC 框架 [Backbone.js](http://backbonejs.org) 和 MVVM 框架 [Angular.js](https://angular.io) 发布
-  - 2012年，打包工具 [webpack](https://webpack.github.io) 和自动化工具 [Grunt](https://gruntjs.com) 发布
-  - 2013年，Facebook 发布 [React.js](https://facebook.github.io/react/)，是一套全新的开发模式
+  - 2009 年，JavaScript 运行时 [Node.js](https://nodejs.org/en/) 发布
+  - 2010 年，MVC 框架 [Backbone.js](http://backbonejs.org) 和 MVVM 框架 [Angular.js](https://angular.io) 发布
+  - 2012 年，打包工具 [webpack](https://webpack.github.io) 和自动化工具 [Grunt](https://gruntjs.com) 发布
+  - 2013 年，Facebook 发布 [React.js](https://facebook.github.io/react/)，是一套全新的开发模式
     - 核心思想 Virtual DOM
-    - 采用 JSX 语法，需要通过 Babel 转码器翻译为 JavaScript 引擎（包括浏览器和 Node）认识的代码才能运行
-    - React 组件
-    - 状态管理模式
+    - 采用 JSX 语法描述界面，需要通过 [Babel](https://babeljs.io) 翻译为标准 JS 代码才能运行在浏览器或 Node 上
+    - 组件
+      - [React-Bootstrap](https://react-bootstrap.github.io)
+    - 状态管理
       - [Flux](http://facebook.github.io/flux/) 架构
       - [MobX](https://mobx.js.org) 架构
       - [Redux](https://github.com/reactjs/redux) 架构
-  - 2014年，MVVM 框架 [Vue.js](https://vuejs.org) 发布
-    - 与 React 一样，都基于 Virtual DOM
-    - 采用模板语法
-    - 状态管理模式 
+    - 路由
+      - [React Router](https://github.com/ReactTraining/react-router)
+    - [awesome-react](https://github.com/enaqx/awesome-react)
+  - 2014 年，MVVM 框架 [Vue.js](https://vuejs.org) 发布。
+    - 与 React 一样，也基于 Virtual DOM。（但实现上有差异）
+    - 采用模板语法描述界面，相比 JXS 更接近 Web 标准。
+    - 组件
+    - 状态管理
       - [vuex](https://vuex.vuejs.org/zh-cn/)
-- 2015年，Facebook 发布基于 React 的移动端开发框架 [React Native](http://facebook.github.io/react-native/)，提出 `Learn once, write anywhere`。
+    - 路由
+      - [vue-router 2](http://router.vuejs.org/zh-cn/)
+    - [awesome-vue](https://github.com/vuejs/awesome-vue)
+- 2015 年，Facebook 发布基于 React 的移动端开发框架 [React Native](http://facebook.github.io/react-native/)，提出 `Learn once, write anywhere`。
   - 痛点：这种模式下，各平台可以共享业务逻辑代码，但界面层依然需要单独开发。
-- 2017年，阿里发布跨平台用户界面开发框架 [Weex](https://weex.apache.org)，提出 `一次编写，多端运行`，并支持 Vue 语法。
-- 2017年，微软发布基于 React 的跨平台开发框架 [ReactXP](https://microsoft.github.io/reactxp/)。
+  - [React Native for Web](https://github.com/necolas/react-native-web)，与 React Native for iOS and Android 是平级关系。
+- 2017 年，阿里发布跨平台用户界面开发框架 [Weex](https://weex.apache.org)，提出 `一次编写，多端运行`，并支持 Vue 语法（可以理解成 Vue Native）。
+- 2017 年 4 月，微软发布基于 React 和 React Native 的跨平台开发框架 [ReactXP](https://microsoft.github.io/reactxp/)。
 
 ## [软件工程](软件工程/README.md)
 - 脚本
