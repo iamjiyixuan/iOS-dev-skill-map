@@ -98,11 +98,13 @@
 ## [Hybrid](Hybrid/README.md)
 - 对 WEB 前端技术的发展和开发模式应该有基本的认识
   - HTML
-  - 1995 年，JavaScript 诞生。
-    - 1996 年，标准化为 ECMAScript（简称 ES），JavaScript 成为 ECMAScript 的一种实现，另外的 ECMAScript 方言还有 Jscript 和 ActionScript。
-    - 2009 年，ES5 完成标准化
-    - 2015 年，ES6 / ES2015 完成标准化
-    - DOM
+  - 1995 年，JavaScript（简称 JS）诞生。
+    - JS 的标准化进程 
+      - 1996 年，标准化为 ECMAScript（简称 ES），JS 成为 ES 的一种实现，另外的 ES 方言还有 Jscript 和 ActionScript。
+      - 2009 年，ES5 标准发布
+      - 2015 年，ES6 / ES2015 标准发布。
+        - [ES2015 的新特性](https://babeljs.io/learn-es2015/)
+    - [廖雪峰的 JavaScript 教程](http://www.liaoxuefeng.com/wiki/001434446689867b27157e896e74d51a89c25cc8b43bdb3000) 适合初学者快速入门。
   - 1996 年，CSS 诞生
     - [Flexbox](https://www.w3.org/TR/css-flexbox-1/)
   - Ajax
@@ -125,7 +127,6 @@
   - 2014 年，MVVM 框架 [Vue.js](https://vuejs.org) 发布。
     - 与 React 一样，也基于 Virtual DOM 技术（但实现上有差异）。
     - 采用模板语法（合法的 HTML）描述界面，相比 JXS 更接近 Web 标准。
-    - 指令（Directives）
     - 组件
     - 状态管理
       - [vuex](https://vuex.vuejs.org/zh-cn/)
