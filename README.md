@@ -95,7 +95,7 @@
   - 观察者
 - 组件化
 
-## [Hybrid](Hybrid/README.md)
+## [Hybrid / JS-Native](Hybrid/README.md)
 - 对 WEB 前端技术的发展和开发模式应该有基本的认识
   - HTML
   - 1995 年，JavaScript（简称 JS）诞生。
@@ -115,16 +115,17 @@
   - 2013 年，Facebook 发布 [React.js](https://facebook.github.io/react/)，是一套全新的开发模式
     - 核心技术 Virtual DOM
     - 采用 JSX 语法描述界面，需要通过 [Babel](https://babeljs.io) 翻译为标准 JS 代码才能运行在浏览器或 Node 上
-    - 组件（UI 元素）
-      - [React-Bootstrap](https://react-bootstrap.github.io)
+    - 组件
     - 状态管理
       - [Flux](http://facebook.github.io/flux/) 架构
       - [MobX](https://mobx.js.org) 架构
       - [Redux](https://github.com/reactjs/redux) 架构
     - 路由
       - [React Router](https://github.com/ReactTraining/react-router)
-    - [awesome-react](https://github.com/enaqx/awesome-react)
-  - 2014 年，MVVM 框架 [Vue.js](https://vuejs.org) 发布。
+    - 3rd
+      - [awesome-react](https://github.com/enaqx/awesome-react)
+      - [React-Bootstrap](https://react-bootstrap.github.io)
+  - 2014 年，MVVM 框架 [Vue.js](https://vuejs.org) 发布。2016 年，Vue 2.0 发布。
     - 与 React 一样，也基于 Virtual DOM 技术（但实现上有差异）。
     - 采用模板语法（合法的 HTML）描述界面，相比 JXS 更接近 Web 标准。
     - 组件
@@ -132,13 +133,16 @@
       - [vuex](https://vuex.vuejs.org/zh-cn/)
     - 路由
       - [vue-router](http://router.vuejs.org/zh-cn/)
-    - [awesome-vue](https://github.com/vuejs/awesome-vue)
-- 2015 年，Facebook 发布基于 React 的移动端开发框架 [React Native](http://facebook.github.io/react-native/)，提出 `Learn once, write anywhere`。
-  - 痛点：这种模式下，各平台可以共享大部分业务逻辑代码，但界面层依然需要单独开发。
-  - [React Native for Web](https://github.com/necolas/react-native-web)，与 React Native for iOS and Android 是平级关系。
-- 2017 年，阿里发布跨平台用户界面开发框架 [Weex](https://weex.apache.org)，提出 `一次编写，多端运行`，并支持 Vue 语法（可以理解成 Vue Native）。
-- 2017 年 4 月，微软发布基于 React Native 的跨平台开发框架 [ReactXP](https://microsoft.github.io/reactxp/)。
-  - 建议使用 [TypeScript](http://www.typescriptlang.org/index.html)
+    - 3rd
+      - [awesome-vue](https://github.com/vuejs/awesome-vue)
+      - [element](https://github.com/ElemeFE/element) - 饿了么前端团队出品的基于 Vue 2.0 的组件库。
+- 基于 JS-Native 的跨平台方案
+  - 2015 年，Facebook 发布基于 React 的移动端开发框架 [React Native](http://facebook.github.io/react-native/)，提出 `Learn once, write anywhere`。
+    - 痛点：这种模式下，各平台可以共享大部分业务逻辑代码，但界面层依然需要单独开发。
+    - [React Native for Web](https://github.com/necolas/react-native-web)，与 React Native for iOS and Android 是平级关系。
+  - 2017 年，阿里发布跨平台用户界面开发框架 [Weex](https://weex.apache.org)，提出 `一次编写，多端运行`，并支持 Vue 语法（可以理解成 Vue Native）。
+  - 2017 年 4 月，微软发布基于 React Native 的跨平台开发框架 [ReactXP](https://microsoft.github.io/reactxp/)。
+    - 建议使用 [TypeScript](http://www.typescriptlang.org/index.html)
 
 ## [软件工程](软件工程/README.md)
 - 脚本
