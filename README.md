@@ -105,11 +105,12 @@
       - 2015 年，ES6 / ES2015 标准发布。
         - [ES2015 的新特性](https://babeljs.io/learn-es2015/)
     - [廖雪峰的 JavaScript 教程](http://www.liaoxuefeng.com/wiki/001434446689867b27157e896e74d51a89c25cc8b43bdb3000) 适合初学者快速入门。
+    - [js-stack-from-scratch](https://github.com/verekia/js-stack-from-scratch) - 从零开始构建 JavaScript 技术栈
   - 1996 年，CSS 诞生
     - [Flexbox](https://www.w3.org/TR/css-flexbox-1/)
   - Ajax
     - XMLHttpRequest
-  - 2009 年，JavaScript 运行时 [Node.js](https://nodejs.org/en/) 发布
+  - 2009 年，JavaScript 运行环境 [Node.js](https://nodejs.org/en/) 发布。[NPM](https://www.npmjs.com) 是 Node 默认的包管理器，随 Node 自动安装。另一个流行的 JS 包管理器是 2016 年发布的 [Yarn](https://yarnpkg.com/)。
   - 2010 年，MVC 框架 [Backbone.js](http://backbonejs.org) 和 MVVM 框架 [Angular.js](https://angular.io) 发布
   - 2012 年，打包工具 [webpack](https://webpack.github.io) 和自动化工具 [Grunt](https://gruntjs.com) 发布
   - 2013 年，Facebook 发布 [React.js](https://facebook.github.io/react/)，是一套全新的开发模式
