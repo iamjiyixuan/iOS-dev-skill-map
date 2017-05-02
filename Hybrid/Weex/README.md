@@ -3,25 +3,26 @@
 <!-- TOC -->
 
 - [1. 初见](#1-初见)
-    - [1.1. Weex 是什么？](#11-weex-是什么)
-    - [1.2. Weex 的目标是什么？](#12-weex-的目标是什么)
-    - [1.3. 学习 Weex 之前，你需要了解什么？](#13-学习-weex-之前你需要了解什么)
+  - [1.1. Weex 是什么？](#11-weex-是什么)
+  - [1.2. Weex 的目标是什么？](#12-weex-的目标是什么)
+  - [1.3. 学习 Weex 之前，你需要了解什么？](#13-学习-weex-之前你需要了解什么)
 - [2. 搭建开发环境](#2-搭建开发环境)
 - [3. hello-weex](#3-hello-weex)
-    - [3.1. 新建 Weex 工程](#31-新建-weex-工程)
-    - [3.2. Weex 工程标准结构](#32-weex-工程标准结构)
-    - [3.3. 安装](#33-安装)
-    - [3.4. 启动服务](#34-启动服务)
-    - [3.5. hello-weex for iOS](#35-hello-weex-for-ios)
-        - [3.5.1. 通过 CocoaPods 安装 WeexSDK](#351-通过-cocoapods-安装-weexsdk)
-        - [3.5.2. 初始化 Weex 环境](#352-初始化-weex-环境)
-        - [3.5.3. 渲染页面](#353-渲染页面)
-    - [3.6. hello-weex for Android](#36-hello-weex-for-android)
-        - [3.6.1. 新建工程，设置依赖](#361-新建工程设置依赖)
-        - [3.6.2. 新建 ImageAdapter](#362-新建-imageadapter)
-        - [3.6.3. 新建 WeexApplication](#363-新建-weexapplication)
-        - [3.6.4. 修改 AndroidManifest.xml 启用 WeexApplication](#364-修改-androidmanifestxml-启用-weexapplication)
-        - [3.6.5. MainActivity](#365-mainactivity)
+  - [3.1. 新建 Weex 工程](#31-新建-weex-工程)
+  - [3.2. Weex 工程标准结构](#32-weex-工程标准结构)
+  - [3.3. 安装依赖](#33-安装依赖)
+  - [3.4. 构建](#34-构建)
+  - [3.5. 部署并启动本地服务器](#35-部署并启动本地服务器)
+  - [3.6. hello-weex for iOS](#36-hello-weex-for-ios)
+    - [3.6.1. 通过 CocoaPods 安装 WeexSDK](#361-通过-cocoapods-安装-weexsdk)
+    - [3.6.2. 初始化 Weex 环境](#362-初始化-weex-环境)
+    - [3.6.3. 渲染页面](#363-渲染页面)
+  - [3.7. hello-weex for Android](#37-hello-weex-for-android)
+    - [3.7.1. 新建工程，设置依赖](#371-新建工程设置依赖)
+    - [3.7.2. 新建 ImageAdapter](#372-新建-imageadapter)
+    - [3.7.3. 新建 WeexApplication](#373-新建-weexapplication)
+    - [3.7.4. 修改 AndroidManifest.xml 启用 WeexApplication](#374-修改-androidmanifestxml-启用-weexapplication)
+    - [3.7.5. MainActivity](#375-mainactivity)
 - [4. 工作原理](#4-工作原理)
 - [5. 参考资料](#5-参考资料)
 
@@ -78,7 +79,7 @@ file: /Users/jiyixuan/weex_workspace/hello-weex/weex.html created.
 ### 3.2. Weex 工程标准结构
 ```
 ├── README.md
-├── app.js
+├── app.js // 默认入口
 ├── assets
 │   ├── phantom-limb.js
 │   ├── qrcode.js
@@ -88,10 +89,10 @@ file: /Users/jiyixuan/weex_workspace/hello-weex/weex.html created.
 ├── build
 │   └── init.js
 ├── index.html
-├── package.json
+├── package.json // npm 配置文件，执行 npm install 命令时会根据该文件配置来安装依赖
 ├── src
 │   └── foo.vue
-├── webpack.config.js
+├── webpack.config.js // webpack 配置文件
 └── weex.html
 ```
 
@@ -126,16 +127,14 @@ src/foo.vue
 </script>
 ```
 
-### 3.3. 安装
+### 3.3. 安装依赖
 
 ```
 $ npm install
 ```
-安装成功后，根目录下多出 node_modules 目录。
+根据 `package.json` 配置安装依赖包到当前目录。若当前目录下没有 node_modules 文件夹，则新建一个。
 
-### 3.4. 启动服务
-
-运行 `npm run dev` 开启 watch 模式
+### 3.4. 构建
 
 ```
 $ npm run dev
@@ -157,14 +156,36 @@ app.web.js  15.4 kB       0  [emitted]  app
     + 10 hidden modules
 ```
 
-此时，根目录下会生成一个 dist 目录：
+> `npm run` 命令是 `npm run-script` 的简写，详见: [https://docs.npmjs.com/cli/run-script](https://docs.npmjs.com/cli/run-script)
+
+`npm run dev` 命令的作用是执行一个名为 `dev` 的脚本。可以被执行的脚本还有很多，都被定义在了 `package.json` 配置文件中：
+
 ```
-dist
-├── app.web.js
-└── app.weex.js 这个文件就是以后供移动端访问的
+...
+// 默认定义了四种可执行脚本：build、dev、serve、debug。我们还可以根据自己的需求扩展。
+"scripts": {
+    "build": "webpack",
+    "dev": "webpack --watch",
+    "serve": "node build/init.js && serve -p 8080",
+    "debug": "weex-devtool"
+  },
+  
+...
 ```
 
-运行 `npm run serve` 启动静态服务器
+从上面的定义可以看出，执行 `npm run dev` 等价于执行 `webpack --watch`。`--watch` 的作用是当修改 `.vue` 的源码时，webpack 将自动帮你构建一次。
+> 注：要想执行 `webpack` 命令必须首先通过 `npm install wepback -g` 全局安装 wepback。详见: [https://docs.npmjs.com/cli/install](https://docs.npmjs.com/cli/install)
+
+构建的结果是在根目录下会生成一个 dist 文件夹：
+```
+dist
+├── app.web.js  // 浏览器端用
+└── app.weex.js // 移动端用
+```
+
+### 3.5. 部署并启动本地服务器
+
+运行 `npm run serve` 启动服务器
 
 ```
 $ npm run serve
@@ -189,12 +210,12 @@ GET /weex.html 304 1ms
 
 浏览器打开 `http://localhost:8080/index.html` 查看 Weex h5 页面
 
-### 3.5. hello-weex for iOS
+### 3.6. hello-weex for iOS
 
-#### 3.5.1. 通过 CocoaPods 安装 WeexSDK
+#### 3.6.1. 通过 CocoaPods 安装 WeexSDK
 常规做法，没什么要特别说明的。
 
-#### 3.5.2. 初始化 Weex 环境
+#### 3.6.2. 初始化 Weex 环境
 
 ``` Objective-C
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -214,7 +235,7 @@ GET /weex.html 304 1ms
 }
 ```
 
-#### 3.5.3. 渲染页面
+#### 3.6.3. 渲染页面
 
 ``` Objective-C
 #import "ViewController.h"
@@ -273,9 +294,9 @@ GET /weex.html 304 1ms
 @end
 ```
 
-### 3.6. hello-weex for Android
+### 3.7. hello-weex for Android
 
-#### 3.6.1. 新建工程，设置依赖
+#### 3.7.1. 新建工程，设置依赖
 app/build.gradle
 ```
 apply plugin: 'com.android.application'
@@ -314,7 +335,7 @@ dependencies {
 }
 ```
 
-#### 3.6.2. 新建 ImageAdapter
+#### 3.7.2. 新建 ImageAdapter
 ``` Java
 import android.widget.ImageView;
 
@@ -335,7 +356,7 @@ public class ImageAdapter implements IWXImgLoaderAdapter {
 }
 ```
 
-#### 3.6.3. 新建 WeexApplication
+#### 3.7.3. 新建 WeexApplication
 ``` Java
 import android.app.Application;
 
@@ -357,7 +378,7 @@ public class WeexApplication extends Application {
     }
 }
 ```
-#### 3.6.4. 修改 AndroidManifest.xml 启用 WeexApplication
+#### 3.7.4. 修改 AndroidManifest.xml 启用 WeexApplication
 ```
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
@@ -384,7 +405,7 @@ public class WeexApplication extends Application {
 </manifest>
 ```
 
-#### 3.6.5. MainActivity
+#### 3.7.5. MainActivity
 ```
 package android.neegle.net.helloweexandroid;
 
