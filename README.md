@@ -137,6 +137,8 @@
     - 3rd
       - [awesome-vue](https://github.com/vuejs/awesome-vue)
       - [element](https://github.com/ElemeFE/element) - 饿了么前端团队出品的基于 Vue 2.0 的组件库。
+      - [iview](https://github.com/iview/iview)
+      - [vux](https://github.com/airyland/vux) - Vue UI Components based on [WeUI](https://github.com/weui/weui)
 - 基于 JS-Native 的跨平台方案
   - 2015 年，Facebook 发布基于 React 的移动端开发框架 [React Native](http://facebook.github.io/react-native/)，提出 `Learn once, write anywhere`。
     - 痛点：这种模式下，各平台可以共享大部分业务逻辑代码，但界面层依然需要单独开发。
