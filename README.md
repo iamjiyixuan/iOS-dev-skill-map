@@ -6,6 +6,7 @@
   - 指针
   - 内存管理
 - [Objective-C](编程语言/Objective-C/README.md)
+  - OC 方面的好书不多，推荐 [《Effective Objective-C 2.0》](https://book.douban.com/subject/25829244/) 和 [《Objective-C 高级编程》](https://book.douban.com/subject/24720270/) 这两本，但不适合初学者，建议有一定基础后再阅读。
   - 类与对象
     - NSObject 协议
     - NSObject 类：实现 NSObject 协议，是大部分 OC 类的根类。
@@ -26,12 +27,18 @@
   - 协议
   - Category
   - Block
+    - 循环引用
+    - weak-strong dance
+      - [Weak-Strong-Dance真的安全吗？](http://www.jianshu.com/p/737999a30544) by 简书 kuailejim 2017
   - Runtime
+    - 对象模型
+    - 关联对象（Associated Objects）
     - 消息转发机制
     - Method Swizzling
   - 内存管理
     - 引用计数
     - ARC
+    - @autoreleasepool
 - [C++](编程语言/C++/README.md)
 - [Swift](编程语言/Swift/README.md)
 - JavaScript
