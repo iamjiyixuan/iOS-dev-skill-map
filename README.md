@@ -7,13 +7,31 @@
   - 内存管理
 - [Objective-C](编程语言/Objective-C/README.md)
   - 类与对象
-    - NSObject
+    - NSObject 协议
+    - NSObject 类：实现 NSObject 协议，是大部分 OC 类的根类。
+      - \+ load
+      - \+ initialize
+      - \+ alloc & \+ allocWithZone:
+      - \- init
+      - \+ new
+      - \- copy & \+ copyWithZone:
+      - \- mutableCopy & \+ mutableCopyWithZone:
+      - \- dealloc
+    - 属性 @property
+      - 原子性：atomic vs nonatomic
+      - 读写权限：readwrite vs readonly
+      - 内存管理语义：assign, strong, weak, unsafe_unretained, copy
+      - 存取方法名：getter=\<name\>, setter=\<name\>
+    - 方法
   - 协议
   - Category
+  - Block
   - Runtime
-    - 消息机制
+    - 消息转发机制
     - Method Swizzling
-  - 引用计数
+  - 内存管理
+    - 引用计数
+    - ARC
 - [C++](编程语言/C++/README.md)
 - [Swift](编程语言/Swift/README.md)
 - JavaScript
