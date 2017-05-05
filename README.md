@@ -29,7 +29,7 @@
   - Block
     - 循环引用
     - weak-strong dance
-      - [Weak-Strong-Dance真的安全吗？](http://www.jianshu.com/p/737999a30544) by 简书 kuailejim 2017
+      - [Weak-Strong-Dance真的安全吗？](http://www.jianshu.com/p/737999a30544) by kuailejim 2017.01
   - Runtime
     - 对象模型
     - 关联对象（Associated Objects）
@@ -127,7 +127,7 @@
     - JS 的标准化进程 
       - 1996 年，标准化为 ECMAScript（简称 ES），JS 成为 ES 的一种实现，另外的 ES 方言还有 Jscript 和 ActionScript。
       - 2009 年，ES5 标准发布。
-      - 2015 年，ES6 / ES2015 标准发布，新增了许多[新特性](https://babeljs.io/learn-es2015/)。
+      - 2015 年，ES6 / ES2015 标准发布，新增了许多 [新特性](https://babeljs.io/learn-es2015/)。
     - [廖雪峰的 JavaScript 教程](http://www.liaoxuefeng.com/wiki/001434446689867b27157e896e74d51a89c25cc8b43bdb3000) 和 [阮一峰的 JavaScript 标准参考教程](http://javascript.ruanyifeng.com) 适合初学者快速入门。
     - [js-stack-from-scratch](https://github.com/verekia/js-stack-from-scratch) 教你从零开始构建 JavaScript 技术栈。
   - 1996 年，CSS 诞生
@@ -166,19 +166,25 @@
       - [vux](https://github.com/airyland/vux) - Vue UI Components based on [WeUI](https://github.com/weui/weui)
 - 基于 JS-Native 的跨平台方案
   - 2015 年，Facebook 发布基于 React 的移动端开发框架 [React Native](http://facebook.github.io/react-native/)，宣称 `Learn once, write anywhere`。
-    - [React Native for Web](https://github.com/necolas/react-native-web)，与 React Native for iOS and Android 是平级关系。
+    - for Web
+      - [React Native for Web](https://github.com/necolas/react-native-web) - Twitter 工程师 Nicolas Gallagher 开发，使 React Native 组件可以在 Web 端工作。React Native for Web 与 React Native for iOS and Android 是平级关系。
+      - [react-web](https://github.com/taobaofed/react-web) - 淘宝出品 A framework for building web apps with React Native compatible API.
+      - 2017 年 4 月，微软发布基于 React Native 的跨平台开发框架 [ReactXP](https://microsoft.github.io/reactxp/)，支持 Web。
     - 3rd
       - [awesome-react-native](https://github.com/jondot/awesome-react-native)
-      - [React-Native-Elements](https://github.com/react-native-community/React-Native-Elements) - Cross Platform React Native UI Toolkit
-  - 2017 年，阿里发布跨平台用户界面开发框架 [Weex](https://weex.apache.org)，宣称 `一次编写，多端运行`，目前支持 iOS、Android、HTML5 三端，并支持 Vue 语法。可以把 Weex 看成 Vue Native。
+      - [React-Native-Elements](https://github.com/react-native-community/React-Native-Elements) - Cross Platform React Native UI Toolkit.
+      - [NativeBase](https://github.com/GeekyAnts/NativeBase) - Essential cross-platform UI components for React Native.
     - 文章
-      - [iOS开发者的Weex伪最佳实践指北](https://www.halfrost.com/weex_best_practice_guidelines/) by 一缕殇流化隐半边冰霜 2017.05
+      - [React Native 在 Glow 的实践](http://tech.glowing.com/cn/react-native-at-glow/) by Allen 许帅 2017.04
+  - 2017 年，阿里发布跨平台用户界面开发框架 [Weex](https://weex.apache.org)，宣称 `一次编写，多端运行`，目前支持 iOS、Android、HTML5 三端，并支持 Vue 语法。可以把 Weex 看成 Vue Native。
+    - [WEEX Conf](https://yq.aliyun.com/activity/145)
+    - [中文 FAQ](https://segmentfault.com/t/weex)
+    - 文章
+      - [iOS 开发者的 Weex 伪最佳实践指北](https://www.halfrost.com/weex_best_practice_guidelines/) by 一缕殇流化隐半边冰霜 2017.05
       - [Weex 中别具匠心的 JS Framework](https://www.halfrost.com/weex_js_framework/) by 一缕殇流化隐半边冰霜 2017.04
       - [Weex 事件传递的那些事儿](https://www.halfrost.com/weex_event/) by 一缕殇流化隐半边冰霜 2017.04
-      - [由FlexBox算法强力驱动的Weex布局引擎](https://www.halfrost.com/weex_flexbox/) by 一缕殇流化隐半边冰霜 2017.04
+      - [由 FlexBox 算法强力驱动的 Weex 布局引擎](https://www.halfrost.com/weex_flexbox/) by 一缕殇流化隐半边冰霜 2017.04
       - [Weex 是如何在 iOS 客户端上跑起来的](https://www.halfrost.com/weex_ios/) by 一缕殇流化隐半边冰霜 2017.03
-  - 2017 年 4 月，微软发布基于 React Native 的跨平台开发框架 [ReactXP](https://microsoft.github.io/reactxp/)。
-    - 建议使用 [TypeScript](http://www.typescriptlang.org/index.html)
 
 ## [软件工程](软件工程/README.md)
 - 脚本
