@@ -165,12 +165,18 @@
       - [iview](https://github.com/iview/iview)
       - [vux](https://github.com/airyland/vux) - Vue UI Components based on [WeUI](https://github.com/weui/weui)
 - 基于 JS-Native 的跨平台方案
-  - 2015 年，Facebook 发布基于 React 的移动端开发框架 [React Native](http://facebook.github.io/react-native/)，提出 `Learn once, write anywhere`。
+  - 2015 年，Facebook 发布基于 React 的移动端开发框架 [React Native](http://facebook.github.io/react-native/)，宣称 `Learn once, write anywhere`。
     - [React Native for Web](https://github.com/necolas/react-native-web)，与 React Native for iOS and Android 是平级关系。
     - 3rd
       - [awesome-react-native](https://github.com/jondot/awesome-react-native)
       - [React-Native-Elements](https://github.com/react-native-community/React-Native-Elements) - Cross Platform React Native UI Toolkit
-  - 2017 年，阿里发布跨平台用户界面开发框架 [Weex](https://weex.apache.org)，提出 `一次编写，多端运行`，并支持 Vue 语法（可以理解成 Vue Native）。
+  - 2017 年，阿里发布跨平台用户界面开发框架 [Weex](https://weex.apache.org)，宣称 `一次编写，多端运行`，目前支持 iOS、Android、HTML5 三端，并支持 Vue 语法。可以把 Weex 看成 Vue Native。
+    - 文章
+      - [iOS开发者的Weex伪最佳实践指北](https://www.halfrost.com/weex_best_practice_guidelines/) by 一缕殇流化隐半边冰霜 2017.05
+      - [Weex 中别具匠心的 JS Framework](https://www.halfrost.com/weex_js_framework/) by 一缕殇流化隐半边冰霜 2017.04
+      - [Weex 事件传递的那些事儿](https://www.halfrost.com/weex_event/) by 一缕殇流化隐半边冰霜 2017.04
+      - [由FlexBox算法强力驱动的Weex布局引擎](https://www.halfrost.com/weex_flexbox/) by 一缕殇流化隐半边冰霜 2017.04
+      - [Weex 是如何在 iOS 客户端上跑起来的](https://www.halfrost.com/weex_ios/) by 一缕殇流化隐半边冰霜 2017.03
   - 2017 年 4 月，微软发布基于 React Native 的跨平台开发框架 [ReactXP](https://microsoft.github.io/reactxp/)。
     - 建议使用 [TypeScript](http://www.typescriptlang.org/index.html)
 
