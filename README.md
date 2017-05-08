@@ -29,7 +29,13 @@
   - Block
     - 循环引用
     - weak-strong dance
-      - [Weak-Strong-Dance真的安全吗？](http://www.jianshu.com/p/737999a30544) by kuailejim 2017.01
+      - 为什么需要 `__weak typeof(self) weakSelf = self;`
+        - 答：避免循环引用。
+      - 为什么需要 `__strong typeof(self) strongSelf = weakSelf;`
+        - 答：防止 block 执行到一半的时候 self 被释放。
+        - 这里需要注意，持有 self 的行为是在 block 执行的时候才发生，因此有可能在 block 执行前 self 已经被释放，更安全的做法应该是在 block 内部使用 strongSelf 时仍然需要 nil 检测防止 Crash。
+      - 扩展阅读
+        - [Weak-Strong-Dance真的安全吗？](http://www.jianshu.com/p/737999a30544) by kuailejim 2017.01
   - Runtime
     - 对象模型
     - 关联对象（Associated Objects）
