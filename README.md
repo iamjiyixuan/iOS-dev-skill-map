@@ -82,9 +82,31 @@
 - XMPP
 - RTP
 - TCP
+  - 文章
+    - [TCP 的那些事儿（上）](http://coolshell.cn/articles/11564.html) by 陈皓 2014.05
+    - [TCP 的那些事儿（下）](http://coolshell.cn/articles/11609.html) by 陈皓 2014.05
 - UDP
 - TLS/SSL
-
+- Socket
+  - TCP 服务端: socket() -> bind() -> listen() -> accept() ... close()
+  - TCP 客户端: socket() -> connect() ... close()
+  - struct addrinfo
+  - <del>gethostbyname()</del> getaddrinfo() 和 freeaddrinfo() - 域名解析
+  - socket(domain, type, protocol)
+    - domain - 协议域，又称为协议族（family）
+    - type - socket 类型
+    - protocol - 指定协议
+  - connect()
+    - 1）向服务器发送 SYN J 包
+    - 2）进入阻塞状态
+    - 3）收到服务器的 SYN K ，ACK J+1 之后返回
+  - bind()
+  - listen()
+  - accept()
+  - I/O
+    - read() & write()
+    - recv() & send()
+  - close()
 ## [存储](存储/README.md)
 - 沙盒机制
 - Bundle
