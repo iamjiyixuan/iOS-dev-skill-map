@@ -29,7 +29,7 @@ Avatar  | Name · ID | Links | Projects | Summary |
 <img src="https://avatars3.githubusercontent.com/u/9565461?v=3&s=460" width="30" height="30"> | DeveloperLx | [GitHub](https://github.com/DeveloperLx) |
 <img src="https://avatars2.githubusercontent.com/u/10103766?v=3&s=460" width="30" height="30"> | 江南的悲伤 | [Blog](http://sergiochan.xyz/), [GitHub](https://github.com/SergioChan) | [SCTrelloNavigation](https://github.com/SergioChan/SCTrelloNavigation)
 <img src="https://avatars2.githubusercontent.com/u/2572987?v=3&s=460" width="30" height="30"> | 梁杰 · numbbbbb | [Blog](http://numbbbbb.com/), [GitHub](https://github.com/numbbbbb) | [中文版 Apple 官方 Swift 教程](https://github.com/numbbbbb/the-swift-programming-language-in-chinese)
- | Glow 技术团队博客 | [Blog](http://tech.glowing.com/cn/) |
+<img src="https://avatars3.githubusercontent.com/u/11436486?v=3&s=200" width="30" height="30"> | Glow 技术团队博客 | [Blog](http://tech.glowing.com/cn/) |
 <img src="https://avatars1.githubusercontent.com/u/1005781?v=3&s=460" width="30" height="30"> | 田伟宇 · Casa Taloyum | [Blog](https://casatwy.com), [GitHub](https://github.com/casatwy) |
 <img src="https://avatars2.githubusercontent.com/u/5517281?v=3&s=460" width="30" height="30"> | 杨骑滔 · KittenYang | [Blog](http://kittenyang.com), [GitHub](https://github.com/KittenYang) | [《 A-GUIDE-TO-IOS-ANIMATION》](http://book.kittenyang.com/) |
 <img src="https://avatars0.githubusercontent.com/u/12953705?v=3&s=460" width="30" height="30"> | J_Knight | [Blog](https://knightsj.github.io/), [GitHub](https://github.com/knightsj), [简书](http://www.jianshu.com/subscriptions#/subscriptions/768084/user) |
