@@ -16,7 +16,7 @@ Avatar  | Name · ID | Links | Projects | Summary |
 <img src="https://avatars1.githubusercontent.com/u/5687881?v=3&s=460" width="30" height="30"> | 燕泽堃 · 土土哥 | [Blog](http://tutuge.me), [GitHub](https://github.com/zekunyan) | [TTGTagCollectionView](https://github.com/zekunyan/TTGTagCollectionView)
 <img src="https://avatars0.githubusercontent.com/u/251980?v=3&s=460" width="30" height="30"> | 戴铭 · ming1016 | [Blog](http://www.starming.com/), [GitHub](https://github.com/ming1016), [简书](http://www.jianshu.com/u/9a4903d7e3d1) |
 <img src="https://avatars0.githubusercontent.com/u/10825609?v=3&s=460" width="30" height="30"> | 于德志 · halfrost | [Blog](https://www.halfrost.com), [GitHub](https://github.com/halfrost), [简书](http://www.jianshu.com/u/12201cdd5d7a) |
-<img src="https://avatars3.githubusercontent.com/u/6493255?v=3&s=460" width="30" height="30"> | Draveness | [Blog](http://draveness.me/), [GitHub](https://github.com/draveness), [简书](http://www.jianshu.com/u/f6a6e56e261e), [Weibo](http://www.weibo.com/u/5123574960) |
+<img src="https://avatars3.githubusercontent.com/u/6493255?v=3&s=460" width="30" height="30"> | Draveness | [Blog](http://draveness.me/), [GitHub](https://github.com/draveness), [简书](http://www.jianshu.com/u/f6a6e56e261e) |
 <img src="https://avatars2.githubusercontent.com/u/7036706?v=3&s=460" width="30" height="30"> | MartinRGB | [Blog](http://www.martinrgb.com/blog/), [GitHub](https://github.com/MartinRGB), [Dribbble](https://dribbble.com/MartinRGB) |
 <img src="https://avatars0.githubusercontent.com/u/10378703?v=3&s=460" width="30" height="30"> | 饶志臻 | [Blog](http://raozhizhen.com/), [GitHub](https://github.com/raozhizhen), [简书](http://www.jianshu.com/u/263107bb1199) |
 <img src="https://avatars0.githubusercontent.com/u/10682908?v=3&s=460" width="30" height="30"> | coderyi | [Blog](http://coderyi.com/), [GitHub](https://github.com/coderyi) |
@@ -29,8 +29,14 @@ Avatar  | Name · ID | Links | Projects | Summary |
 <img src="https://avatars3.githubusercontent.com/u/9565461?v=3&s=460" width="30" height="30"> | DeveloperLx | [GitHub](https://github.com/DeveloperLx) |
 <img src="https://avatars2.githubusercontent.com/u/10103766?v=3&s=460" width="30" height="30"> | 江南的悲伤 | [Blog](http://sergiochan.xyz/), [GitHub](https://github.com/SergioChan) | [SCTrelloNavigation](https://github.com/SergioChan/SCTrelloNavigation)
 <img src="https://avatars2.githubusercontent.com/u/2572987?v=3&s=460" width="30" height="30"> | 梁杰 · numbbbbb | [Blog](http://numbbbbb.com/), [GitHub](https://github.com/numbbbbb) | [中文版 Apple 官方 Swift 教程](https://github.com/numbbbbb/the-swift-programming-language-in-chinese)
+<img src="" width="30" height="30"> | Glow 技术团队博客 | [Blog](http://tech.glowing.com/cn/) |
+<img src="https://avatars1.githubusercontent.com/u/1005781?v=3&s=460" width="30" height="30"> | 田伟宇 · Casa Taloyum | [Blog](https://casatwy.com), [GitHub](https://github.com/casatwy) |
+<img src="https://avatars2.githubusercontent.com/u/5517281?v=3&s=460" width="30" height="30"> | 杨骑滔 · KittenYang | [Blog](http://kittenyang.com), [GitHub](https://github.com/KittenYang) | [《 A-GUIDE-TO-IOS-ANIMATION》](http://book.kittenyang.com/) |
+<img src="https://avatars0.githubusercontent.com/u/12953705?v=3&s=460" width="30" height="30"> | J_Knight | [Blog](https://knightsj.github.io/), [GitHub](https://github.com/knightsj), [简书](http://www.jianshu.com/subscriptions#/subscriptions/768084/user) |
+<img src="https://avatars3.githubusercontent.com/u/6824547?v=3&s=460" width="30" height="30"> | 陈奕龙 · 子循 | [Blog](http://zixun.github.io), [GitHub](https://github.com/zixun) | [GodEye](https://github.com/zixun/GodEye) |
+<img src="https://avatars0.githubusercontent.com/u/878260?v=3&s=460" width="30" height="30"> | 里脊串 | [Blog](http://adad184.com), [GitHub](https://github.com/adad184) | [MMPopupView](https://github.com/adad184/MMPopupView) |
 
-> 注：排名不分先后
+> 排名不分先后
 
 <!--<img src="" width="30" height="30"> | · | [Blog](), [GitHub]() |
 <img src="" width="30" height="30"> | · | [Blog](), [GitHub]() |
