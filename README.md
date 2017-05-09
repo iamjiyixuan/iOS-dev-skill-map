@@ -150,6 +150,7 @@
 
 ## [Hybrid / JS-Native](Hybrid/README.md)
 - 对 WEB 前端技术的发展和开发模式应该有基本的认识
+  - [Roadmap to becoming a web developer in 2017](https://github.com/kamranahmedse/developer-roadmap)
   - HTML
   - 1995 年，JavaScript（简称 JS）诞生。
     - JS 的标准化进程 
@@ -277,3 +278,24 @@
 - 技术人员发展之路
 - 工程师文化
 - 招聘
+
+## 辅助工具
+- 终端 / Shell
+  - [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh)
+  - [iTerm2](https://github.com/gnachman/iTerm2)
+- CLI
+  - [Homebrew](https://brew.sh) - macOS 下必备，用于安装其他 CLI 工具。
+  - tree - 以树状格式打印文件目录结构。Linux 下自带，macOS 下需要用 `brew install tree` 安装。
+  - 更多终端工具 -> [terminals-are-sexy](https://github.com/k4m4/terminals-are-sexy)
+- 文本编辑器
+  - [Visual Studio Code](https://code.visualstudio.com)
+- 制图
+- 阅读
+  - [Reeder](http://reederapp.com) - RSS 阅读器。
+- Email
+  - [Spark](https://sparkmailapp.com)
+- VPN
+  - [云梯](https://www.yuntipub.com)
+- 应用推荐社区
+  - [少数派](https://sspai.com)
+  - [利器](http://liqi.io)
