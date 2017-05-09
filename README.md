@@ -78,20 +78,30 @@
 - 动画
 
 ## [网络](网络/README.md)
-- HTTP
-- XMPP
-- RTP
-- TCP
-  - 文章
+- TCP/IP
+  - TCP 属于 Transport 层协议
+  - TCP 头格式
+  - TCP 的状态机
+  - TCP 重传机制
+  - 抓包
+    - tcpdump
+      - [iOS, Android 网络抓包教程之 tcpdump](http://mrpeak.cn/blog/tutorial-tcpdump/) by MrPeak 2016.02
+    - Wireshark
+      - [Wireshark 抓包 iOS 入门教程](http://mrpeak.cn/blog/wireshark/) by MrPeak 2016.11
+  - 扩展阅读
     - [TCP 的那些事儿（上）](http://coolshell.cn/articles/11564.html) by 陈皓 2014.05
     - [TCP 的那些事儿（下）](http://coolshell.cn/articles/11609.html) by 陈皓 2014.05
-- UDP
-- TLS/SSL
-- Socket
+    - MrPeak 的 TCP/IP 系列
+      - [TCP/IP 系列之初印象](http://mrpeak.cn/blog/tcp-preface/) by MrPeak 2017.03
+      - [TCP/IP 系列之 Header 篇](http://mrpeak.cn/blog/tcp-headers/) by MrPeak 2017.03
+      - [TCP/IP 系列之重新认识 IP 地址](http://mrpeak.cn/blog/tcp-ip/) by MrPeak 2017.03
+      - [TCP/IP 系列之 TCP 流控与拥塞控制（一）](http://mrpeak.cn/blog/tcp-flow-control00/) by MrPeak 2017.04
+      - [TCP/IP 系列之包与流](http://mrpeak.cn/blog/tcp-packet-stream/) by MrPeak 2017.05
+- Socket API
   - TCP 服务端: socket() -> bind() -> listen() -> accept() ... close()
   - TCP 客户端: socket() -> connect() ... close()
   - struct addrinfo
-  - <del>gethostbyname()</del> getaddrinfo() 和 freeaddrinfo() - 域名解析
+  - getaddrinfo() & freeaddrinfo() - 域名解析
   - socket(domain, type, protocol)
     - domain - 协议域，又称为协议族（family）
     - type - socket 类型
@@ -107,6 +117,10 @@
     - read() & write()
     - recv() & send()
   - close()
+- HTTP
+  - HTTPS
+  - HTTP2
+- DNS
 ## [存储](存储/README.md)
 - 沙盒机制
 - Bundle
@@ -203,12 +217,12 @@
       - [awesome-react-native](https://github.com/jondot/awesome-react-native)
       - [React-Native-Elements](https://github.com/react-native-community/React-Native-Elements) - Cross Platform React Native UI Toolkit.
       - [NativeBase](https://github.com/GeekyAnts/NativeBase) - Essential cross-platform UI components for React Native.
-    - 文章
+    - 扩展阅读
       - [React Native 在 Glow 的实践](http://tech.glowing.com/cn/react-native-at-glow/) by Allen 许帅 2017.04
   - 2017 年，阿里发布跨平台用户界面开发框架 [Weex](https://weex.apache.org)，宣称 `一次编写，多端运行`，目前支持 iOS、Android、HTML5 三端，并支持 Vue 语法。可以把 Weex 看成 Vue Native。
     - [WEEX Conf](https://yq.aliyun.com/activity/145)
     - [中文 FAQ](https://segmentfault.com/t/weex)
-    - 文章
+    - 扩展阅读
       - [iOS 开发者的 Weex 伪最佳实践指北](https://www.halfrost.com/weex_best_practice_guidelines/) by 一缕殇流化隐半边冰霜 2017.05
       - [Weex 中别具匠心的 JS Framework](https://www.halfrost.com/weex_js_framework/) by 一缕殇流化隐半边冰霜 2017.04
       - [Weex 事件传递的那些事儿](https://www.halfrost.com/weex_event/) by 一缕殇流化隐半边冰霜 2017.04
@@ -226,8 +240,21 @@
   - CocoaPods
   - Carthage
 - 代码管理
-  - git
   - svn
+  - git
+    - [廖雪峰的 Git 教程](http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000)
+    - 理解 `集中式` 与 `分布式` 的区别
+    - 基本操作
+      - git init
+      - git add <file>
+      - git commit
+      - git status
+      - git diff
+      - git log - 查看提交历史
+      - git reflog - 查看命令历史
+      - git reset
+    - 分支管理
+    - 搭建 git 服务器
 - 测试
   - 单元测试
   - 自动化UI测试
@@ -287,15 +314,9 @@
   - [Homebrew](https://brew.sh) - macOS 下必备，用于安装其他 CLI 工具。
   - tree - 以树状格式打印文件目录结构。Linux 下自带，macOS 下需要用 `brew install tree` 安装。
   - 更多终端工具 -> [terminals-are-sexy](https://github.com/k4m4/terminals-are-sexy)
-- 文本编辑器
-  - [Visual Studio Code](https://code.visualstudio.com)
-- 制图
-- 阅读
-  - [Reeder](http://reederapp.com) - RSS 阅读器。
-- Email
-  - [Spark](https://sparkmailapp.com)
-- VPN
-  - [云梯](https://www.yuntipub.com)
+- [Visual Studio Code](https://code.visualstudio.com)
+- [StarUML](http://staruml.io)
+- [SourceTree](https://www.sourcetreeapp.com) - Git 客户端
 - 应用推荐社区
   - [少数派](https://sspai.com)
   - [利器](http://liqi.io)
