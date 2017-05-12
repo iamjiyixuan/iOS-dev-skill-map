@@ -121,6 +121,7 @@
   - HTTPS
   - HTTP2
 - DNS
+
 ## [存储](存储/README.md)
 - 沙盒机制
 - Bundle
@@ -132,10 +133,19 @@
   - json
 
 ## [并发编程](并发编程/README.md)
+- [Concurrency Programming Guide](https://developer.apple.com/library/content/documentation/General/Conceptual/ConcurrencyProgrammingGuide/Introduction/Introduction.html#//apple_ref/doc/uid/TP40008091)
 - 进程
 - 线程
 - GCD
+  - [libdispatch 源码](https://opensource.apple.com/tarballs/libdispatch/)
 - OperationQueue
+  - NSOperation
+    - 适合用于封装可重复、耗时的任务
+    - 子类：NSInvocationOperation, NSBlockOperation
+    - State: ready → executing → finished
+  - NSOperationQueue
+  - 扩展阅读
+    - [NSOperation](http://nshipster.com/nsoperation/) by Mattt Thompson 2014.07 | [中文翻译](http://nshipster.cn/nsoperation/) by Henry Lee
 - 锁
 - Runloop
 
