@@ -134,18 +134,46 @@
 
 ## [并发编程](并发编程/README.md)
 - [Concurrency Programming Guide](https://developer.apple.com/library/content/documentation/General/Conceptual/ConcurrencyProgrammingGuide/Introduction/Introduction.html#//apple_ref/doc/uid/TP40008091)
+- [Threading Programming Guide](https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/Multithreading/AboutThreads/AboutThreads.html)
 - 进程
 - 线程
 - GCD
   - [libdispatch 源码](https://opensource.apple.com/tarballs/libdispatch/)
 - OperationQueue
-  - NSOperation
-    - 适合用于封装可重复、耗时的任务
+  - [NSOperation](https://developer.apple.com/reference/foundation/nsoperation?language=objc)
+    - 适合用于封装可重复、耗时的任务。相较基于 block 的 GCD，NSOperation 的最大优点是可控。
     - 子类：NSInvocationOperation, NSBlockOperation
-    - State: ready → executing → finished
-  - NSOperationQueue
+    - 状态机: ready → executing → finished
+    - KVO 属性
+      - isCancelled
+      - isAsynchronous
+      - isExecuting
+      - isFinished
+      - isReady
+      - dependencies
+      - queuePriority
+      - completionBlock
+    - 自定义 Operation 覆盖方法
+      - 对于 non-concurrent 操作
+        - main
+          - 默认行为：不执行任何操作
+          - 不要调用 `super`
+          - 自动在 NSOperation 提供的 autorelease pool 中执行
+      - 对于 concurrent 操作
+        - start
+          - 默认行为：1）更新执行状态；2）调用 `main`；3）如果当前操作处于不合适的状态，则抛 NSInvalidArgumentException 异常
+          - 不要调用 `super`
+          - 自己管理状态机
+          - manually generate KVO notifications for the isExecuting and isFinished key paths 
+        - asynchronous
+        - executing
+        - finished
+  - [NSOperationQueue](https://developer.apple.com/reference/foundation/nsoperationqueue?language=objc)
   - 扩展阅读
-    - [NSOperation](http://nshipster.com/nsoperation/) by Mattt Thompson 2014.07 | [中文翻译](http://nshipster.cn/nsoperation/) by Henry Lee
+    - [WWDC 2015 Session 226 - Advanced NSOperations](https://developer.apple.com/videos/play/wwdc2015/226/) | 示例代码: [Advanced-NSOperations.zip](https://developer.apple.com/sample-code/wwdc/2015/downloads/Advanced-NSOperations.zip)
+      - [Advanced NSOperation 源代码分析（一）](https://chengwey.com/advanced-nsoperation-yuan-dai-ma-fen-xi/) by chengway 2015.07
+    - [NSOperation](http://nshipster.com/nsoperation/) by Mattt Thompson 2014.07
+    - [iOS 并发编程之 Operation Queues](http://blog.leichunfeng.com/blog/2015/07/29/ios-concurrency-programming-operation-queues/) by 雷纯锋 2015.07
 - 锁
 - Runloop
 
