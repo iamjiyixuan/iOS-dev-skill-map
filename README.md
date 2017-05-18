@@ -211,6 +211,7 @@
       - 2015 年，ES6 / ES2015 标准发布，新增了许多 [新特性](https://babeljs.io/learn-es2015/)。
     - [廖雪峰的 JavaScript 教程](http://www.liaoxuefeng.com/wiki/001434446689867b27157e896e74d51a89c25cc8b43bdb3000) 和 [阮一峰的 JavaScript 标准参考教程](http://javascript.ruanyifeng.com) 适合初学者快速入门。
     - [js-stack-from-scratch](https://github.com/verekia/js-stack-from-scratch) 教你从零开始构建 JavaScript 技术栈。
+    - [TypeScript](http://www.typescriptlang.org) - a superset of JavaScript that compiles to clean JavaScript output.
   - 1996 年，CSS 诞生
     - [Flexbox](https://www.w3.org/TR/css-flexbox-1/)
   - Ajax
@@ -247,6 +248,16 @@
       - [vux](https://github.com/airyland/vux) - Vue UI Components based on [WeUI](https://github.com/weui/weui)
 - 基于 JS-Native 的跨平台方案
   - 2015 年，Facebook 发布基于 React 的移动端开发框架 [React Native](http://facebook.github.io/react-native/)，宣称 `Learn once, write anywhere`。
+    - React 概念
+      - JSX
+      - components - 组件
+      - state - 状态，可变的
+      - props - 属性，固定不变的
+    - Style - 每个 component 都有一个名为 `style` 的 prop
+      - 外观
+      - 布局
+        - flexbox
+    - 基础组件
     - for Web
       - [React Native for Web](https://github.com/necolas/react-native-web) - Twitter 工程师 Nicolas Gallagher 开发，使 React Native 组件可以在 Web 端工作。React Native for Web 与 React Native for iOS and Android 是平级关系。
       - [react-web](https://github.com/taobaofed/react-web) - 淘宝出品 A framework for building web apps with React Native compatible API.
