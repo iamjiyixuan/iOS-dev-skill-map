@@ -76,6 +76,11 @@
 - 转场
 - 手势
 - 动画
+- 保持界面流畅
+  - 3rd
+    - <del>[AsyncDisplayKit](https://github.com/facebookarchive/AsyncDisplayKit)</del> 已更名并迁移至 [Texture](https://github.com/texturegroup/texture/)
+  - 扩展阅读
+    - [iOS 保持界面流畅的技巧](http://blog.ibireme.com/2015/11/12/smooth_user_interfaces_for_ios/) by ibireme 2015.11
 
 ## [网络](网络/README.md)
 - TCP/IP
