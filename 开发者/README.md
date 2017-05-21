@@ -23,7 +23,7 @@ Avatar  | Name · ID | Links | Projects | Summary |
 <img src="https://avatars0.githubusercontent.com/u/10829914?v=3&s=460" width="30" height="30"> | DianQK | [Blog](http://blog.dianqk.org/), [GitHub](https://github.com/DianQK) |
 <img src="https://avatars1.githubusercontent.com/u/6745066?v=3&s=460" width="30" height="30"> | Ying Zhong | [Blog](http://ioszen.com), [GitHub](https://github.com/cyanzhong) | [Pin](https://itunes.apple.com/cn/app/pin-clipboard-extension/id1039643846?l=en&mt=8), [小历](https://itunes.apple.com/cn/app/xiao-li-zui-mei-tong-zhi-zhong/id1031088612?l=en&mt=8)
 <img src="https://avatars0.githubusercontent.com/u/433320?v=3&s=460" width="30" height="30"> | 杨萧玉 | [Blog](http://yulingtianxia.com/), [GitHub](https://github.com/yulingtianxia) |
-<img src="https://avatars0.githubusercontent.com/u/2987353?v=3&s=460" width="30" height="30"> | 蒸米 | [GitHub](https://github.com/zhengmin1989) | [iOS冰与火之歌](https://github.com/zhengmin1989/iOS_ICE_AND_FIRE)
+<img src="https://avatars0.githubusercontent.com/u/2987353?v=3&s=460" width="30" height="30"> | 蒸米 | [GitHub](https://github.com/zhengmin1989) | [iOS 冰与火之歌](https://github.com/zhengmin1989/iOS_ICE_AND_FIRE)
 <img src="https://avatars3.githubusercontent.com/u/4710575?v=3&s=400" width="30" height="30"> | skyline75489 | [Blog](https://skyline75489.github.io/), [GitHub](https://github.com/skyline75489) | [YTKNetwork](https://github.com/yuantiku/YTKNetwork)
 <img src="https://avatars3.githubusercontent.com/u/3916492?v=3&s=460" width="30" height="30"> | 故胤道长 | [GitHub](https://github.com/soapyigu), [简书](http://www.jianshu.com/u/8d5b91490ca5) | [Swift30Projects](https://github.com/soapyigu/Swift30Projects), [LeetCode_Swift](https://github.com/soapyigu/LeetCode_Swift)
 <img src="https://avatars3.githubusercontent.com/u/9565461?v=3&s=460" width="30" height="30"> | DeveloperLx | [GitHub](https://github.com/DeveloperLx) |
@@ -35,6 +35,9 @@ Avatar  | Name · ID | Links | Projects | Summary |
 <img src="https://avatars0.githubusercontent.com/u/12953705?v=3&s=460" width="30" height="30"> | J_Knight | [Blog](https://knightsj.github.io/), [GitHub](https://github.com/knightsj), [简书](http://www.jianshu.com/subscriptions#/subscriptions/768084/user) |
 <img src="https://avatars3.githubusercontent.com/u/6824547?v=3&s=460" width="30" height="30"> | 陈奕龙 · 子循 | [Blog](http://zixun.github.io), [GitHub](https://github.com/zixun) | [GodEye](https://github.com/zixun/GodEye) |
 <img src="https://avatars0.githubusercontent.com/u/878260?v=3&s=460" width="30" height="30"> | 里脊串 | [Blog](http://adad184.com), [GitHub](https://github.com/adad184) | [MMPopupView](https://github.com/adad184/MMPopupView) |
+<img src="https://avatars1.githubusercontent.com/u/35811?v=3&s=460" width="30" height="30"> | 图拉鼎 | [Blog](https://imtx.me), [GitHub](https://github.com/tualatrix) | [奇点 for 微博](https://itunes.apple.com/app/id947792507), [Manico](https://manico.im) |
+<img src="https://avatars2.githubusercontent.com/u/5253662?v=3&s=460" width="30" height="30"> | 雷纯锋 | [Blog](http://blog.leichunfeng.com), [GitHub](https://github.com/leichunfeng) | [GitBucket](https://itunes.apple.com/cn/app/id961330940?mt=8), [MVVMReactiveCocoa](https://github.com/leichunfeng/MVVMReactiveCocoa) | |
+<img src="https://avatars1.githubusercontent.com/u/6276527?v=3&s=460" width="30" height="30"> | callmewhy | [Blog](http://blog.callmewhy.com/), [GitHub](https://github.com/callmewhy) |
 
 > 排名不分先后
 
