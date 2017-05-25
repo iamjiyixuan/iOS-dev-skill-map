@@ -82,6 +82,31 @@
   - 扩展阅读
     - [iOS 保持界面流畅的技巧](http://blog.ibireme.com/2015/11/12/smooth_user_interfaces_for_ios/) by ibireme 2015.11
 
+## iOS 新特性
+- iOS 10
+  - Extension
+  - 扩展阅读
+    - [开发者所需要知道的 iOS 10 SDK 新特性](https://onevcat.com/2016/06/ios-10-sdk/) by onevcat 2016.06
+- iOS 9
+  - Multitasking
+  - UI Test
+  - 扩展阅读
+    - [WWDC 2015](https://developer.apple.com/videos/wwdc2015/)
+    - [开发者所需要知道的 iOS 9 SDK 新特性](https://onevcat.com/2015/06/ios9-sdk/) by onevcat 2015.06
+- iOS 8
+  - 扩展阅读
+    - [WWDC 2014](https://developer.apple.com/videos/wwdc2014/)
+    - [开发者所需要知道的 iOS 8 SDK 新特性](https://onevcat.com/2014/07/developer-should-know-about-ios8/) by onevcat 2014.07
+- iOS 7
+  - Multitasking 
+    - [WWDC 2013 Session 204 - What's New with Multitasking](https://developer.apple.com/videos/play/wwdc2013/204/)
+    - 后台获取 (Background Fetch)
+    - 推送唤醒 / 静默推送 (Silent Remote Notifications)
+    - 后台传输 (Background Transfer Service)
+  - 扩展阅读
+    - [WWDC 2013](https://developer.apple.com/videos/wwdc2013/) 
+    - [开发者所需要知道的 iOS 7 SDK 新特性](https://onevcat.com/2013/06/developer-should-know-about-ios7/) by onevcat 2013.06
+
 ## [网络](网络/README.md)
 - TCP/IP
   - TCP 属于 Transport 层协议
@@ -223,7 +248,13 @@
     - XMLHttpRequest
   - 2009 年，JavaScript 运行环境 [Node.js](https://nodejs.org/en/) 发布。[NPM](https://www.npmjs.com) 是 Node 默认的包管理器，随 Node 自动安装。另一个流行的 JS 包管理器是 2016 年发布的 [Yarn](https://yarnpkg.com/)。
   - 2010 年，MVC 框架 [Backbone.js](http://backbonejs.org) 和 MVVM 框架 [Angular.js](https://angular.io) 发布
-  - 2012 年，打包工具 [webpack](https://webpack.github.io) 和自动化工具 [Grunt](https://gruntjs.com) 发布
+  - 2012 年，自动化工具 [Grunt](https://gruntjs.com) 发布
+  - 2012 年，打包工具 [webpack](https://webpack.github.io) 发布
+    - 核心概念
+      - Entry - 入口，告诉 webpack 从哪里开始
+      - Output - 出口，告诉 webpack bundle 的名称，以及我们想要生成到哪里
+      - Loader
+      - Plugins
   - 2013 年，Facebook 发布 [React.js](https://facebook.github.io/react/)，是一套全新的开发模式
     - 核心技术 Virtual DOM
     - 采用 JSX 语法描述界面，需要通过 [Babel](https://babeljs.io) 翻译为标准 JS 代码才能运行在浏览器或 Node 上
