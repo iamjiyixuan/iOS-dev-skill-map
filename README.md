@@ -85,7 +85,9 @@
 ## iOS 新特性
 - iOS 10
   - Extension
+  - SiriKit
   - 扩展阅读
+    - [WWDC 2016](https://developer.apple.com/videos/wwdc2016/)
     - [开发者所需要知道的 iOS 10 SDK 新特性](https://onevcat.com/2016/06/ios-10-sdk/) by onevcat 2016.06
 - iOS 9
   - Multitasking
