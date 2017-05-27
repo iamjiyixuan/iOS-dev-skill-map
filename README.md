@@ -243,7 +243,7 @@
       - 2015 年，ES6 / ES2015 标准发布，新增了许多 [新特性](https://babeljs.io/learn-es2015/)。
     - [廖雪峰的 JavaScript 教程](http://www.liaoxuefeng.com/wiki/001434446689867b27157e896e74d51a89c25cc8b43bdb3000) 和 [阮一峰的 JavaScript 标准参考教程](http://javascript.ruanyifeng.com) 适合初学者快速入门。
     - [js-stack-from-scratch](https://github.com/verekia/js-stack-from-scratch) 教你从零开始构建 JavaScript 技术栈。
-    - [TypeScript](http://www.typescriptlang.org) - a superset of JavaScript that compiles to clean JavaScript output.
+    - 2012 年 10 月，微软发布 [TypeScript](http://www.typescriptlang.org)，一种自由和开源的编程语言，JavaScript 的严格超集。设计目标是开发大型应用，然后转译成 JavaScript。
   - 1996 年，CSS 诞生
     - [Flexbox](https://www.w3.org/TR/css-flexbox-1/)
   - Ajax
@@ -270,6 +270,7 @@
     - 3rd
       - [awesome-react](https://github.com/enaqx/awesome-react)
       - [React-Bootstrap](https://react-bootstrap.github.io)
+      - [Element React](https://github.com/eleme/element-react)
   - 2014 年，MVVM 框架 [Vue.js](https://vuejs.org) 发布。2016 年，Vue 2.0 发布。
     - 与 React 一样，也基于 Virtual DOM 技术（但实现上有差异）。
     - 采用模板语法（合法的 HTML）描述界面，相比 JXS 更接近 Web 标准。
@@ -304,6 +305,7 @@
       - [awesome-react-native](https://github.com/jondot/awesome-react-native)
       - [React-Native-Elements](https://github.com/react-native-community/React-Native-Elements) - Cross Platform React Native UI Toolkit.
       - [NativeBase](https://github.com/GeekyAnts/NativeBase) - Essential cross-platform UI components for React Native.
+      - [lottie-react-native](https://github.com/airbnb/lottie-react-native) - Lottie component for React Native (iOS and Android). Lottie is a mobile library for Android and iOS that parses Adobe After Effects animations exported as JSON with bodymovin and renders them natively on mobile!
     - 扩展阅读
       - [React Native 在 Glow 的实践](http://tech.glowing.com/cn/react-native-at-glow/) by Allen 许帅 2017.04
   - 2017 年，阿里发布跨平台用户界面开发框架 [Weex](https://weex.apache.org)，宣称 `一次编写，多端运行`，目前支持 iOS、Android、HTML5 三端，并支持 Vue 语法。可以把 Weex 看成 Vue Native。
