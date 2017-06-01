@@ -297,6 +297,16 @@
       - 布局
         - flexbox
     - 基础组件
+    - React Native 与 Native 间通信
+      - iOS
+        - Native → React Native
+          - 方式一：通过 `RCTRootView` 的 `initWithBridge:moduleName:initialProperties:` 初始化方法传入属性。通过设置 `RCTRootView` 的 read-only 属性 `appProperties` 来更新。设置新属性后（新值与旧值不同时），React Native 将重新渲染界面。
+        - React Native → Native
+          - Native Modules
+            - RCTBridgeModule
+            - RCT_EXPORT_MODULE() - 注册供 js 调用的模块
+            - RCT_EXPORT_METHOD() or RCT_REMAP_METHOD() - 注册供 js 调用的方法
+      - Android
     - for Web
       - [React Native for Web](https://github.com/necolas/react-native-web) - Twitter 工程师 Nicolas Gallagher 开发，使 React Native 组件可以在 Web 端工作。React Native for Web 与 React Native for iOS and Android 是平级关系。
       - [react-web](https://github.com/taobaofed/react-web) - 淘宝出品 A framework for building web apps with React Native compatible API.
@@ -313,6 +323,7 @@
       - [react-native-nw-react-calculator](https://github.com/benoitvallon/react-native-nw-react-calculator) - Mobile, desktop and website Apps with the same code. 工程结构值得借鉴。
     - 扩展阅读
       - [React Native 在 Glow 的实践](http://tech.glowing.com/cn/react-native-at-glow/) by Allen 许帅 2017.04
+      - [React Native 通信机制详解](http://blog.cnbang.net/tech/2698/) by bang 2015.03
   - 2017 年，阿里发布跨平台用户界面开发框架 [Weex](https://weex.apache.org)，宣称 `一次编写，多端运行`，目前支持 iOS、Android、HTML5 三端，并支持 Vue 语法。可以把 Weex 看成 Vue Native。
     - [WEEX Conf](https://yq.aliyun.com/activity/145)
     - [中文 FAQ](https://segmentfault.com/t/weex)
