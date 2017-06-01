@@ -328,11 +328,11 @@
     - [WEEX Conf](https://yq.aliyun.com/activity/145)
     - [中文 FAQ](https://segmentfault.com/t/weex)
     - 扩展阅读
-      - [iOS 开发者的 Weex 伪最佳实践指北](https://www.halfrost.com/weex_best_practice_guidelines/) by 一缕殇流化隐半边冰霜 2017.05
-      - [Weex 中别具匠心的 JS Framework](https://www.halfrost.com/weex_js_framework/) by 一缕殇流化隐半边冰霜 2017.04
-      - [Weex 事件传递的那些事儿](https://www.halfrost.com/weex_event/) by 一缕殇流化隐半边冰霜 2017.04
-      - [由 FlexBox 算法强力驱动的 Weex 布局引擎](https://www.halfrost.com/weex_flexbox/) by 一缕殇流化隐半边冰霜 2017.04
       - [Weex 是如何在 iOS 客户端上跑起来的](https://www.halfrost.com/weex_ios/) by 一缕殇流化隐半边冰霜 2017.03
+      - [由 FlexBox 算法强力驱动的 Weex 布局引擎](https://www.halfrost.com/weex_flexbox/) by 一缕殇流化隐半边冰霜 2017.04 
+      - [Weex 事件传递的那些事儿](https://www.halfrost.com/weex_event/) by 一缕殇流化隐半边冰霜 2017.04
+      - [Weex 中别具匠心的 JS Framework](https://www.halfrost.com/weex_js_framework/) by 一缕殇流化隐半边冰霜 2017.04
+      - [iOS 开发者的 Weex 伪最佳实践指北](https://www.halfrost.com/weex_best_practice_guidelines/) by 一缕殇流化隐半边冰霜 2017.05
 
 ## [软件工程](软件工程/README.md)
 - 脚本
