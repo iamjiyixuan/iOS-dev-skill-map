@@ -324,6 +324,7 @@
     - 扩展阅读
       - [React Native 在 Glow 的实践](http://tech.glowing.com/cn/react-native-at-glow/) by Allen 许帅 2017.04
       - [React Native 通信机制详解](http://blog.cnbang.net/tech/2698/) by bang 2015.03
+      - [Moles：携程基于 React Native 的跨平台开发框架](http://www.infoq.com/cn/articles/ctrip-moles) by 魏晓军 2016.07
   - 2017 年，阿里发布跨平台用户界面开发框架 [Weex](https://weex.apache.org)，宣称 `一次编写，多端运行`，目前支持 iOS、Android、HTML5 三端，并支持 Vue 语法。可以把 Weex 看成 Vue Native。
     - [WEEX Conf](https://yq.aliyun.com/activity/145)
     - [中文 FAQ](https://segmentfault.com/t/weex)
