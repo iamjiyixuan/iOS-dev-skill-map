@@ -365,14 +365,22 @@
   - 单元测试
   - 自动化 UI 测试
 - 性能监控 / APM
+  - 测量效率
+    - [NSDate date]
+    - clock()
+    - CFAbsoluteTimeGetCurrent()
+    - CACurrentMediaTime()
+    - mach_absolute_time()
+    - dispatch_benchmark
   - 卡顿检测
   - 网络监控
   - 扩展阅读
     - [移动端监控体系之技术原理剖析](http://www.jianshu.com/p/8123fc17fe0e) by Joy___ 2017.02
     - [微信读书 iOS 质量保证及性能监控](http://wereadteam.github.io/2016/12/12/Monitor/) by WeRead团队博客 2016.12
     - [网易NeteaseAPM iOS SDK技术实现分享](http://www.infoq.com/cn/articles/netease-ios-sdk-neteaseapm-technology-share) by 朱志强 2016.05
+    - [Benchmarking](http://nshipster.cn/benchmarking/) by Mattt Thompson 撰写 Croath Liu 翻译 2014.05
   - 3rd lib
-    - [GodEye](https://github.com/zixun/GodEye) - Automaticly display Log,Crash,Network,ANR,Leak,CPU,RAM,FPS,NetFlow,Folder and etc with one line of code based on Swift. Just like God opened his eyes.
+    - [GodEye](https://github.com/zixun/GodEye) - Automaticly display Log, Crash, Network, ANR, Leak, CPU, RAM, FPS, NetFlow, Folder and etc with one line of code based on Swift. Just like God opened his eyes.
 - 持续集成
   - xcodebuild
   - xctool
