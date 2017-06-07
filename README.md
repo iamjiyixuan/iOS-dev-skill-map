@@ -264,7 +264,7 @@
     - 状态管理
       - [Flux](http://facebook.github.io/flux/) 架构
       - [MobX](https://mobx.js.org) 架构
-      - [Redux](https://github.com/reactjs/redux) 架构
+      - [Redux](http://redux.js.org) 架构
     - 路由
       - [React Router](https://github.com/ReactTraining/react-router)
     - 3rd
@@ -296,6 +296,7 @@
       - 外观
       - 布局
         - flexbox
+      - [React Native Styling Cheat Sheet](https://github.com/vhpoet/react-native-styling-cheat-sheet) - Most of the React Native styling material in one page.
     - 基础组件
     - React Native 与 Native 间通信
       - iOS
