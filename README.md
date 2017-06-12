@@ -208,6 +208,11 @@
     - [iOS 并发编程之 Operation Queues](http://blog.leichunfeng.com/blog/2015/07/29/ios-concurrency-programming-operation-queues/) by 雷纯锋 2015.07
 - 锁
 - Runloop
+  - [NSRunLoop](https://developer.apple.com/documentation/foundation/nsrunloop) - 
+  - [CFRunLoopRef](https://developer.apple.com/documentation/corefoundation/cfrunloop-rht) - 属于 CoreFoundation 框架，提供 C API，且所有 API 都线程安全。CFRunLoopRef 是开源的，源码地址: [http://opensource.apple.com/tarballs/CF/](http://opensource.apple.com/tarballs/CF/)
+  - 扩展阅读
+    - [深入理解 RunLoop](http://blog.ibireme.com/2015/05/18/runloop/) by ibireme 2015.05
+    - [深入研究 Runloop 与线程保活](https://bestswifter.com/runloop-and-thread/) by bestswifter 2016.07
 
 ## [多媒体](多媒体/README.md)
 - 图片
