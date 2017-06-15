@@ -221,6 +221,10 @@
 
 ## [LBS](LBS/README.md)
 
+## 机器学习
+- [Apple Machine Learning](https://developer.apple.com/machine-learning/)
+- Core ML Framework [doc](https://developer.apple.com/documentation/coreml)
+
 ## [架构](架构/README.md)
 - 面向对象编程（Object-Oriented Programming）
 - 面向切面编程（Aspect-Oriented Programming）
