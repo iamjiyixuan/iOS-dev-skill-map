@@ -83,6 +83,12 @@
     - [iOS 保持界面流畅的技巧](http://blog.ibireme.com/2015/11/12/smooth_user_interfaces_for_ios/) by ibireme 2015.11
 
 ## iOS 新特性
+- iOS 11
+  - Core ML
+  - ARKit
+  - 扩展阅读
+    - [WWDC 2017](https://developer.apple.com/videos/wwdc2017/)
+    - [开发者所需要知道的 iOS 11 SDK 新特性](https://onevcat.com/2017/06/ios-11-sdk/) by onevcat 2017.06
 - iOS 10
   - Extension
   - SiriKit
@@ -223,7 +229,12 @@
 
 ## 机器学习
 - [Apple Machine Learning](https://developer.apple.com/machine-learning/)
-- Core ML Framework [doc](https://developer.apple.com/documentation/coreml)
+- [Core ML](https://developer.apple.com/documentation/coreml) 
+  - [WWDC 2017 Session 703 - Introducing Core ML](https://developer.apple.com/videos/play/wwdc2017/703/)
+  - [WWDC 2017 Session 710 - Core ML in depth](https://developer.apple.com/videos/play/wwdc2017/710/)
+- [Vision](https://developer.apple.com/documentation/vision)
+- Natural Language Processing
+  - [WWDC 2017 Session 208 - Natural Language Processing and your Apps](https://developer.apple.com/videos/play/wwdc2017/208/)
 
 ## [架构](架构/README.md)
 - 面向对象编程（Object-Oriented Programming）
@@ -447,6 +458,7 @@
   - [技术人员的发展之路](http://coolshell.cn/articles/17583.html) by 陈皓 2016.12
 - 创业
   - [写在创业五周年](http://blog.devtang.com/2017/05/31/startup-5th-year-summary/) by 唐巧 2017.05
+
 ## 辅助工具
 - 终端 / Shell
   - [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh)
