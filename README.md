@@ -128,6 +128,7 @@
     - [WWDC 2015](https://developer.apple.com/videos/wwdc2015/)
     - [开发者所需要知道的 iOS 9 SDK 新特性](https://onevcat.com/2015/06/ios9-sdk/) by onevcat 2015.06
 - iOS 8
+  - [iOS 8 VoIP Notifications](http://pierremarcairoldi.com/ios-8-voip-notifications/) by Pierre-Marc Airoldi 2015.03
   - 扩展阅读
     - [WWDC 2014](https://developer.apple.com/videos/wwdc2014/)
     - [开发者所需要知道的 iOS 8 SDK 新特性](https://onevcat.com/2014/07/developer-should-know-about-ios8/) by onevcat 2014.07
@@ -438,8 +439,8 @@
   - 网络监控
   - 扩展阅读
     - [移动端监控体系之技术原理剖析](http://www.jianshu.com/p/8123fc17fe0e) by Joy___ 2017.02
-    - [微信读书 iOS 质量保证及性能监控](http://wereadteam.github.io/2016/12/12/Monitor/) by WeRead团队博客 2016.12
-    - [网易NeteaseAPM iOS SDK技术实现分享](http://www.infoq.com/cn/articles/netease-ios-sdk-neteaseapm-technology-share) by 朱志强 2016.05
+    - [微信读书 iOS 质量保证及性能监控](http://wereadteam.github.io/2016/12/12/Monitor/) by 微信读书技术团队 2016.12
+    - [网易 NeteaseAPM iOS SDK 技术实现分享](http://www.infoq.com/cn/articles/netease-ios-sdk-neteaseapm-technology-share) by 朱志强 2016.05
     - [Benchmarking](http://nshipster.cn/benchmarking/) by Mattt Thompson 撰写 Croath Liu 翻译 2014.05
   - 3rd lib
     - [GodEye](https://github.com/zixun/GodEye) - Automaticly display Log, Crash, Network, ANR, Leak, CPU, RAM, FPS, NetFlow, Folder and etc with one line of code based on Swift. Just like God opened his eyes.
