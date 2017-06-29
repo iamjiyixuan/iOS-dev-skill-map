@@ -213,6 +213,7 @@
     - [NSOperation](http://nshipster.com/nsoperation/) by Mattt Thompson 2014.07
     - [iOS 并发编程之 Operation Queues](http://blog.leichunfeng.com/blog/2015/07/29/ios-concurrency-programming-operation-queues/) by 雷纯锋 2015.07
 - 锁
+  - [深入理解 iOS 开发中的锁](https://bestswifter.com/ios-lock/) by bestswifter 2016.10
 - Runloop
   - [NSRunLoop](https://developer.apple.com/documentation/foundation/nsrunloop) - 
   - [CFRunLoopRef](https://developer.apple.com/documentation/corefoundation/cfrunloop-rht) - 属于 CoreFoundation 框架，提供 C API，且所有 API 都线程安全。CFRunLoopRef 是开源的，源码地址: [http://opensource.apple.com/tarballs/CF/](http://opensource.apple.com/tarballs/CF/)
@@ -251,10 +252,24 @@
   - 工厂
   - 观察者
 - 组件化
+  - 扩展阅读
+    - [iOS 应用架构谈 组件化方案](https://casatwy.com/iOS-Modulization.html) by Casa Taloyum 2016.03
+- Model
+  - 3rd 
+    - [remodel](https://github.com/facebook/remodel)
+  - 扩展阅读
+    - [Improving Immutable Object Initialization in Objective-C](http://holko.pl/2015/05/12/immutable-object-initialization/) by Arek Holko 2015.05
+    - [去 model 化和数据对象](https://casatwy.com/OOP_nomodel.html) by Casa Taloyum 2016.05
+    - [iOS 创建对象的姿势](http://mrpeak.cn/blog/ios-init/) by MrPeak 2017.01
+    - [Facebook model 库 Remodel 观感](http://mrpeak.cn/blog/remodel/) by MrPeak 2017.05
+- 响应式架构
+  - 扩展阅读
+    - [iOS 响应式架构](http://blog.mrriddler.com/2017/06/28/iOS响应式架构/) by mrriddler 2017.06
 
 ## [Hybrid / JS-Native](Hybrid/README.md)
 - 对 WEB 前端技术的发展和开发模式应该有基本的认识
   - [Roadmap to becoming a web developer in 2017](https://github.com/kamranahmedse/developer-roadmap)
+  - [front-end-guide](https://github.com/grab/front-end-guide) - Study guide and introduction to the modern front end stack.
   - HTML
   - 1995 年，JavaScript（简称 JS）诞生。
     - JS 的标准化进程 
