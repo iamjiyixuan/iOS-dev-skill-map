@@ -1,6 +1,33 @@
 # iOS 开发技能图谱
 
-## [编程语言](编程语言/README.md)
+Index
+<!-- TOC -->
+
+- [编程语言](#编程语言)
+- [Cocoa 基础](#cocoa-基础)
+- [UI](#ui)
+- [iOS 新特性](#ios-新特性)
+- [网络](#网络)
+- [存储](#存储)
+- [并发](#并发)
+- [多媒体](#多媒体)
+- [LBS](#lbs)
+- [机器学习](#机器学习)
+- [架构](#架构)
+- [Hybrid / JS-Native](#hybrid--js-native)
+- [软件工程](#软件工程)
+- [逆向工程](#逆向工程)
+- [算法与数据结构](#算法与数据结构)
+- [安全](#安全)
+- [操作系统](#操作系统)
+- [硬件设备](#硬件设备)
+- [职业生涯](#职业生涯)
+- [辅助工具](#辅助工具)
+
+<!-- /TOC -->
+
+----
+## 编程语言
 - [C](编程语言/C/README.md)
   - 标准库（libc）
   - 指针
@@ -50,7 +77,7 @@
 - JavaScript
 - 汇编语言
 
-## [Cocoa 基础](Cocoa基础/README.md)
+## Cocoa 基础
 - NSString
 - NSNumber
 - 集合
@@ -61,7 +88,7 @@
 - Notification
 - KVO
 
-## [UI](UI/README.md)
+## UI
 - 布局
   - frame
   - Auto Layout
@@ -115,7 +142,7 @@
     - [WWDC 2013](https://developer.apple.com/videos/wwdc2013/) 
     - [开发者所需要知道的 iOS 7 SDK 新特性](https://onevcat.com/2013/06/developer-should-know-about-ios7/) by onevcat 2013.06
 
-## [网络](网络/README.md)
+## 网络
 - TCP/IP
   - TCP 属于 Transport 层协议
   - TCP 头格式
@@ -160,7 +187,7 @@
   - HTTP2
 - DNS
 
-## [存储](存储/README.md)
+## 存储
 - 沙盒机制
 - Bundle
 - 钥匙串
@@ -170,7 +197,7 @@
   - xml
   - json
 
-## [并发编程](并发编程/README.md)
+## 并发
 - [Concurrency Programming Guide](https://developer.apple.com/library/content/documentation/General/Conceptual/ConcurrencyProgrammingGuide/Introduction/Introduction.html#//apple_ref/doc/uid/TP40008091)
 - [Threading Programming Guide](https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/Multithreading/AboutThreads/AboutThreads.html)
 - 进程
@@ -221,12 +248,12 @@
     - [深入理解 RunLoop](http://blog.ibireme.com/2015/05/18/runloop/) by ibireme 2015.05
     - [深入研究 Runloop 与线程保活](https://bestswifter.com/runloop-and-thread/) by bestswifter 2016.07
 
-## [多媒体](多媒体/README.md)
+## 多媒体
 - 图片
 - 音视频
   - AVFoundation
 
-## [LBS](LBS/README.md)
+## LBS
 
 ## 机器学习
 - [Apple Machine Learning](https://developer.apple.com/machine-learning/)
@@ -237,7 +264,7 @@
 - Natural Language Processing
   - [WWDC 2017 Session 208 - Natural Language Processing and your Apps](https://developer.apple.com/videos/play/wwdc2017/208/)
 
-## [架构](架构/README.md)
+## 架构
 - 面向对象编程（Object-Oriented Programming）
 - 面向切面编程（Aspect-Oriented Programming）
   - Aspects
@@ -266,7 +293,7 @@
   - 扩展阅读
     - [iOS 响应式架构](http://blog.mrriddler.com/2017/06/28/iOS响应式架构/) by mrriddler 2017.06
 
-## [Hybrid / JS-Native](Hybrid/README.md)
+## Hybrid / JS-Native
 - 对 WEB 前端技术的发展和开发模式应该有基本的认识
   - [Roadmap to becoming a web developer in 2017](https://github.com/kamranahmedse/developer-roadmap)
   - [front-end-guide](https://github.com/grab/front-end-guide) - Study guide and introduction to the modern front end stack.
@@ -371,7 +398,7 @@
       - [Weex 中别具匠心的 JS Framework](https://www.halfrost.com/weex_js_framework/) by 一缕殇流化隐半边冰霜 2017.04
       - [iOS 开发者的 Weex 伪最佳实践指北](https://www.halfrost.com/weex_best_practice_guidelines/) by 一缕殇流化隐半边冰霜 2017.05
 
-## [软件工程](软件工程/README.md)
+## 软件工程
 - 脚本
   - Shell
   - Ruby
@@ -432,21 +459,21 @@
 - 任务管理
 - 文档
 
-## [逆向工程](逆向工程/README.md)
+## 逆向工程
 - 越狱
 
-## [算法与数据结构](算法与数据结构/README.md)
+## 算法与数据结构
 
-## [安全](安全/README.md)
+## 安全
 
-## [操作系统](操作系统/README.md)
+## 操作系统
 - Unix
   - BSD
 - Darwin
 - 内核：XNU
 - 可执行文件：Mach-O
 
-## [硬件设备](硬件设备/README.md)
+## 硬件设备
 - iPhone
   - 4 / 4S
   - 5 / 5C / 5S
