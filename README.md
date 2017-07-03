@@ -299,11 +299,11 @@
   - [front-end-guide](https://github.com/grab/front-end-guide) - Study guide and introduction to the modern front end stack.
   - HTML
   - 1995 年，JavaScript（简称 JS）诞生。
+    - [mozilla 官方的 JavaScript 技术文档](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript)
     - JS 的标准化进程 
       - 1996 年，标准化为 ECMAScript（简称 ES），JS 成为 ES 的一种实现，另外的 ES 方言还有 Jscript 和 ActionScript。
       - 2009 年，ES5 标准发布。
-      - 2015 年，ES6 / ES2015 标准发布，新增了许多 [新特性](https://babeljs.io/learn-es2015/)。
-    - [廖雪峰的 JavaScript 教程](http://www.liaoxuefeng.com/wiki/001434446689867b27157e896e74d51a89c25cc8b43bdb3000) 和 [阮一峰的 JavaScript 标准参考教程](http://javascript.ruanyifeng.com) 适合初学者快速入门。
+      - 2015 年，ES6 / ES2015 标准发布，新增了许多 [新特性](https://babeljs.io/learn-es2015/)。推荐阅读 [阮一峰的 《ECMAScript 6 入门》](http://es6.ruanyifeng.com)。
     - [js-stack-from-scratch](https://github.com/verekia/js-stack-from-scratch) 教你从零开始构建 JavaScript 技术栈。
     - 2012 年 10 月，微软发布 [TypeScript](http://www.typescriptlang.org)，一种自由和开源的编程语言，JavaScript 的严格超集。设计目标是开发大型应用，然后转译成 JavaScript。
   - 1996 年，CSS 诞生
