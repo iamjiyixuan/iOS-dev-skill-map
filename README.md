@@ -494,10 +494,12 @@
   - [如何面试 iOS 工程师](http://blog.cnbang.net/internet/3245/) by bang 2016.09
   - [2016 年 10 月求职记：iOS 工作经验不到 1 年，在 1 个月内拿到了 3 个offer](https://knightsj.github.io/2017/01/13/2016年10月求职记：iOS工作经验不到1年，在1个月内拿到了3个offer/) by J_Knight 2017.01
   - [2017 年 5 月 iOS 招人心得（附面试题）](https://knightsj.github.io/2017/06/08/2017年5月iOS招人心得（附面试题）/) by J_Knight 2017.06
-- 技术人员发展之路 & 工程师文化
+- 技术人员发展之路 & 工程师文化
   - [这多年来我一直在钻研的技术](http://coolshell.cn/articles/17446.html) by 陈皓 2016.08
   - [什么是工程师文化？](http://coolshell.cn/articles/17497.html) by 陈皓 2016.09
   - [技术人员的发展之路](http://coolshell.cn/articles/17583.html) by 陈皓 2016.12
+- 如何面对绩效
+  - [我看绩效考核](http://coolshell.cn/articles/17972.html) by 陈皓 2017.07
 - 创业
   - [写在创业五周年](http://blog.devtang.com/2017/05/31/startup-5th-year-summary/) by 唐巧 2017.05
 
