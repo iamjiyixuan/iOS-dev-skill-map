@@ -6,6 +6,7 @@
 - [编程语言](#编程语言)
 - [Cocoa 基础](#cocoa-基础)
 - [UI](#ui)
+- [APNS](#apns)
 - [iOS 新特性](#ios-新特性)
 - [网络](#网络)
 - [存储](#存储)
@@ -107,6 +108,9 @@
     - <del>[AsyncDisplayKit](https://github.com/facebookarchive/AsyncDisplayKit)</del> 已更名并迁移至 [Texture](https://github.com/texturegroup/texture/)
   - 扩展阅读
     - [iOS 保持界面流畅的技巧](http://blog.ibireme.com/2015/11/12/smooth_user_interfaces_for_ios/) by ibireme 2015.11
+
+## APNS
+- [国内 90%以上的 iOS 开发者，对 APNs 的认识都是错的](http://www.jianshu.com/p/ace1b422bad4) by iOS程序犭袁 2016.04
 
 ## iOS 新特性
 - iOS 11
@@ -250,8 +254,19 @@
 
 ## 多媒体
 - 图片
-- 音视频
-  - AVFoundation
+- 音频
+  - [Audio Session Programming Guide](https://developer.apple.com/library/content/documentation/Audio/Conceptual/AudioSessionProgrammingGuide/Introduction/Introduction.html#//apple_ref/doc/uid/TP40007875)
+  - iOS 音频播放 by 程寅 2014
+    - [iOS音频播放 (一)：概述](http://msching.github.io/blog/2014/07/07/audio-in-ios/)
+    - [iOS音频播放 (二)：AudioSession](http://msching.github.io/blog/2014/07/08/audio-in-ios-2/)
+    - [iOS音频播放 (三)：AudioFileStream](http://msching.github.io/blog/2014/07/09/audio-in-ios-3/)
+    - [iOS音频播放 (四)：AudioFile](http://msching.github.io/blog/2014/07/19/audio-in-ios-4/)
+    - [iOS音频播放 (五)：AudioQueue](http://msching.github.io/blog/2014/08/02/audio-in-ios-5/)
+    - [iOS音频播放 (六)：简单的音频播放器实现](http://msching.github.io/blog/2014/08/09/audio-in-ios-6/)
+    - [iOS音频播放 (七)：播放iPod Library中的歌曲](http://msching.github.io/blog/2014/09/07/audio-in-ios-7/)
+    - [iOS音频播放 (八)：NowPlayingCenter和RemoteControl](http://msching.github.io/blog/2014/11/06/audio-in-ios-8/)
+    - [iOS音频播放 (九)：边播边缓存](http://msching.github.io/blog/2016/05/24/audio-in-ios-9/)
+- 视频
 
 ## LBS
 
