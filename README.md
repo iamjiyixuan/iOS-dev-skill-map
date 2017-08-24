@@ -286,7 +286,9 @@
 - 面向协议编程（Protocol-Oriented Programming）
 - 函数式编程（Functional Programming）
 - 响应式编程（Reactive Programming）
-  - ReactiveCocoa
+  - [ReactiveX](http://reactivex.io)
+    - [RxSwift](https://github.com/ReactiveX/RxSwift)
+  - [ReactiveCocoa](https://github.com/ReactiveCocoa/ReactiveCocoa)
 - MVC
 - MVVM
 - 设计模式
