@@ -470,6 +470,10 @@
 - 异常处理
   - 设备日志
   - 深入理解 Crash
+    - [如何定位Obj-C野指针随机Crash(一)：先提高野指针Crash率](http://dev.qq.com/topic/59141e56ca95d00d727ba750) by 腾讯 Bugly
+    - [如何定位Obj-C野指针随机Crash(二)：让非必现Crash变成必现](http://dev.qq.com/topic/59142d61ca95d00d727ba752) by 腾讯 Bugly
+    - [如何定位Obj-C野指针随机Crash(三)：如何让Crash自报家门](http://dev.qq.com/topic/5915134b75d11c055ca7fca0) by 腾讯 Bugly
+    - [iOS 崩溃 crash 大解析](http://www.qidiandasheng.com/2016/04/10/crash-xuebeng/) by 齐滇大圣 2016.04
   - Hook 技术
   - 第三方服务
 - 运营统计
