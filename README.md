@@ -87,6 +87,7 @@
 - NSPredicate
 - Notification
 - KVO
+- [GNUstep](http://gnustep.org) - 开源版 Cocoa（Cocoa 在 NeXT 时代叫 OpenStep）
 
 ## UI
 - 布局
