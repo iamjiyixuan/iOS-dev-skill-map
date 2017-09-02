@@ -511,6 +511,8 @@
 ## 职业生涯
 - 面试 & 招聘
   - [iOSInterviewQuestions](https://github.com/ChenYilong/iOSInterviewQuestions) by ChenYilong
+  - [iOS-Developer-Interview-Questions](https://github.com/lzyy/iOS-Developer-Interview-Questions) by lzyy
+  - [怎么面试架构师](https://casatwy.com/zen-yao-mian-shi-jia-gou-shi.html)
   - [招聘一个靠谱的 iOS](http://blog.sunnyxx.com/2015/07/04/ios-interview/) by sunnyxx 2015.07
   - [BAT 面试指南](https://bestswifter.com/bat-interview/) by bestswifter 2016.04
   - [如何面试 iOS 工程师](http://blog.cnbang.net/internet/3245/) by bang 2016.09
