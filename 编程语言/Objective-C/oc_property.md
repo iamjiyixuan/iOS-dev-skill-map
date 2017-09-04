@@ -44,7 +44,119 @@
 
 ## 5. NSString 为什么建议用 copy？如果用 strong 会有什么问题？
 
+```
+@interface TestProperty : NSObject
 
+@property(nonatomic, copy) NSString *testCopyString;
+@property(nonatomic, strong) NSString *testStrongString;
+
+@end
+```
+
+clang -rewrite-objc 结果
+
+```
+extern "C" unsigned long OBJC_IVAR_$_TestProperty$_testCopyString;
+extern "C" unsigned long OBJC_IVAR_$_TestProperty$_testStrongString;
+struct TestProperty_IMPL {
+	struct NSObject_IMPL NSObject_IVARS;
+	NSString *_testCopyString;
+	NSString *_testStrongString;
+};
+
+extern "C" __declspec(dllimport) void objc_setProperty (id, SEL, long, id, bool, bool);
+
+// get 函数对比
+static NSString * _I_TestProperty_testCopyString(TestProperty * self, SEL _cmd) { 
+    return (*(NSString **)((char *)self + OBJC_IVAR_$_TestProperty$_testCopyString)); 
+}
+static NSString * _I_TestProperty_testStrongString(TestProperty * self, SEL _cmd) { 
+    return (*(NSString **)((char *)self + OBJC_IVAR_$_TestProperty$_testStrongString)); 
+}
+
+// set 函数对比
+static void _I_TestProperty_setTestCopyString_(TestProperty * self, SEL _cmd, NSString *testCopyString) { 
+    objc_setProperty (self, _cmd, __OFFSETOFIVAR__(struct TestProperty, _testCopyString), (id)testCopyString, 0, 1); 
+}
+static void _I_TestProperty_setTestStrongString_(TestProperty * self, SEL _cmd, NSString *testStrongString) { 
+    (*(NSString **)((char *)self + OBJC_IVAR_$_TestProperty$_testStrongString)) = testStrongString; 
+}
+
+```
+
+`objc_setProperty()` 执行过程，详见 [objc-accessors.mm](https://opensource.apple.com/source/objc4/objc4-551.1/runtime/Accessors.subproj/objc-accessors.mm.auto.html)
+```
+void 
+objc_setProperty(id self, SEL _cmd, ptrdiff_t offset, id newValue, BOOL atomic, signed char shouldCopy) 
+{
+    objc_setProperty_non_gc(self, _cmd, offset, newValue, atomic, shouldCopy);
+}
+
+void objc_setProperty_non_gc(id self, SEL _cmd, ptrdiff_t offset, id newValue, BOOL atomic, signed char shouldCopy) 
+{
+    bool copy = (shouldCopy && shouldCopy != MUTABLE_COPY); // #define MUTABLE_COPY 2
+    bool mutableCopy = (shouldCopy == MUTABLE_COPY);
+    reallySetProperty(self, _cmd, newValue, offset, atomic, copy, mutableCopy);
+}
+
+static inline void reallySetProperty(id self, SEL _cmd, id newValue, ptrdiff_t offset, bool atomic, bool copy, bool mutableCopy)
+{
+    id oldValue;
+    id *slot = (id*) ((char*)self + offset);
+
+    if (copy) {
+        newValue = [newValue copyWithZone:NULL];
+    } else if (mutableCopy) {
+        newValue = [newValue mutableCopyWithZone:NULL];
+    } else {
+        if (*slot == newValue) return;
+        newValue = objc_retain(newValue);
+    }
+
+    // 以下代码解释了 atomic 和 nonatomic 的本质区别
+    if (!atomic) {
+        oldValue = *slot;
+        *slot = newValue;
+    } else {
+        spin_lock_t *slotlock = &PropertyLocks[GOODHASH(slot)];
+        _spin_lock(slotlock);
+        oldValue = *slot;
+        *slot = newValue;        
+        _spin_unlock(slotlock);
+    }
+
+    objc_release(oldValue);
+}
+```
+
+验证
+```
+- (void)test
+{
+    TestProperty *obj = [TestProperty new];
+    NSString *testString = @"test";
+    obj.testCopyString = testString;
+    obj.testStrongString = testString;
+    NSLog(@"testString: %p", testString);
+    NSLog(@".testCopyString: %p", obj.testCopyString);
+    NSLog(@".testStrongString: %p", obj.testStrongString);
+    
+    NSMutableString *testMutableString = [NSMutableString stringWithFormat:@"test"];
+    obj.testCopyString = testMutableString;
+    obj.testStrongString = testMutableString;
+    NSLog(@"testMutableString: %p", testMutableString);
+    NSLog(@".testCopyString: %p", obj.testCopyString);
+    NSLog(@".testStrongString: %p", obj.testStrongString);
+}
+
+2017-09-04 22:09:37.143 xctest[60519:6403882] testString: 0x11efe30a0
+2017-09-04 22:09:37.144 xctest[60519:6403882] .testCopyString: 0x11efe30a0
+2017-09-04 22:09:37.144 xctest[60519:6403882] .testStrongString: 0x11efe30a0
+
+2017-09-04 22:09:37.144 xctest[60519:6403882] testMutableString: 0x7fdab6e1ffb0
+2017-09-04 22:09:37.144 xctest[60519:6403882] .testCopyString: 0xa000000747365744
+2017-09-04 22:09:37.144 xctest[60519:6403882] .testStrongString: 0x7fdab6e1ffb0
+```
 
 ## 6. @synthesize 与 @dynamic 的作用是什么？
 
