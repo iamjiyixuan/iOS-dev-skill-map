@@ -30,7 +30,7 @@
 
 ## 3. 属性的默认特性是什么？
 
-```
+``` Objective-C
 // ARC 下，修饰对象。
 @property (atomic，strong, readwrite) UIView *view;
 
