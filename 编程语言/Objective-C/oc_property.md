@@ -67,18 +67,24 @@ struct TestProperty_IMPL {
 extern "C" __declspec(dllimport) void objc_setProperty (id, SEL, long, id, bool, bool);
 
 // get 函数对比
-static NSString * _I_TestProperty_testCopyString(TestProperty * self, SEL _cmd) { 
+static NSString * 
+_I_TestProperty_testCopyString(TestProperty * self, SEL _cmd) { 
     return (*(NSString **)((char *)self + OBJC_IVAR_$_TestProperty$_testCopyString)); 
 }
-static NSString * _I_TestProperty_testStrongString(TestProperty * self, SEL _cmd) { 
+
+static NSString * 
+_I_TestProperty_testStrongString(TestProperty * self, SEL _cmd) { 
     return (*(NSString **)((char *)self + OBJC_IVAR_$_TestProperty$_testStrongString)); 
 }
 
 // set 函数对比
-static void _I_TestProperty_setTestCopyString_(TestProperty * self, SEL _cmd, NSString *testCopyString) { 
+static void 
+_I_TestProperty_setTestCopyString_(TestProperty * self, SEL _cmd, NSString *testCopyString) { 
     objc_setProperty (self, _cmd, __OFFSETOFIVAR__(struct TestProperty, _testCopyString), (id)testCopyString, 0, 1); 
 }
-static void _I_TestProperty_setTestStrongString_(TestProperty * self, SEL _cmd, NSString *testStrongString) { 
+
+static void 
+_I_TestProperty_setTestStrongString_(TestProperty * self, SEL _cmd, NSString *testStrongString) { 
     (*(NSString **)((char *)self + OBJC_IVAR_$_TestProperty$_testStrongString)) = testStrongString; 
 }
 
@@ -92,14 +98,16 @@ objc_setProperty(id self, SEL _cmd, ptrdiff_t offset, id newValue, BOOL atomic, 
     objc_setProperty_non_gc(self, _cmd, offset, newValue, atomic, shouldCopy);
 }
 
-void objc_setProperty_non_gc(id self, SEL _cmd, ptrdiff_t offset, id newValue, BOOL atomic, signed char shouldCopy) 
+void 
+objc_setProperty_non_gc(id self, SEL _cmd, ptrdiff_t offset, id newValue, BOOL atomic, signed char shouldCopy) 
 {
     bool copy = (shouldCopy && shouldCopy != MUTABLE_COPY); // #define MUTABLE_COPY 2
     bool mutableCopy = (shouldCopy == MUTABLE_COPY);
     reallySetProperty(self, _cmd, newValue, offset, atomic, copy, mutableCopy);
 }
 
-static inline void reallySetProperty(id self, SEL _cmd, id newValue, ptrdiff_t offset, bool atomic, bool copy, bool mutableCopy)
+static inline void 
+reallySetProperty(id self, SEL _cmd, id newValue, ptrdiff_t offset, bool atomic, bool copy, bool mutableCopy)
 {
     id oldValue;
     id *slot = (id*) ((char*)self + offset);
@@ -160,13 +168,18 @@ static inline void reallySetProperty(id self, SEL _cmd, id newValue, ptrdiff_t o
 
 ## 6. @synthesize 与 @dynamic 的作用是什么？
 
-如果 @synthesize 和 @dynamic 都不写，编译器会执行 `autosynthesis（自动合成）`，自动添加 ivar、getter 和 setter。
+如果 `@synthesize` 和 `@dynamic` 都不写，编译器会执行 autosynthesis（自动合成），自动生成 ivar、getter 和 setter。
 
-@synthesize 告诉编译器属性的 ivar，并自动生成 setter 与 getter。Xcode4.4 之前必须要写，之后版本不用，现在会默认添加。
+`@synthesize` 告诉编译器属性的 ivar 名称。
 
 ``` Objective-C
-// 默认
-@syntheszie var = _var;
-```
+@implementation SomeClass
 
-@dynamic 告诉编译器属性的 setter 与 getter 方法由用户自己实现，不自动生成。
+// 默认写法，含义是：属性 var 的实例变量名叫做 _var
+@syntheszie var = _var;
+
+@end
+```
+> Xcode 4.4 之前必须要写，之后的版本不用，如果不写编译器会自动生成。
+
+`@dynamic` 告诉编译器属性的 setter 与 getter 方法由用户自己实现，不自动生成。
