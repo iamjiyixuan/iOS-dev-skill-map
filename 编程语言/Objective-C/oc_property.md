@@ -44,7 +44,7 @@
 
 ## 5. NSString 为什么建议用 copy？如果用 strong 会有什么问题？
 
-```
+``` Objective-C
 @interface TestProperty : NSObject
 
 @property(nonatomic, copy) NSString *testCopyString;
@@ -55,7 +55,7 @@
 
 clang -rewrite-objc 结果
 
-```
+``` C
 extern "C" unsigned long OBJC_IVAR_$_TestProperty$_testCopyString;
 extern "C" unsigned long OBJC_IVAR_$_TestProperty$_testStrongString;
 struct TestProperty_IMPL {
@@ -85,7 +85,7 @@ static void _I_TestProperty_setTestStrongString_(TestProperty * self, SEL _cmd, 
 ```
 
 `objc_setProperty()` 执行过程，详见 [objc-accessors.mm](https://opensource.apple.com/source/objc4/objc4-551.1/runtime/Accessors.subproj/objc-accessors.mm.auto.html)
-```
+``` C
 void 
 objc_setProperty(id self, SEL _cmd, ptrdiff_t offset, id newValue, BOOL atomic, signed char shouldCopy) 
 {
@@ -130,7 +130,7 @@ static inline void reallySetProperty(id self, SEL _cmd, id newValue, ptrdiff_t o
 ```
 
 验证
-```
+``` Objective-C
 - (void)test
 {
     TestProperty *obj = [TestProperty new];
@@ -164,7 +164,7 @@ static inline void reallySetProperty(id self, SEL _cmd, id newValue, ptrdiff_t o
 
 @synthesize 告诉编译器属性的 ivar，并自动生成 setter 与 getter。Xcode4.4 之前必须要写，之后版本不用，现在会默认添加。
 
-```
+``` Objective-C
 // 默认
 @syntheszie var = _var;
 ```
