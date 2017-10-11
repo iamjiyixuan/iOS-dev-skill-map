@@ -31,11 +31,12 @@
 ## 3. 属性的默认特性是什么？
 
 ``` Objective-C
+@implementation SomeClass
 // ARC 下，修饰对象。
 @property (atomic，strong, readwrite) UIView *view;
-
 // 修饰基本数据类型
 @property (atomic，assign, readwrite) int num;
+@end
 ```
 
 ## 4. atomic 与 nonatomic 的区别？什么时候用 atomic？
