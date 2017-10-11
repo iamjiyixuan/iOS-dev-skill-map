@@ -1,10 +1,10 @@
 # 理解 Objective-C Property
 
-@property 是 OC 2.0 新增的一项特性，用于封装对象中的数据。
+@property 是 OC 2.0 新增的一项重要特性，用于封装对象中的数据。
 
 ## 1. @property 的本质是什么？
 
-> @property = ivar（实例变量）+ getter + setter
+@property = ivar（实例变量）+ getter + setter
 
 ## 2. 属性特性（property attribute）有哪些？
 
@@ -28,14 +28,17 @@
     - getter=<name>
     - setter=<name>
 
-## 3. 属性的默认特性是什么？
+## 3. ARC 下，属性的默认特性是什么？
 
 ``` Objective-C
 @implementation SomeClass
-// ARC 下，修饰对象。
+
+// 修饰对象类型
 @property (atomic，strong, readwrite) UIView *view;
+
 // 修饰基本数据类型
 @property (atomic，assign, readwrite) int num;
+
 @end
 ```
 
@@ -167,6 +170,18 @@ reallySetProperty(id self, SEL _cmd, id newValue, ptrdiff_t offset, bool atomic,
 2017-09-04 22:09:37.144 xctest[60519:6403882] .testStrongString: 0x7fdab6e1ffb0
 ```
 
+总结
+- NSString、NSArray、NSDictionary、NSSet 等类都有可变版本子类，为了确保对象本身持有的是一个不可变的副本，需要使用 copy 修饰
+
+关于对象 copy 策略
+- | - | copy | mutableCopy |
+- | - | ---- | ----------- |
+非集合类对象（NSString）| immutable | 指针复制 / 浅拷贝 | 内容复制 / 深拷贝
+非集合类对象（NSString）| mutable | 内容复制 / 深拷贝 | 内容复制 / 深拷贝
+集合类对象（NSArray、NSDictionary、NSSet）| immutable | 指针复制 / 浅拷贝 | 内容复制 / 深拷贝
+集合类对象（NSArray、NSDictionary、NSSet）| mutable | 内容复制 / 深拷贝 | 内容复制 / 深拷贝
+> 集合对象的内容复制仅限于集合对象本身，集合内对象元素仍然是指针复制
+
 ## 6. @synthesize 与 @dynamic 的作用是什么？
 
 如果 `@synthesize` 和 `@dynamic` 都不写，编译器会执行 autosynthesis（自动合成），自动生成 ivar、getter 和 setter。
@@ -184,3 +199,6 @@ reallySetProperty(id self, SEL _cmd, id newValue, ptrdiff_t offset, bool atomic,
 > Xcode 4.4 之前必须要写，之后的版本不用，如果不写编译器会自动生成。
 
 `@dynamic` 告诉编译器属性的 setter 与 getter 方法由用户自己实现，不自动生成。
+
+## 7. 参考
+- [iOSInterviewQuestions](https://github.com/ChenYilong/iOSInterviewQuestions)
