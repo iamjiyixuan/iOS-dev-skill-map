@@ -175,12 +175,12 @@ reallySetProperty(id self, SEL _cmd, id newValue, ptrdiff_t offset, bool atomic,
 
 关于对象 copy 策略
 
-- | - | copy | mutableCopy |
-- | - | ---- | ----------- |
-非集合类对象（NSString）| immutable | 指针复制 / 浅拷贝 | 内容复制 / 深拷贝
-非集合类对象（NSString）| mutable | 内容复制 / 深拷贝 | 内容复制 / 深拷贝
-集合类对象（NSArray、NSDictionary、NSSet）| immutable | 指针复制 / 浅拷贝 | 内容复制 / 深拷贝
-集合类对象（NSArray、NSDictionary、NSSet）| mutable | 内容复制 / 深拷贝 | 内容复制 / 深拷贝
+| - | - | copy | mutableCopy |
+| - | - | ---- | ----------- |
+| 非集合类对象（NSString）| immutable | 指针复制 / 浅拷贝 | 内容复制 / 深拷贝 |
+| 非集合类对象（NSString）| mutable | 内容复制 / 深拷贝 | 内容复制 / 深拷贝 |
+| 集合类对象（NSArray、NSDictionary、NSSet）| immutable | 指针复制 / 浅拷贝 | 内容复制 / 深拷贝 |
+| 集合类对象（NSArray、NSDictionary、NSSet）| mutable | 内容复制 / 深拷贝 | 内容复制 / 深拷贝 |
 
 > 集合对象的内容复制仅限于集合对象本身，集合内对象元素仍然是指针复制
 
