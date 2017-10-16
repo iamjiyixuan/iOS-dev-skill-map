@@ -114,6 +114,10 @@
 - [国内 90%以上的 iOS 开发者，对 APNs 的认识都是错的](http://www.jianshu.com/p/ace1b422bad4) by iOS程序犭袁 2016.04
 
 ## iOS 新特性
+- iPhone X
+  - Safe Area
+  - Face ID
+  - [苹果官方 iPhone X 适配指南](https://developer.apple.com/cn/ios/update-apps-for-iphone-x/)
 - iOS 11
   - Core ML
   - ARKit
