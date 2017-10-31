@@ -83,3 +83,4 @@ struct __main_block_impl_0 {
 - [深入研究 Block 用 weakSelf、strongSelf、@weakify、@strongify 解决循环引用](https://halfrost.com/ios_block_retain_circle/) by halfrost 2016.09
 - [如何动态创建 block – JPBlock 扩展原理详解](http://blog.cnbang.net/tech/3332/) by bang 2017.01
 - [iOS weak 关键字漫谈](http://mrpeak.cn/blog/ios-weak/) by mrpeak 2017.07
+- [Weak-Strong-Dance 真的安全吗？](http://www.jianshu.com/p/737999a30544) by kuailejim 2017.01

@@ -34,44 +34,31 @@
   - 内存管理
 - [Objective-C](编程语言/Objective-C/README.md)
   - OC 方面的好书不多，推荐 [《Effective Objective-C 2.0》](https://book.douban.com/subject/25829244/) 和 [《Objective-C 高级编程》](https://book.douban.com/subject/24720270/) 这两本，但不适合初学者，建议有一定基础后再阅读。
-  - 类与对象
-    - NSObject 协议
-    - NSObject 类：实现 NSObject 协议，是大部分 OC 类的根类。
-      - \+ load
-      - \+ initialize
-      - \+ alloc & \+ allocWithZone:
-      - \- init
-      - \+ new
-      - \- copy & \+ copyWithZone:
-      - \- mutableCopy & \+ mutableCopyWithZone:
-      - \- dealloc
-    - 属性 @property
-      - 原子性：atomic vs nonatomic
-      - 读写权限：readwrite vs readonly
-      - 内存管理语义：assign, strong, weak, unsafe_unretained, copy
-      - 存取方法名：getter=\<name\>, setter=\<name\>
-    - 方法
-  - 协议
-  - Category
-  - Block
-    - 循环引用
-    - weak-strong dance
-      - 为什么需要 `__weak typeof(self) weakSelf = self;`
-        - 答：避免循环引用。
-      - 为什么需要 `__strong typeof(self) strongSelf = weakSelf;`
-        - 答：防止 block 执行到一半的时候 self 被释放。
-        - 这里需要注意，持有 self 的行为是在 block 执行的时候才发生，因此有可能在 block 执行前 self 已经被释放，更安全的做法应该是在 block 内部使用 strongSelf 时仍然需要 nil 检测防止 Crash。
-      - 扩展阅读
-        - [Weak-Strong-Dance 真的安全吗？](http://www.jianshu.com/p/737999a30544) by kuailejim 2017.01
-  - Runtime
-    - 对象模型
-    - 关联对象（Associated Objects）
-    - 消息转发机制
-    - Method Swizzling
-  - 内存管理
-    - 引用计数
-    - ARC
-    - @autoreleasepool
+  - 了解 OC 语言的起源
+  - 基础
+    - 类与对象
+      - NSObject
+      - [属性 @property](编程语言/Objective-C/oc_property.md)
+      - 方法
+    - 协议
+    - Category
+    - Block
+      - 循环引用
+      - weak-strong dance
+        - 为什么需要 `__weak typeof(self) weakSelf = self;`？答：避免循环引用。
+        - 为什么需要 `__strong typeof(self) strongSelf = weakSelf;`？答：防止 block 执行到一半的时候 self 被释放。里需要注意，持有 self 的行为是在 block 执行的时候才发生，因此有可能在 block 执行前 self 已经被释放，更安全的做法应该是在 block 内部使用 strongSelf 时仍然需要 nil 检测防止 Crash。
+  - 进阶
+    - Runtime
+      - 对象模型
+      - 关联对象（Associated Objects）
+      - 消息转发机制
+      - Method Swizzling
+      - 内存管理
+        - 引用计数
+        - ARC
+        - @autoreleasepool
+  - 高阶
+    - Clang Attributes
 - [C++](编程语言/C++/README.md)
 - [Swift](编程语言/Swift/README.md)
 - JavaScript
