@@ -42,9 +42,46 @@
 @end
 ```
 
-## 4. atomic 与 nonatomic 的区别？什么时候用 atomic？
+## 4. atomic 与 nonatomic 的区别？
 
-- [What's the difference between the atomic and nonatomic attributes?](https://stackoverflow.com/questions/588866/whats-the-difference-between-the-atomic-and-nonatomic-attributes)
+属性默认是 atomic 的，由编译器所合成的 set 方法中会使用同步锁，代码如下：
+``` Objective-C
+static inline void 
+reallySetProperty(id self, SEL _cmd, id newValue, ptrdiff_t offset, bool atomic, bool copy, bool mutableCopy)
+{
+    id oldValue;
+    id *slot = (id*) ((char*)self + offset);
+
+    if (copy) {
+        newValue = [newValue copyWithZone:NULL];
+    } else if (mutableCopy) {
+        newValue = [newValue mutableCopyWithZone:NULL];
+    } else {
+        if (*slot == newValue) return;
+        newValue = objc_retain(newValue);
+    }
+
+    // 以下代码解释了 atomic 和 nonatomic 的本质区别
+    if (!atomic) {
+        oldValue = *slot;
+        *slot = newValue;
+    } else {
+        spin_lock_t *slotlock = &PropertyLocks[GOODHASH(slot)];
+        _spin_lock(slotlock);
+        oldValue = *slot;
+        *slot = newValue;        
+        _spin_unlock(slotlock);
+    }
+
+    objc_release(oldValue);
+}
+```
+
+atomic 会影响性能（有什么数据证明吗？）
+
+atomic 无法真正保证线程安全，[iOS 多线程到底不安全在哪里？](http://mrpeak.cn/blog/ios-thread-safety/)
+
+因此实际开发中一般属性都会声明为 nonatomic
 
 ## 5. NSString 为什么建议用 copy？如果用 strong 会有什么问题？
 
