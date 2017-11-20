@@ -1,13 +1,1 @@
 # 编程语言
-- [C](C)
-  - 内存管理
-- [C++](C++)
-- [Objective-C](Objective-C)
-  - Class
-  - Protocol
-  - Property
-  - Category
-  - Block
-  - Runtime
-  - ARC
-- [Swift](Swift)

@@ -63,7 +63,11 @@ let strarr3 = strarr1 + strarr2 // ["a", "b", "c", "d", "e", "f"]
 
 ## 10. 错误处理 Error Handling
 
-## 11. 参考资料
+## 11. 编码风格
+- [GitHub's Swift Style Guide](https://github.com/github/swift-style-guide)
+- [SwiftLint](https://github.com/realm/SwiftLint)
+
+## 12. 参考资料
 
 - [Swift 官网](https://swift.org)
 - [The Swift Programming Language (Swift 4 Edition)](https://swift.org/documentation/TheSwiftProgrammingLanguage(Swift4).epub)

@@ -62,7 +62,7 @@
     - Clang Attributes
 - [C++](编程语言/C++/README.md)
 - [Swift](编程语言/Swift/README.md)
-- JavaScript
+- [JavaScript / ES6](编程语言/ES6/README.md)
 - 汇编语言
 
 ## Cocoa 基础
