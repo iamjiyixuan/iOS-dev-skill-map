@@ -6,7 +6,7 @@ Repo | Stars | Language | Articles |
 [Masonry](https://github.com/SnapKit/Masonry) | 15,000+ | OC | [iOS 源代码分析 ---- Masonry](https://draveness.me/ios-yuan-dai-ma-fen-xi-masonry) by draveness |
 [SnapKit](https://github.com/SnapKit/SnapKit) | 11,000+ | Swift | []() |
 [MyLinearLayout](https://github.com/youngsoft/MyLinearLayout) | 2,600+ | OC |
-[AsyncDisplayKit](https://github.com/facebookarchive/AsyncDisplayKit) | 12,000+ | OC |
+[AsyncDisplayKit](https://github.com/facebookarchive/AsyncDisplayKit) | 12,000+ | OC | [iOS 保持界面流畅的技巧](https://blog.ibireme.com/2015/11/12/smooth_user_interfaces_for_ios/) by ibireme
 [texture](https://github.com/texturegroup/texture) | 2,300+ | OC | 
 [GPUImage](https://github.com/BradLarson/GPUImage) | 16,000+ | OC | []() |
 [MBProgressHUD](https://github.com/jdg/MBProgressHUD) | 13,000+ | OC | [iOS 源代码分析 ---- MBProgressHUD](https://draveness.me/ios-yuan-dai-ma-fen-xi-mbprogresshud) by draveness </br> [MBProgressHUD 源码解析](http://www.jianshu.com/p/6a5bd5fd8124) by J_Knight </br> [MBProgressHUD 实现分析](http://southpeak.github.io/2015/03/24/sourcecode-mbprogresshud/) by 南峰子 </br>[结合 Reveal 谈谈 MBProgressHUD 的用法](http://blog.leichunfeng.com/blog/2015/03/16/talking-about-the-usage-of-mbprogresshud-combined-with-reveal/) by 雷纯锋 |
@@ -64,7 +64,7 @@ Repo | Stars | Language | Articles |
 [redux-saga](https://github.com/redux-saga/redux-saga) | 9,800+ | JS | []() |
 [dva](https://github.com/dvajs/dva) | 6,300+ | JS | []() |
 [axios](https://github.com/axios/axios) | 29,000+ | JS | []() |
-[react-native](https://github.com/facebook/react-native) | 55,000+ | JS | []() |
+[react-native](https://github.com/facebook/react-native) | 55,000+ | JS | [React Native 源码导读(零) – 创建/运行/调试](http://blog.cnbang.net/tech/3461/) by bang </br> [React Native 通信机制详解](http://blog.cnbang.net/tech/2698/) by bang |
 [yoga](https://github.com/facebook/yoga) | 8,600+ | JS | []() |
 [react-navigation](https://github.com/react-community/react-navigation) | 7,700+ | JS | []() |
 [react-native-navigation](https://github.com/wix/react-native-navigation) | 5,000+ | JS | []() |
@@ -72,7 +72,7 @@ Repo | Stars | Language | Articles |
 [react-native-calendars](https://github.com/wix/react-native-calendars) | 1,400+ | JS | []() |
 [react-native-storage](https://github.com/sunnylqm/react-native-storage) | 1,300+ | JS | []() |
 [react-native-sqlite-storage](https://github.com/andpor/react-native-sqlite-storage) | 1,000+ | JS, Java, OC | []() |
-[ant-design-mobile](https://github.com/ant-design/ant-design-mobile) | 3,200+ | TypeScript | []() |
+[ant-design-mobile](https://github.com/ant-design/ant-design-mobile) | 3,200+ | TS | []() |
 
 ## App
 Repo | Stars | Language | Articles |
