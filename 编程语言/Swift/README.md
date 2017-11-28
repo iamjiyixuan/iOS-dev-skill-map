@@ -2,16 +2,10 @@
 
 ## 1. 变量 & 常量
 
-`let` 声明常量，`var` 声明变量。
-
 ``` Swift
-let maximumNumberOfLoginAttempts = 10
-var currentLoginAttempt = 0
-```
-
-声明常量或变量时可以指定类型（一般不需要）
-``` Swift
-var welcomeMessage: String = "Hello"
+let maximumNumberOfLoginAttempts = 10 // 常量
+var currentLoginAttempt = 0 // 变量
+var welcomeMessage: String = "Hello" // 声明常量或变量时可以指定类型，但一般不需要
 ```
 
 ## 2. 基本数据类型
@@ -22,16 +16,24 @@ var welcomeMessage: String = "Hello"
 
 ## 5. 集合类型
 
+Swift 提供三种基本集合类型：`Array`、`Set` 和 `Dictionary`。各自的特点如下：
+- Array - 有序、可重复
+- Set - 无序、不重复
+- Dictionary - 无序、键值对结构
+
 ### 5.1. 数组 Array
 
 ``` Swift
 // 创建数组
-let strarr = ["a", "b", "c"] // ["a", "b", "c"]
+let strarr = ["a", "b", "c"]
 
-let strarr:[String] = [] // []，创建空数组有多种写法，推荐这种最简洁的写法
-let strarr = [String]() // []
-let strarr: Array<String> = Array() // []
+// 创建空数组，必须指定类型
+let array = [] // !error: empty collection literal requires an explicit type
+let strarr:[String] = [] // best
+let strarr = [String]()
+let strarr: Array<String> = Array()
 
+// 创建带默认值的数组
 let strarr = Array(repeating:"", count:3) // ["", "", ""]
 
 // 合并数组
@@ -40,9 +42,53 @@ let strarr2 = ["d", "e", "f"]
 let strarr3 = strarr1 + strarr2 // ["a", "b", "c", "d", "e", "f"]
 
 // 数组判空
-[].isEmpty // 官方推荐使用 isEmpty 不要使用 count==0
+[].isEmpty // 官方推荐使用 isEmpty，不要使用 [].count==0
 
-// 添加、删除元素
+// 加元素
+var array = ["a"] // ["a"]
+array.append("b") // ["a", "b"]
+array.append(contentsOf: ["c", "d"]) // ["a", "b", "c", "d"]
+array += ["e", "f"] // ["a", "b", "c", "d", "e", "f"]
+array.insert("x", at: 2) // ["a", "b", "x", "c", "d", "e", "f"]
+array.insert(contentsOf: ["x0", "x1", "x2"], at: 2) // ["a", "b", "x0", "x1", "x2", "x", "c", "d", "e", "f"]
+
+// 删元素
+var array = ["a", "b", "c", "d", "e"]
+array.removeFirst() // return "a"
+array.removeLast() // return "e"
+array.remove(at: 1) // return "c"
+array.removeAll() // no return
+
+// 改元素
+var array = ["a", "b", "c", "d", "e"]
+array[0] = "a0" // ["a0", "b", "c", "d", "e"]
+
+// 读元素
+let array = ["a", "b", "c", "d", "e"]
+let str0 = array[0] // "a"
+
+// 数组切片，返回值类型为 ArraySlice 而不是 Array
+let slice1 = array[1...3] // ["b", "c", "d"]
+let slice2 = array[1..<array.endIndex] // ["b", "c", "d", "e"]
+
+// 遍历
+let array = ["a", "b", "c", "d", "e"]
+for item in array {
+    // todo
+}
+for (index, value) in array.enumerated() {
+    // todo
+}
+
+// 查找元素
+let numbers = [0, 1, 10, 100, 1000]
+numbers.contains(1) // return true
+numbers.contains { (number) -> Bool in number > 10 } // return true
+numbers.first { (number) -> Bool in number > 1 } // return 10
+numbers.first { (number) -> Bool in number < 0 } // return nil
+numbers.index(of: 100) // return 3
+numbers.index(of: -1) // return nil
+numbers.index { (number) -> Bool in number > 10 } // return 3
 ```
 
 ### 5.2. 集合 Set
@@ -55,9 +101,20 @@ let strarr3 = strarr1 + strarr2 // ["a", "b", "c", "d", "e", "f"]
 
 ## 6. 控制流
 
-## 7. 函数
+for-in
 
-## 8. 闭包
+while
+repeat-while
+
+if
+
+switch
+
+guard
+
+## 7. 函数 Function
+
+## 8. 闭包 Closure
 
 ## 9. 类 & 结构体 & 对象
 
