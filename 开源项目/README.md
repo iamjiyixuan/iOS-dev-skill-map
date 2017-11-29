@@ -52,6 +52,11 @@ Repo | Stars | Language | Articles |
 [MLeaksFinder](https://github.com/Tencent/MLeaksFinder) | 2,800+ | OC |
 [CocoaLumberjack](https://github.com/CocoaLumberjack/CocoaLumberjack) | 9,600+ | OC |
 
+## Hotfix
+Repo | Stars | Language | Articles |
+---- | ----- | -------- | -------- |
+[JSPatch](https://github.com/bang590/JSPatch) | 10,000+ | C, OC | [JSPatch – 动态更新iOS APP](http://blog.cnbang.net/works/2767/) by bang </br> [JSPatch 实现原理详解](http://blog.cnbang.net/tech/2808/) by bang </br> [JSPatch 实现原理详解<二>](http://blog.cnbang.net/tech/2855/) by bang </br> [JSPatch 部署安全策略](http://blog.cnbang.net/tech/2879/) by bang </br> [JSPatch Convertor 实现原理详解](http://blog.cnbang.net/tech/2915/) by bang </br> [回应一下 JSPatch 安全问题](http://blog.cnbang.net/internet/2990/) by bang </br> [JSPatch 平台介绍](http://blog.cnbang.net/archives/) by bang </br> [JSPatch 近期新特性解析](http://blog.cnbang.net/tech/3038/) by bang </br> [JSPatch 更新：完善开发功能模块的能力](http://blog.cnbang.net/tech/3123/) by bang </br> [如何动态调用 C 函数](http://blog.cnbang.net/tech/3219/) by bang </br> [iOS 动态更新方案对比:JSPatch vs React Native](http://blog.cnbang.net/archives/) by bang </br> [如何动态创建 block - JPBlock 扩展原理详解](http://blog.cnbang.net/tech/3332/) by bang </br> |
+
 ## React Native
 Repo | Stars | Language | Articles |
 ---- | ----- | -------- | -------- |
