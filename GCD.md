@@ -10,15 +10,27 @@
 - global queue：全局队列，并行
 - custom queue：自定义队列，通过 dispatch_queue_create 函数创建
 
+## 3. dispatch_queue_create 函数
 ``` C
-// 串行队列
-dispatch_queue_t queue = dispatch_queue_create("com.example.MyQueue", DISPATCH_QUEUE_SERIAL);
+// A dispatch queue is a lightweight object to which your application submits blocks for subsequent execution.
+typedef NSObject<OS_dispatch_queue> *dispatch_queue_t;
 
-// 并行队列
-dispatch_queue_t queue = dispatch_queue_create("com.example.MyQueue", DISPATCH_QUEUE_CONCURRENT);
+// Creates a new dispatch queue to which blocks can be submitted.
+dispatch_queue_t dispatch_queue_create(const char *label, dispatch_queue_attr_t attr);
+```
+- label 可以为空，也可以重复，为了方便调试需要自己确保其唯一性。可以通过 dispatch_queue_get_label() 函数获取到指定 queue 的 label，但不能通过 label 反查 queue。
+
+``` C
+// 创建串行队列
+dispatch_queue_t queue = dispatch_queue_create("com.example.myqueue", DISPATCH_QUEUE_SERIAL);
+
+// 创建并行队列
+dispatch_queue_t queue = dispatch_queue_create("com.example.myqueue", DISPATCH_QUEUE_CONCURRENT);
 ```
 
-## 3. dispatch_once 函数
+源码：[queue.c](https://github.com/apple/swift-corelibs-libdispatch/blob/master/src/queue.c)
+
+## 4. dispatch_once 函数
 
 ``` C
 typedef long dispatch_once_t;
@@ -34,7 +46,7 @@ void dispatch_once_f(dispatch_once_t *token, void *context, dispatch_function_t 
 - dispatch_once_t 类型变量必须是 global 或 static 的
 - dispatch_once 可能导致死锁
 
-### 3.1. dispatch_once 实现单例，关于单例模式详见[这篇笔记](Singleton.md)
+### 4.1. dispatch_once 实现单例，关于单例模式详见[这篇笔记](Singleton.md)
 ``` Objective-C
 + (nonnull instancetype)sharedInstance {
     static dispatch_once_t onceToken;
@@ -46,7 +58,7 @@ void dispatch_once_f(dispatch_once_t *token, void *context, dispatch_function_t 
 }
 ```
 
-### 3.2. dispatch_once 死锁问题
+### 4.2. dispatch_once 死锁问题
 [原文链接](http://joeleee.github.io/2017/03/20/011.dispatch_once/)
 ``` Objective-C
 - (void)viewDidLoad {
@@ -71,7 +83,7 @@ void dispatch_once_f(dispatch_once_t *token, void *context, dispatch_function_t 
 }
 ```
 
-### 3.3. dispatch_once 源码解析
+### 4.3. dispatch_once 源码解析
 源码地址：[once.c](https://github.com/apple/swift-corelibs-libdispatch/blob/master/src/once.c)
 ```
 // 调用过程
@@ -148,15 +160,62 @@ dispatch_once_f_slow(dispatch_once_t *val, void *ctxt, dispatch_function_t func)
 }
 ```
 
-## 4. dispatch_sync 函数
+## 5. dispatch_sync 函数
 ``` C
 // Submits a block object for execution on a dispatch queue and waits until that block completes.
 void dispatch_sync(dispatch_queue_t queue, dispatch_block_t block);
 ```
-- 一次提交一个任务，直到任务完成，才能提交下一个（特别需要注意 GCD 中**任务提交**和**任务执行**和区别）
-- 会阻塞当前线程，直到 block 执行完
+- 提交并执行一个任务，直到任务完成，才能提交下一个。
+- 无论是提交到串行队列还是并行队列 dispatch_sync 都不会开辟新的线程而是直接在当前线程中执行，因此会阻塞当前线程直到 block 执行完。
+- 什么场景下需要使用 dispatch_sync ？[You use it when you want to execute a block and wait for the results.](https://stackoverflow.com/questions/4607125/using-dispatch-sync-in-grand-central-dispatch)
 
-### 4.1. dispatch_sync 死锁问题
+``` C
+- (void)testDispatchSyncUseSerialQueue {
+    dispatch_queue_t queue = dispatch_queue_create("com.example.myqueue", DISPATCH_QUEUE_SERIAL);
+    dispatch_sync(queue, ^{
+        NSLog(@"current thread = %@", [NSThread currentThread]); // current thread = <NSThread: 0x7fbabd800090>{number = 1, name = main}
+    });
+}
+
+- (void)testDispatchSyncUseConcurrentQueue {
+    dispatch_queue_t queue = dispatch_queue_create("com.example.myqueue", DISPATCH_QUEUE_CONCURRENT);
+    dispatch_sync(queue, ^{
+        NSLog(@"current thread = %@", [NSThread currentThread]); // current thread = <NSThread: 0x7fbabd800090>{number = 1, name = main}
+    });
+}
+```
+
+``` C
+- (void)testExample {
+    dispatch_queue_t queue = dispatch_queue_create("com.example.myqueue", DISPATCH_QUEUE_SERIAL);
+    for (NSInteger index = 0; index < 10; index++) {
+        dispatch_async(queue, ^{
+            sleep(1);
+            NSLog(@"index= %d, current thread = %@", index, [NSThread currentThread]);
+        });
+    }
+    dispatch_sync(queue, ^{
+        NSLog(@"end, current thread = %@", [NSThread currentThread]);
+    });
+}
+
+运行结果：
+2017-12-04 10:29:02.633794+0800 xctest[2523:516506] index= 0, current thread = <NSThread: 0x7f982f242af0>{number = 2, name = (null)}
+2017-12-04 10:29:03.637787+0800 xctest[2523:516506] index= 1, current thread = <NSThread: 0x7f982f242af0>{number = 2, name = (null)}
+2017-12-04 10:29:04.639562+0800 xctest[2523:516506] index= 2, current thread = <NSThread: 0x7f982f242af0>{number = 2, name = (null)}
+2017-12-04 10:29:05.644287+0800 xctest[2523:516506] index= 3, current thread = <NSThread: 0x7f982f242af0>{number = 2, name = (null)}
+2017-12-04 10:29:06.648002+0800 xctest[2523:516506] index= 4, current thread = <NSThread: 0x7f982f242af0>{number = 2, name = (null)}
+2017-12-04 10:29:07.653095+0800 xctest[2523:516506] index= 5, current thread = <NSThread: 0x7f982f242af0>{number = 2, name = (null)}
+2017-12-04 10:29:08.655106+0800 xctest[2523:516506] index= 6, current thread = <NSThread: 0x7f982f242af0>{number = 2, name = (null)}
+2017-12-04 10:29:09.658384+0800 xctest[2523:516506] index= 7, current thread = <NSThread: 0x7f982f242af0>{number = 2, name = (null)}
+2017-12-04 10:29:10.663733+0800 xctest[2523:516506] index= 8, current thread = <NSThread: 0x7f982f242af0>{number = 2, name = (null)}
+2017-12-04 10:29:11.668381+0800 xctest[2523:516506] index= 9, current thread = <NSThread: 0x7f982f242af0>{number = 2, name = (null)}
+2017-12-04 10:29:11.668592+0800 xctest[2523:516336] end, current thread = <NSThread: 0x7f982df061b0>{number = 1, name = main}
+
+如果这里换成异步队列，只会打印 end, current thread = <NSThread: 0x7f982df061b0>{number = 1, name = main} 然后程序就结束了
+```
+
+### 5.1. dispatch_sync 导致死锁
 
 使用 dispatch_sync 向当前队列提交 block 必死锁
 ``` C
@@ -167,7 +226,7 @@ void dispatch_sync(dispatch_queue_t queue, dispatch_block_t block);
 }
 ```
 
-## 5. dispatch_async
+## 6. dispatch_async
 ``` C
 // Submits a block for asynchronous execution on a dispatch queue and returns immediately.
 void dispatch_async(dispatch_queue_t queue, dispatch_block_t block);
@@ -176,18 +235,18 @@ void dispatch_async(dispatch_queue_t queue, dispatch_block_t block);
 
 > dispatch_sync 和 dispatch_async 控制的是任务提交的过程，而队列类型控制的任务执行的过程。
 
-## 6. dispatch_group
+## 7. dispatch_group
 
-## 7. dispatch_semaphore
+## 8. dispatch_semaphore
 
-## 8. dispatch_after 函数
+## 9. dispatch_after 函数
 ``` C
 // Enqueue a block for execution at the specified time.
 void dispatch_after(dispatch_time_t when, dispatch_queue_t queue, dispatch_block_t block);
 ```
 - 延迟提交，不是延迟执行
 
-## 9. 参考资料
+## 10. 参考资料
 - [GCD C API](https://developer.apple.com/documentation/dispatch?language=objc)
 - [libdispatch 源码](https://github.com/apple/swift-corelibs-libdispatch)
 - [《Effective Objective-C 2.0》]()
