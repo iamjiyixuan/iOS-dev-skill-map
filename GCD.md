@@ -1,16 +1,39 @@
 # Grand Central Dispatch
 
+<!-- TOC -->
+
+- [1. 背景知识](#1-背景知识)
+    - [1.1. 什么是线程安全？](#11-什么是线程安全)
+- [2. GCD 中的三种队列](#2-gcd-中的三种队列)
+- [3. dispatch_queue_create](#3-dispatch_queue_create)
+- [4. dispatch_once](#4-dispatch_once)
+    - [4.1. dispatch_once 导致死锁](#41-dispatch_once-导致死锁)
+    - [4.2. dispatch_once 源码解析](#42-dispatch_once-源码解析)
+- [5. dispatch_sync](#5-dispatch_sync)
+    - [5.1. dispatch_sync 导致死锁](#51-dispatch_sync-导致死锁)
+- [6. dispatch_async](#6-dispatch_async)
+- [7. dispatch_barrier](#7-dispatch_barrier)
+- [8. dispatch_group](#8-dispatch_group)
+- [9. dispatch_semaphore](#9-dispatch_semaphore)
+- [10. dispatch_after](#10-dispatch_after)
+- [11. dispatch_queue_set_specific & dispatch_get_specific](#11-dispatch_queue_set_specific--dispatch_get_specific)
+- [12. 主线程和主队列有什么区别？](#12-主线程和主队列有什么区别)
+- [13. 如何判断当前队列是否是主队列？](#13-如何判断当前队列是否是主队列)
+- [14. 参考资料](#14-参考资料)
+
+<!-- /TOC -->
+
 ## 1. 背景知识
 
-### 1.1. 什么是线程安全？[iOS 多线程到底不安全在哪里？](http://www.mrpeak.cn/blog/ios-thread-safety/)
-线程安全指一段代码执行过程中不会有其他线程介入。
+### 1.1. 什么是线程安全？
+线程安全指一段代码执行过程中不会有其他线程介入。[iOS 多线程到底不安全在哪里？](http://www.mrpeak.cn/blog/ios-thread-safety/)
 
 ## 2. GCD 中的三种队列
 - main queue：主队列，串行
 - global queue：全局队列，并行
 - custom queue：自定义队列，通过 dispatch_queue_create 函数创建
 
-## 3. dispatch_queue_create 函数
+## 3. dispatch_queue_create
 ``` C
 // A dispatch queue is a lightweight object to which your application submits blocks for subsequent execution.
 typedef NSObject<OS_dispatch_queue> *dispatch_queue_t;
@@ -30,35 +53,18 @@ dispatch_queue_t queue = dispatch_queue_create("com.example.myqueue", DISPATCH_Q
 
 源码：[queue.c](https://github.com/apple/swift-corelibs-libdispatch/blob/master/src/queue.c)
 
-## 4. dispatch_once 函数
+## 4. dispatch_once
 
 ``` C
-typedef long dispatch_once_t;
-typedef void (^dispatch_block_t)(void);
-typedef void (*dispatch_function_t)(void *);
-
+// Executes a block object once and only once for the lifetime of an application.
 void dispatch_once(dispatch_once_t *token, dispatch_block_t block);
-void dispatch_once_f(dispatch_once_t *token, void *context, dispatch_function_t function);
 ```
-
-- dispatch_once 是 Objective-C 中实现单例模式的最佳方式
+- dispatch_once 是 Objective-C 中实现单例模式的最佳方式，关于单例模式详见[这篇笔记](Singleton.md)
 - dispatch_once 是线程安全的，且性能优于 @synchronized
 - dispatch_once_t 类型变量必须是 global 或 static 的
 - dispatch_once 可能导致死锁
 
-### 4.1. dispatch_once 实现单例，关于单例模式详见[这篇笔记](Singleton.md)
-``` Objective-C
-+ (nonnull instancetype)sharedInstance {
-    static dispatch_once_t onceToken;
-    static id instance;
-    dispatch_once(&onceToken, ^{
-        instance = [[self alloc] init];
-    });
-    return instance;
-}
-```
-
-### 4.2. dispatch_once 死锁问题
+### 4.1. dispatch_once 导致死锁
 [原文链接](http://joeleee.github.io/2017/03/20/011.dispatch_once/)
 ``` Objective-C
 - (void)viewDidLoad {
@@ -83,7 +89,7 @@ void dispatch_once_f(dispatch_once_t *token, void *context, dispatch_function_t 
 }
 ```
 
-### 4.3. dispatch_once 源码解析
+### 4.2. dispatch_once 源码解析
 源码地址：[once.c](https://github.com/apple/swift-corelibs-libdispatch/blob/master/src/once.c)
 ```
 // 调用过程
@@ -160,7 +166,7 @@ dispatch_once_f_slow(dispatch_once_t *val, void *ctxt, dispatch_function_t func)
 }
 ```
 
-## 5. dispatch_sync 函数
+## 5. dispatch_sync
 ``` C
 // Submits a block object for execution on a dispatch queue and waits until that block completes.
 void dispatch_sync(dispatch_queue_t queue, dispatch_block_t block);
@@ -235,18 +241,67 @@ void dispatch_async(dispatch_queue_t queue, dispatch_block_t block);
 
 > dispatch_sync 和 dispatch_async 控制的是任务提交的过程，而队列类型控制的任务执行的过程。
 
-## 7. dispatch_group
+## 7. dispatch_barrier
+``` C
+// Submits a barrier block object for execution and waits until that block completes.
+void dispatch_barrier_sync(dispatch_queue_t queue, dispatch_block_t block);
 
-## 8. dispatch_semaphore
+// Submits a barrier block for asynchronous execution and returns immediately.
+void dispatch_barrier_async(dispatch_queue_t queue, dispatch_block_t block);
+```
+- barrier 生效的基本条件是要在同一队列，因此在 global queue 中使用没有任何意义
 
-## 9. dispatch_after 函数
+## 8. dispatch_group
+
+## 9. dispatch_semaphore
+
+## 10. dispatch_after
 ``` C
 // Enqueue a block for execution at the specified time.
 void dispatch_after(dispatch_time_t when, dispatch_queue_t queue, dispatch_block_t block);
 ```
 - 延迟提交，不是延迟执行
 
-## 10. 参考资料
+## 11. dispatch_queue_set_specific & dispatch_get_specific
+``` C
+// Sets the key/value data for the specified dispatch queue.
+void dispatch_queue_set_specific(dispatch_queue_t queue, const void *key, void *context, dispatch_function_t destructor);
+
+// Returns the value for the key associated with the current dispatch queue.
+void * dispatch_get_specific(const void *key);
+```
+
+## 12. 主线程和主队列有什么区别？
+
+每个 app 只能有一个 main thread，但可能有不同的队列在主线程上执行。
+
+参考：[GCD's Main Queue vs. Main Thread](http://blog.benjamin-encz.de/post/main-queue-vs-main-thread/)
+
+## 13. 如何判断当前队列是否是主队列？
+方法一：React Native 中的实现，使用 dispatch_queue_set_specific 和 dispatch_get_specific 来实现
+``` C
+BOOL RCTIsMainQueue()
+{
+  static void *mainQueueKey = &mainQueueKey;
+  static dispatch_once_t onceToken;
+  dispatch_once(&onceToken, ^{
+    dispatch_queue_set_specific(dispatch_get_main_queue(),
+                                mainQueueKey, mainQueueKey, NULL);
+  });
+  return dispatch_get_specific(mainQueueKey) == mainQueueKey;
+}
+```
+
+方法二：比对当前队列的 label 与主队列的 label 是否一致
+``` C
+BOOL XYZIsMainQueue()
+{
+    return strcmp(dispatch_queue_get_label(DISPATCH_CURRENT_QUEUE_LABEL),
+                  dispatch_queue_get_label(dispatch_get_main_queue())) == 0;
+}
+```
+
+## 14. 参考资料
 - [GCD C API](https://developer.apple.com/documentation/dispatch?language=objc)
 - [libdispatch 源码](https://github.com/apple/swift-corelibs-libdispatch)
 - [《Effective Objective-C 2.0》]()
@@ -263,3 +318,4 @@ void dispatch_after(dispatch_time_t when, dispatch_queue_t queue, dispatch_block
 - [底层并发 API](https://objccn.io/issue-2-3/) by objccn
 - [线程安全类的设计](https://objccn.io/issue-2-4/) by objccn
 - [测试并发程序](https://objccn.io/issue-2-5) by objccn
+- [iOS 知识小集](https://github.com/southpeak/iOS-tech-set) by 南峰子
