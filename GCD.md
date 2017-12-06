@@ -3,22 +3,24 @@
 <!-- TOC -->
 
 - [1. 背景知识](#1-背景知识)
-    - [1.1. 什么是线程安全？](#11-什么是线程安全)
+  - [1.1. 什么是线程安全？](#11-什么是线程安全)
 - [2. GCD 中的三种队列](#2-gcd-中的三种队列)
 - [3. dispatch_queue_create](#3-dispatch_queue_create)
 - [4. dispatch_once](#4-dispatch_once)
-    - [4.1. dispatch_once 导致死锁](#41-dispatch_once-导致死锁)
-    - [4.2. dispatch_once 源码解析](#42-dispatch_once-源码解析)
+  - [4.1. dispatch_once 导致死锁](#41-dispatch_once-导致死锁)
+  - [4.2. dispatch_once 源码解析](#42-dispatch_once-源码解析)
 - [5. dispatch_sync](#5-dispatch_sync)
-    - [5.1. dispatch_sync 导致死锁](#51-dispatch_sync-导致死锁)
+  - [5.1. dispatch_sync 导致死锁](#51-dispatch_sync-导致死锁)
 - [6. dispatch_async](#6-dispatch_async)
 - [7. dispatch_barrier](#7-dispatch_barrier)
 - [8. dispatch_group](#8-dispatch_group)
 - [9. dispatch_semaphore](#9-dispatch_semaphore)
 - [10. dispatch_after](#10-dispatch_after)
 - [11. dispatch_queue_set_specific & dispatch_get_specific](#11-dispatch_queue_set_specific--dispatch_get_specific)
-- [12. 主线程和主队列有什么区别？](#12-主线程和主队列有什么区别)
+- [12. main thread 和 main queue 有什么区别？](#12-main-thread-和-main-queue-有什么区别)
 - [13. 如何判断当前队列是否是主队列？](#13-如何判断当前队列是否是主队列)
+  - [13.1. 方法一：React Native 中的实现，使用 dispatch_queue_set_specific 和 dispatch_get_specific 来设置标志](#131-方法一react-native-中的实现使用-dispatch_queue_set_specific-和-dispatch_get_specific-来设置标志)
+  - [13.2. 方法二：比对当前队列的 label 与主队列的 label 是否一致](#132-方法二比对当前队列的-label-与主队列的-label-是否一致)
 - [14. 参考资料](#14-参考资料)
 
 <!-- /TOC -->
@@ -271,14 +273,29 @@ void dispatch_queue_set_specific(dispatch_queue_t queue, const void *key, void *
 void * dispatch_get_specific(const void *key);
 ```
 
-## 12. 主线程和主队列有什么区别？
+## 12. main thread 和 main queue 有什么区别？
 
-每个 app 只能有一个 main thread，但可能有不同的队列在主线程上执行。
+- 每个 app 只能有一个 main thread
+- 可以通过 `[NSThread isMainThread]` 来判断线程是否是 main thread
+- GCD 没有提供 API 直接判断当前队列是否是 main queue
+- 派发到 main queue 的任务**必定**在 main thread 上执行
+- 执行在 main thread 上的任务**不一定**来自 main queue，也可能来自其他队列
 
 参考：[GCD's Main Queue vs. Main Thread](http://blog.benjamin-encz.de/post/main-queue-vs-main-thread/)
 
+一个非 main queue 执行在 main thread 上的示例：
+``` C
+- (void)test {
+    dispatch_queue_t queue = dispatch_queue_create("io.iamjiyixuan.queue", DISPATCH_QUEUE_SERIAL);
+    dispatch_sync(queue, ^{
+        NSLog(@"%@", [NSThread currentThread]); // <NSThread: 0x7f8462e00d80>{number = 1, name = main}
+        NSLog(@"%s", dispatch_queue_get_label(DISPATCH_CURRENT_QUEUE_LABEL)); // io.iamjiyixuan.queue
+    });
+}
+```
+
 ## 13. 如何判断当前队列是否是主队列？
-方法一：React Native 中的实现，使用 dispatch_queue_set_specific 和 dispatch_get_specific 来实现
+### 13.1. 方法一：React Native 中的实现，使用 dispatch_queue_set_specific 和 dispatch_get_specific 来设置标志
 ``` C
 BOOL RCTIsMainQueue()
 {
@@ -290,9 +307,21 @@ BOOL RCTIsMainQueue()
   });
   return dispatch_get_specific(mainQueueKey) == mainQueueKey;
 }
+
+// 借助 RCTIsMainQueue 我们很容易实现确保任务在主队列执行的工具函数 
+void RCTExecuteOnMainQueue(dispatch_block_t block)
+{
+  if (RCTIsMainQueue()) {
+    block();
+  } else {
+    dispatch_async(dispatch_get_main_queue(), ^{
+      block();
+    });
+  }
+}
 ```
 
-方法二：比对当前队列的 label 与主队列的 label 是否一致
+### 13.2. 方法二：比对当前队列的 label 与主队列的 label 是否一致
 ``` C
 BOOL XYZIsMainQueue()
 {
@@ -300,6 +329,18 @@ BOOL XYZIsMainQueue()
                   dispatch_queue_get_label(dispatch_get_main_queue())) == 0;
 }
 ```
+但这种方法存在一个缺陷，由于 label 不是唯一的，如果我们自己创建一个队列，label 设置成和主队列 label 一样，这样还是会出现误判。因此在实际项目中，我更推荐方法一。
+``` C
+- (void)testFakeMainQueue {
+    dispatch_queue_t queue = dispatch_queue_create(dispatch_queue_get_label(dispatch_get_main_queue()),
+                                                   DISPATCH_QUEUE_SERIAL);
+    dispatch_sync(queue, ^{
+        XCTAssertFalse(RCTIsMainQueue());
+        XCTAssertFalse(XYZIsMainQueue()); // 这里测试不通过
+    });
+}
+```
+
 
 ## 14. 参考资料
 - [GCD C API](https://developer.apple.com/documentation/dispatch?language=objc)
