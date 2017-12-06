@@ -5,23 +5,25 @@
 - [1. 背景知识](#1-背景知识)
   - [1.1. 什么是线程安全？](#11-什么是线程安全)
 - [2. GCD 中的三种队列](#2-gcd-中的三种队列)
-- [3. dispatch_queue_create](#3-dispatch_queue_create)
+- [3. dispatch_queue_create 创建队列](#3-dispatch_queue_create-创建队列)
 - [4. dispatch_once](#4-dispatch_once)
   - [4.1. dispatch_once 导致死锁](#41-dispatch_once-导致死锁)
   - [4.2. dispatch_once 源码解析](#42-dispatch_once-源码解析)
-- [5. dispatch_sync](#5-dispatch_sync)
+- [5. dispatch_sync 同步提交任务](#5-dispatch_sync-同步提交任务)
   - [5.1. dispatch_sync 导致死锁](#51-dispatch_sync-导致死锁)
-- [6. dispatch_async](#6-dispatch_async)
+- [6. dispatch_async 异步提交任务](#6-dispatch_async-异步提交任务)
 - [7. dispatch_barrier](#7-dispatch_barrier)
 - [8. dispatch_group](#8-dispatch_group)
-- [9. dispatch_semaphore](#9-dispatch_semaphore)
-- [10. dispatch_after](#10-dispatch_after)
-- [11. dispatch_queue_set_specific & dispatch_get_specific](#11-dispatch_queue_set_specific--dispatch_get_specific)
-- [12. main thread 和 main queue 有什么区别？](#12-main-thread-和-main-queue-有什么区别)
-- [13. 如何判断当前队列是否是主队列？](#13-如何判断当前队列是否是主队列)
-  - [13.1. 方法一：React Native 中的实现，使用 dispatch_queue_set_specific 和 dispatch_get_specific 来设置标志](#131-方法一react-native-中的实现使用-dispatch_queue_set_specific-和-dispatch_get_specific-来设置标志)
-  - [13.2. 方法二：比对当前队列的 label 与主队列的 label 是否一致](#132-方法二比对当前队列的-label-与主队列的-label-是否一致)
-- [14. 参考资料](#14-参考资料)
+- [9. dispatch_semaphore 信号量](#9-dispatch_semaphore-信号量)
+- [10. dispatch_after 延迟提交](#10-dispatch_after-延迟提交)
+- [11. dispatch_apply](#11-dispatch_apply)
+- [12. dispatch_suspend & dispatch_resume](#12-dispatch_suspend--dispatch_resume)
+- [13. dispatch_queue_set_specific & dispatch_get_specific](#13-dispatch_queue_set_specific--dispatch_get_specific)
+- [14. main thread 和 main queue 有什么区别？](#14-main-thread-和-main-queue-有什么区别)
+- [15. 如何判断当前队列是否是主队列？](#15-如何判断当前队列是否是主队列)
+  - [15.1. 方法一：React Native 中的实现，使用 dispatch_queue_set_specific 和 dispatch_get_specific 来设置标志](#151-方法一react-native-中的实现使用-dispatch_queue_set_specific-和-dispatch_get_specific-来设置标志)
+  - [15.2. 方法二：比对当前队列的 label 与主队列的 label 是否一致](#152-方法二比对当前队列的-label-与主队列的-label-是否一致)
+- [16. 参考资料](#16-参考资料)
 
 <!-- /TOC -->
 
@@ -35,11 +37,8 @@
 - global queue：全局队列，并行
 - custom queue：自定义队列，通过 dispatch_queue_create 函数创建
 
-## 3. dispatch_queue_create
+## 3. dispatch_queue_create 创建队列
 ``` C
-// A dispatch queue is a lightweight object to which your application submits blocks for subsequent execution.
-typedef NSObject<OS_dispatch_queue> *dispatch_queue_t;
-
 // Creates a new dispatch queue to which blocks can be submitted.
 dispatch_queue_t dispatch_queue_create(const char *label, dispatch_queue_attr_t attr);
 ```
@@ -168,7 +167,7 @@ dispatch_once_f_slow(dispatch_once_t *val, void *ctxt, dispatch_function_t func)
 }
 ```
 
-## 5. dispatch_sync
+## 5. dispatch_sync 同步提交任务
 ``` C
 // Submits a block object for execution on a dispatch queue and waits until that block completes.
 void dispatch_sync(dispatch_queue_t queue, dispatch_block_t block);
@@ -234,7 +233,7 @@ void dispatch_sync(dispatch_queue_t queue, dispatch_block_t block);
 }
 ```
 
-## 6. dispatch_async
+## 6. dispatch_async 异步提交任务
 ``` C
 // Submits a block for asynchronous execution on a dispatch queue and returns immediately.
 void dispatch_async(dispatch_queue_t queue, dispatch_block_t block);
@@ -255,16 +254,30 @@ void dispatch_barrier_async(dispatch_queue_t queue, dispatch_block_t block);
 
 ## 8. dispatch_group
 
-## 9. dispatch_semaphore
+## 9. dispatch_semaphore 信号量
+``` C
+// Creates new counting semaphore with an initial value.
+dispatch_semaphore_t dispatch_semaphore_create(long value);
 
-## 10. dispatch_after
+// Signals, or increments, a semaphore.
+long dispatch_semaphore_signal(dispatch_semaphore_t dsema);
+
+// Waits for (decrements) a semaphore.
+long dispatch_semaphore_wait(dispatch_semaphore_t dsema, dispatch_time_t timeout);
+```
+
+## 10. dispatch_after 延迟提交
 ``` C
 // Enqueue a block for execution at the specified time.
 void dispatch_after(dispatch_time_t when, dispatch_queue_t queue, dispatch_block_t block);
 ```
 - 延迟提交，不是延迟执行
 
-## 11. dispatch_queue_set_specific & dispatch_get_specific
+## 11. dispatch_apply
+
+## 12. dispatch_suspend & dispatch_resume
+
+## 13. dispatch_queue_set_specific & dispatch_get_specific
 ``` C
 // Sets the key/value data for the specified dispatch queue.
 void dispatch_queue_set_specific(dispatch_queue_t queue, const void *key, void *context, dispatch_function_t destructor);
@@ -273,10 +286,10 @@ void dispatch_queue_set_specific(dispatch_queue_t queue, const void *key, void *
 void * dispatch_get_specific(const void *key);
 ```
 
-## 12. main thread 和 main queue 有什么区别？
+## 14. main thread 和 main queue 有什么区别？
 
 - 每个 app 只能有一个 main thread
-- 可以通过 `[NSThread isMainThread]` 来判断线程是否是 main thread
+- 可以通过 `[NSThread isMainThread]` 来判断当前线程是否是 main thread
 - GCD 没有提供 API 直接判断当前队列是否是 main queue
 - 派发到 main queue 的任务**必定**在 main thread 上执行
 - 执行在 main thread 上的任务**不一定**来自 main queue，也可能来自其他队列
@@ -294,8 +307,8 @@ void * dispatch_get_specific(const void *key);
 }
 ```
 
-## 13. 如何判断当前队列是否是主队列？
-### 13.1. 方法一：React Native 中的实现，使用 dispatch_queue_set_specific 和 dispatch_get_specific 来设置标志
+## 15. 如何判断当前队列是否是主队列？
+### 15.1. 方法一：React Native 中的实现，使用 dispatch_queue_set_specific 和 dispatch_get_specific 来设置标志
 ``` C
 BOOL RCTIsMainQueue()
 {
@@ -321,7 +334,7 @@ void RCTExecuteOnMainQueue(dispatch_block_t block)
 }
 ```
 
-### 13.2. 方法二：比对当前队列的 label 与主队列的 label 是否一致
+### 15.2. 方法二：比对当前队列的 label 与主队列的 label 是否一致
 ``` C
 BOOL XYZIsMainQueue()
 {
@@ -335,14 +348,14 @@ BOOL XYZIsMainQueue()
     dispatch_queue_t queue = dispatch_queue_create(dispatch_queue_get_label(dispatch_get_main_queue()),
                                                    DISPATCH_QUEUE_SERIAL);
     dispatch_sync(queue, ^{
-        XCTAssertFalse(RCTIsMainQueue());
-        XCTAssertFalse(XYZIsMainQueue()); // 这里测试不通过
+        XCTAssertFalse(RCTIsMainQueue()); // 测试通过
+        XCTAssertFalse(XYZIsMainQueue()); // 测试不通过
     });
 }
 ```
 
 
-## 14. 参考资料
+## 16. 参考资料
 - [GCD C API](https://developer.apple.com/documentation/dispatch?language=objc)
 - [libdispatch 源码](https://github.com/apple/swift-corelibs-libdispatch)
 - [《Effective Objective-C 2.0》]()
