@@ -1,29 +1,32 @@
-# Grand Central Dispatch
+# Grand Central Dispatch（GCD）
 
 <!-- TOC -->
 
 - [1. 背景知识](#1-背景知识)
-  - [1.1. 什么是线程安全？](#11-什么是线程安全)
-- [2. GCD 中的三种队列](#2-gcd-中的三种队列)
-- [3. dispatch_queue_create 创建队列](#3-dispatch_queue_create-创建队列)
-- [4. dispatch_once](#4-dispatch_once)
-  - [4.1. dispatch_once 导致死锁](#41-dispatch_once-导致死锁)
-  - [4.2. dispatch_once 源码解析](#42-dispatch_once-源码解析)
-- [5. dispatch_sync 同步提交任务](#5-dispatch_sync-同步提交任务)
-  - [5.1. dispatch_sync 导致死锁](#51-dispatch_sync-导致死锁)
-- [6. dispatch_async 异步提交任务](#6-dispatch_async-异步提交任务)
-- [7. dispatch_barrier](#7-dispatch_barrier)
-- [8. dispatch_group](#8-dispatch_group)
+    - [1.1. 什么是线程安全？](#11-什么是线程安全)
+- [2. 概念](#2-概念)
+- [3. GCD 中的三种队列](#3-gcd-中的三种队列)
+- [4. dispatch_queue_create 创建队列](#4-dispatch_queue_create-创建队列)
+- [5. dispatch_once](#5-dispatch_once)
+    - [5.1. dispatch_once 导致死锁](#51-dispatch_once-导致死锁)
+    - [5.2. dispatch_once 源码解析](#52-dispatch_once-源码解析)
+- [6. dispatch_sync 同步提交任务](#6-dispatch_sync-同步提交任务)
+    - [6.1. dispatch_sync 导致死锁](#61-dispatch_sync-导致死锁)
+- [7. dispatch_async 异步提交任务](#7-dispatch_async-异步提交任务)
+- [8. dispatch_barrier](#8-dispatch_barrier)
 - [9. dispatch_semaphore 信号量](#9-dispatch_semaphore-信号量)
-- [10. dispatch_after 延迟提交](#10-dispatch_after-延迟提交)
-- [11. dispatch_apply](#11-dispatch_apply)
-- [12. dispatch_suspend & dispatch_resume](#12-dispatch_suspend--dispatch_resume)
-- [13. dispatch_queue_set_specific & dispatch_get_specific](#13-dispatch_queue_set_specific--dispatch_get_specific)
-- [14. main thread 和 main queue 有什么区别？](#14-main-thread-和-main-queue-有什么区别)
-- [15. 如何判断当前队列是否是主队列？](#15-如何判断当前队列是否是主队列)
-  - [15.1. 方法一：React Native 中的实现，使用 dispatch_queue_set_specific 和 dispatch_get_specific 来设置标志](#151-方法一react-native-中的实现使用-dispatch_queue_set_specific-和-dispatch_get_specific-来设置标志)
-  - [15.2. 方法二：比对当前队列的 label 与主队列的 label 是否一致](#152-方法二比对当前队列的-label-与主队列的-label-是否一致)
-- [16. 参考资料](#16-参考资料)
+- [10. dispatch_group](#10-dispatch_group)
+- [11. dispatch_after 延迟提交](#11-dispatch_after-延迟提交)
+- [12. dispatch_apply 替代循环](#12-dispatch_apply-替代循环)
+- [13. dispatch_suspend & dispatch_resume 挂起和恢复派发队列或者派发源](#13-dispatch_suspend--dispatch_resume-挂起和恢复派发队列或者派发源)
+- [14. dispatch_block_cancel 取消任务](#14-dispatch_block_cancel-取消任务)
+- [15. dispatch_queue_set_specific & dispatch_get_specific](#15-dispatch_queue_set_specific--dispatch_get_specific)
+- [16. main thread 和 main queue 有什么区别？](#16-main-thread-和-main-queue-有什么区别)
+- [17. 如何判断当前队列是否是主队列？](#17-如何判断当前队列是否是主队列)
+    - [17.1. 方法一：React Native 中的实现，使用 dispatch_queue_set_specific 和 dispatch_get_specific 来设置标志](#171-方法一react-native-中的实现使用-dispatch_queue_set_specific-和-dispatch_get_specific-来设置标志)
+    - [17.2. 方法二：比对当前队列的 label 与主队列的 label 是否一致](#172-方法二比对当前队列的-label-与主队列的-label-是否一致)
+- [18. Dispatch Sources](#18-dispatch-sources)
+- [19. 参考资料](#19-参考资料)
 
 <!-- /TOC -->
 
@@ -32,12 +35,16 @@
 ### 1.1. 什么是线程安全？
 线程安全指一段代码执行过程中不会有其他线程介入。[iOS 多线程到底不安全在哪里？](http://www.mrpeak.cn/blog/ios-thread-safety/)
 
-## 2. GCD 中的三种队列
+## 2. 概念
+- Dispatch Queue 派发队列
+- Dispatch Source 派发源
+
+## 3. GCD 中的三种队列
 - main queue：主队列，串行
 - global queue：全局队列，并行
-- custom queue：自定义队列，通过 dispatch_queue_create 函数创建
+- custom queue：自定义队列，可以通过 dispatch_queue_create 函数创建
 
-## 3. dispatch_queue_create 创建队列
+## 4. dispatch_queue_create 创建队列
 ``` C
 // Creates a new dispatch queue to which blocks can be submitted.
 dispatch_queue_t dispatch_queue_create(const char *label, dispatch_queue_attr_t attr);
@@ -54,7 +61,7 @@ dispatch_queue_t queue = dispatch_queue_create("com.example.myqueue", DISPATCH_Q
 
 源码：[queue.c](https://github.com/apple/swift-corelibs-libdispatch/blob/master/src/queue.c)
 
-## 4. dispatch_once
+## 5. dispatch_once
 
 ``` C
 // Executes a block object once and only once for the lifetime of an application.
@@ -65,7 +72,7 @@ void dispatch_once(dispatch_once_t *token, dispatch_block_t block);
 - dispatch_once_t 类型变量必须是 global 或 static 的
 - dispatch_once 可能导致死锁
 
-### 4.1. dispatch_once 导致死锁
+### 5.1. dispatch_once 导致死锁
 [原文链接](http://joeleee.github.io/2017/03/20/011.dispatch_once/)
 ``` Objective-C
 - (void)viewDidLoad {
@@ -90,7 +97,7 @@ void dispatch_once(dispatch_once_t *token, dispatch_block_t block);
 }
 ```
 
-### 4.2. dispatch_once 源码解析
+### 5.2. dispatch_once 源码解析
 源码地址：[once.c](https://github.com/apple/swift-corelibs-libdispatch/blob/master/src/once.c)
 ```
 // 调用过程
@@ -167,7 +174,7 @@ dispatch_once_f_slow(dispatch_once_t *val, void *ctxt, dispatch_function_t func)
 }
 ```
 
-## 5. dispatch_sync 同步提交任务
+## 6. dispatch_sync 同步提交任务
 ``` C
 // Submits a block object for execution on a dispatch queue and waits until that block completes.
 void dispatch_sync(dispatch_queue_t queue, dispatch_block_t block);
@@ -222,7 +229,7 @@ void dispatch_sync(dispatch_queue_t queue, dispatch_block_t block);
 如果这里换成异步队列，只会打印 end, current thread = <NSThread: 0x7f982df061b0>{number = 1, name = main} 然后程序就结束了
 ```
 
-### 5.1. dispatch_sync 导致死锁
+### 6.1. dispatch_sync 导致死锁
 
 使用 dispatch_sync 向当前队列提交 block 必死锁
 ``` C
@@ -233,7 +240,7 @@ void dispatch_sync(dispatch_queue_t queue, dispatch_block_t block);
 }
 ```
 
-## 6. dispatch_async 异步提交任务
+## 7. dispatch_async 异步提交任务
 ``` C
 // Submits a block for asynchronous execution on a dispatch queue and returns immediately.
 void dispatch_async(dispatch_queue_t queue, dispatch_block_t block);
@@ -242,7 +249,7 @@ void dispatch_async(dispatch_queue_t queue, dispatch_block_t block);
 
 > dispatch_sync 和 dispatch_async 控制的是任务提交的过程，而队列类型控制的任务执行的过程。
 
-## 7. dispatch_barrier
+## 8. dispatch_barrier
 ``` C
 // Submits a barrier block object for execution and waits until that block completes.
 void dispatch_barrier_sync(dispatch_queue_t queue, dispatch_block_t block);
@@ -251,8 +258,6 @@ void dispatch_barrier_sync(dispatch_queue_t queue, dispatch_block_t block);
 void dispatch_barrier_async(dispatch_queue_t queue, dispatch_block_t block);
 ```
 - barrier 生效的基本条件是要在同一队列，因此在 global queue 中使用没有任何意义
-
-## 8. dispatch_group
 
 ## 9. dispatch_semaphore 信号量
 ``` C
@@ -263,21 +268,80 @@ dispatch_semaphore_t dispatch_semaphore_create(long value);
 long dispatch_semaphore_signal(dispatch_semaphore_t dsema);
 
 // Waits for (decrements) a semaphore.
+// 返回 0 表示成功，返回非 0 表示超时
 long dispatch_semaphore_wait(dispatch_semaphore_t dsema, dispatch_time_t timeout);
 ```
 
-## 10. dispatch_after 延迟提交
+``` C
+- (void)testSemaphore
+{
+    dispatch_semaphore_t doneSem = dispatch_semaphore_create(0);
+    dispatch_queue_t queue = dispatch_queue_create("io.iamjiyixuan.queue", DISPATCH_QUEUE_SERIAL);
+    // 1. 提交任务
+    dispatch_async(queue, ^{
+        // 2. 模拟执行耗时网络请求
+        sleep(5);
+        dispatch_semaphore_signal(doneSem);
+    });
+    // 3. 一直等待直到任务结束
+    dispatch_semaphore_wait(doneSem, DISPATCH_TIME_FOREVER);
+    // 或者设置超时时间为 30 秒
+    // dispatch_semaphore_wait(doneSem, dispatch_time(DISPATCH_TIME_NOW, (int64_t)(30 * NSEC_PER_SEC)));
+}
+```
+
+## 10. dispatch_group
+``` C
+// Creates a new group with which block objects can be associated. 创建失败返回 NULL
+dispatch_group_t dispatch_group_create(void);
+
+// Submits a block to a dispatch queue and associates the block with the specified dispatch group.
+void dispatch_group_async(dispatch_group_t group, dispatch_queue_t queue, dispatch_block_t block);
+
+// Schedules a block object to be submitted to a queue when a group of previously submitted block objects have completed.
+void dispatch_group_notify(dispatch_group_t group, dispatch_queue_t queue, dispatch_block_t block);
+
+// Waits synchronously for the previously submitted block objects to complete; returns if the blocks do not complete before the specified timeout period has elapsed.
+long dispatch_group_wait(dispatch_group_t group, dispatch_time_t timeout);
+
+// Explicitly indicates that a block has entered the group.
+void dispatch_group_enter(dispatch_group_t group);
+
+// Explicitly indicates that a block in the group has completed.
+void dispatch_group_leave(dispatch_group_t group);
+```
+
+## 11. dispatch_after 延迟提交
 ``` C
 // Enqueue a block for execution at the specified time.
 void dispatch_after(dispatch_time_t when, dispatch_queue_t queue, dispatch_block_t block);
 ```
 - 延迟提交，不是延迟执行
 
-## 11. dispatch_apply
+## 12. dispatch_apply 替代循环
+``` C
+// Submits a block to a dispatch queue for multiple invocations.
+void dispatch_apply(size_t iterations, dispatch_queue_t queue, void (^block)(size_t));
+```
 
-## 12. dispatch_suspend & dispatch_resume
+## 13. dispatch_suspend & dispatch_resume 挂起和恢复派发队列或者派发源
+``` C
+// Suspends the invocation of block objects on a dispatch object.
+void dispatch_suspend(dispatch_object_t object);
 
-## 13. dispatch_queue_set_specific & dispatch_get_specific
+// Resume the invocation of block objects on a dispatch object.
+void dispatch_resume(dispatch_object_t object);
+```
+
+## 14. dispatch_block_cancel 取消任务
+> iOS 8 后 GCD 才支持对 dispatch block 的取消
+``` C
+// Asynchronously cancels the specified dispatch block.
+void dispatch_block_cancel(dispatch_block_t block);
+```
+- 无法取消已经开始执行的 block
+
+## 15. dispatch_queue_set_specific & dispatch_get_specific
 ``` C
 // Sets the key/value data for the specified dispatch queue.
 void dispatch_queue_set_specific(dispatch_queue_t queue, const void *key, void *context, dispatch_function_t destructor);
@@ -286,7 +350,7 @@ void dispatch_queue_set_specific(dispatch_queue_t queue, const void *key, void *
 void * dispatch_get_specific(const void *key);
 ```
 
-## 14. main thread 和 main queue 有什么区别？
+## 16. main thread 和 main queue 有什么区别？
 
 - 每个 app 只能有一个 main thread
 - 可以通过 `[NSThread isMainThread]` 来判断当前线程是否是 main thread
@@ -307,8 +371,8 @@ void * dispatch_get_specific(const void *key);
 }
 ```
 
-## 15. 如何判断当前队列是否是主队列？
-### 15.1. 方法一：React Native 中的实现，使用 dispatch_queue_set_specific 和 dispatch_get_specific 来设置标志
+## 17. 如何判断当前队列是否是主队列？
+### 17.1. 方法一：React Native 中的实现，使用 dispatch_queue_set_specific 和 dispatch_get_specific 来设置标志
 ``` C
 BOOL RCTIsMainQueue()
 {
@@ -334,7 +398,7 @@ void RCTExecuteOnMainQueue(dispatch_block_t block)
 }
 ```
 
-### 15.2. 方法二：比对当前队列的 label 与主队列的 label 是否一致
+### 17.2. 方法二：比对当前队列的 label 与主队列的 label 是否一致
 ``` C
 BOOL XYZIsMainQueue()
 {
@@ -354,8 +418,11 @@ BOOL XYZIsMainQueue()
 }
 ```
 
+## 18. Dispatch Sources
 
-## 16. 参考资料
+## 19. 参考资料
+- [Concurrency Programming Guide](https://developer.apple.com/library/content/documentation/General/Conceptual/ConcurrencyProgrammingGuide/Introduction/Introduction.html#//apple_ref/doc/uid/TP40008091-CH1-SW1)
+- [Threading Programming Guide](https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/Multithreading/Introduction/Introduction.html#//apple_ref/doc/uid/10000057i)
 - [GCD C API](https://developer.apple.com/documentation/dispatch?language=objc)
 - [libdispatch 源码](https://github.com/apple/swift-corelibs-libdispatch)
 - [《Effective Objective-C 2.0》]()
@@ -365,8 +432,11 @@ BOOL XYZIsMainQueue()
     - #44 通过 Dispatch Group 机制，根据系统资源状况来执行任务
     - #45 使用 dispatch_once 来执行只需要运行一次的线程安全代码
     - #46 不要使用 dispatch_get_current_queue
+- [细说 GCD（Grand Central Dispatch）如何用](https://github.com/ming1016/study/wiki/细说GCD（Grand-Central-Dispatch）如何用) by 戴铭
 - [GCD 使用经验与技巧浅谈](http://tutuge.me/2015/04/03/something-about-gcd/) by tutuge 2015
 - [深入理解 GCD](https://bestswifter.com/deep-gcd/) by bestswifter 2016
+- [深入理解 iOS 开发中的锁](https://bestswifter.com/ios-lock/) by bestswifter 2016
+- [不再安全的 OSSpinLock](https://blog.ibireme.com/2016/01/16/spinlock_is_unsafe_in_ios/) by ibireme 2016
 - [并发编程：API 及挑战](https://objccn.io/issue-2-1/) by objccn
 - [常见的后台实践](https://objccn.io/issue-2-2/) by objccn
 - [底层并发 API](https://objccn.io/issue-2-3/) by objccn
