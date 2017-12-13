@@ -38,17 +38,21 @@ Repo | Stars | Language | Articles |
 Repo | Stars | Language |
 ---- | ----- | -------- |
 [GPUImage](https://github.com/BradLarson/GPUImage)</br>An open source iOS framework for GPU-based image and video processing. | 16,000+ | OC |
+[FLAnimatedImage](https://github.com/Flipboard/FLAnimatedImage)</br>Performant animated GIF engine for iOS. | 6,200+ | OC |
 [SDWebImage](https://github.com/rs/SDWebImage)</br>Asynchronous image downloader with cache support as a UIImageView category.</br></br>[iOS 源代码分析 ---- SDWebImage](https://draveness.me/ios-yuan-dai-ma-jie-xi-sdwebimage) by draveness | 18,000+ | OC |
-[YYImage](https://github.com/ibireme/YYImage) (a component of [YYKit](https://github.com/ibireme/YYKit))</br>Image framework for iOS to display/encode/decode animated WebP, APNG, GIF, and more.</br></br>[移动端图片格式调研](https://blog.ibireme.com/2015/11/02/mobile_image_benchmark/) by ibireme</br>[iOS 处理图片的一些小 Tip](https://blog.ibireme.com/2015/11/02/ios_image_tips/) by ibireme | 1,000+ | OC |
-[YYWebImage](https://github.com/ibireme/YYWebImage) (a component of [YYKit](https://github.com/ibireme/YYKit))</br>Asynchronous image loading framework. It use [YYCache](https://github.com/ibireme/YYCache) to support memory and disk cache, and [YYImage](https://github.com/ibireme/YYImage) to support WebP/APNG/GIF image decode. | 2,900+ | OC |
+[YYImage](https://github.com/ibireme/YYImage)</br>Image framework for iOS to display/encode/decode animated WebP, APNG, GIF, and more.</br></br>[移动端图片格式调研](https://blog.ibireme.com/2015/11/02/mobile_image_benchmark/) by ibireme</br>[iOS 处理图片的一些小 Tip](https://blog.ibireme.com/2015/11/02/ios_image_tips/) by ibireme | 1,000+ | OC |
+[YYWebImage](https://github.com/ibireme/YYWebImage)</br>Asynchronous image loading framework. It use [YYCache](https://github.com/ibireme/YYCache) to support memory and disk cache, and [YYImage](https://github.com/ibireme/YYImage) to support WebP/APNG/GIF image decode. | 2,900+ | OC |
+[PINRemoteImage](https://github.com/pinterest/PINRemoteImage)</br>A thread safe, performant, feature rich image fetcher. | 3,200+ | OC, Swift |
 [ios-twitter-image-pipeline](https://github.com/twitter/ios-twitter-image-pipeline)</br>Twitter Image Pipeline is a robust and performant image loading and caching framework for iOS clients. | 1,400+ | OC |
-[Kingfisher](https://github.com/onevcat/Kingfisher)</br>A lightweight, pure-Swift library for downloading and caching images from the web. | 10,000+ | Swift | []() |
+[Kingfisher](https://github.com/onevcat/Kingfisher)</br>A lightweight, pure-Swift library for downloading and caching images from the web. | 10,000+ | Swift |
 
 ## Storage
-Repo | Stars | Language | Articles |
----- | ----- | -------- | -------- |
-[fmdb](https://github.com/ccgus/fmdb) | 12,000+ | OC | []() |
-[CTPersistance](https://github.com/casatwy/CTPersistance) | 500+ | OC |
+Repo | Stars | Language |
+---- | ----- | -------- |
+[fmdb](https://github.com/ccgus/fmdb)</br>A Cocoa / Objective-C wrapper around SQLite. | 12,000+ | OC |
+[CTPersistance](https://github.com/casatwy/CTPersistance)</br>Objective-C / Swift Database Persistence Layer with SQLite, your next Persistence Layer! | 500+ | OC |
+[PINCache](https://github.com/pinterest/PINCache)</br>Fast, non-deadlocking parallel object cache for iOS, tvOS and OS X. | 1,800+ | OC |
+[YYCache](https://github.com/ibireme/YYCache)</br>High performance cache framework for iOS.</br></br>[YYCache 设计思路](https://blog.ibireme.com/2015/10/26/yycache/) by ibireme | 1,500+ | OC |
 
 ## Util
 Repo | Stars | Language | Articles |
