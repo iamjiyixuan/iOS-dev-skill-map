@@ -31,11 +31,18 @@ Repo | Stars | Language | Articles |
 [YTKNetwork](https://github.com/yuantiku/YTKNetwork) | 4,800+ | OC |
 [XMNetworking](https://github.com/kangzubin/XMNetworking) | 700+ | OC |
 [Alamofire](https://github.com/Alamofire/Alamofire) | 25,000+ | Swift | [iOS 源代码分析 ---- Alamofire](https://draveness.me/ios-yuan-dai-ma-fen-xi-alamofire) by draveness |
-[SDWebImage](https://github.com/rs/SDWebImage) | 18,000+ | OC | [iOS 源代码分析 ---- SDWebImage](https://draveness.me/ios-yuan-dai-ma-jie-xi-sdwebimage) by draveness |
-[ios-twitter-image-pipeline](https://github.com/twitter/ios-twitter-image-pipeline) | 1,400+ | OC |
-[Kingfisher](https://github.com/onevcat/Kingfisher) | 10,000+ | Swift | []() |
 [RestKit](https://github.com/RestKit/RestKit) | 10,000+ | OC | []() |
 [XMPPFramework](https://github.com/robbiehanson/XMPPFramework) | 5,300+ | OC |
+
+## Image
+Repo | Stars | Language | Articles |
+---- | ----- | -------- | -------- |
+[GPUImage](https://github.com/BradLarson/GPUImage)</br>An open source iOS framework for GPU-based image and video processing. | 16,000+ | OC | |
+[SDWebImage](https://github.com/rs/SDWebImage)</br>Asynchronous image downloader with cache support as a UIImageView category. | 18,000+ | OC | [iOS 源代码分析 ---- SDWebImage](https://draveness.me/ios-yuan-dai-ma-jie-xi-sdwebimage) by draveness |
+[YYImage](https://github.com/ibireme/YYImage)</br>Image framework for iOS to display/encode/decode animated WebP, APNG, GIF, and more. | 1,000+ | OC | |
+[YYWebImage](https://github.com/ibireme/YYWebImage)</br>Asynchronous image loading framework. | 2,900+ | OC | |
+[ios-twitter-image-pipeline](https://github.com/twitter/ios-twitter-image-pipeline)</br>Twitter Image Pipeline is a robust and performant image loading and caching framework for iOS clients. | 1,400+ | OC |
+[Kingfisher](https://github.com/onevcat/Kingfisher)</br>A lightweight, pure-Swift library for downloading and caching images from the web. | 10,000+ | Swift | []() |
 
 ## Storage
 Repo | Stars | Language | Articles |
