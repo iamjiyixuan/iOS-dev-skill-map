@@ -5,7 +5,6 @@ Index
 
 - [UI](#ui)
     - [Layout](#layout)
-    - [Image](#image)
     - [Navigation](#navigation)
     - [UITableView](#uitableview)
     - [HUD](#hud)
@@ -14,6 +13,8 @@ Index
     - [Animation](#animation)
     - [Smooth](#smooth)
     - [Chat](#chat)
+    - [Image](#image)
+    - [Video](#video)
 - [Networking](#networking)
 - [SQLite](#sqlite)
 - [Cache](#cache)
@@ -35,21 +36,6 @@ Repo | Stars | Language |
 [MyLinearLayout](https://github.com/youngsoft/MyLinearLayout) | 2,600+ | OC |
 [TangramKit](https://github.com/youngsoft/TangramKit)</br>The MyLayout's Swift version. | 480+ | Swift |
 [Yoga](https://github.com/facebook/yoga)</br>Yoga is a cross-platform layout engine which implements Flexbox. | 8,600+ | C++ |
-
-### Image
-Repo | Stars | Language |
----- | ----- | -------- |
-[GPUImage](https://github.com/BradLarson/GPUImage)</br>An open source iOS framework for GPU-based image and video processing. | 16,000+ | OC |
-[FLAnimatedImage](https://github.com/Flipboard/FLAnimatedImage)</br>Performant animated GIF engine for iOS. | 6,200+ | OC |
-[SDWebImage](https://github.com/rs/SDWebImage)</br>Asynchronous image downloader with cache support as a UIImageView category.</br></br>[iOS 源代码分析 ---- SDWebImage](https://draveness.me/ios-yuan-dai-ma-jie-xi-sdwebimage) by draveness | 18,000+ | OC |
-[YYImage](https://github.com/ibireme/YYImage)</br>Image framework for iOS to display/encode/decode animated WebP, APNG, GIF, and more.</br></br>[移动端图片格式调研](https://blog.ibireme.com/2015/11/02/mobile_image_benchmark/) by ibireme</br>[iOS 处理图片的一些小 Tip](https://blog.ibireme.com/2015/11/02/ios_image_tips/) by ibireme | 1,000+ | OC |
-[YYWebImage](https://github.com/ibireme/YYWebImage)</br>Asynchronous image loading framework. | 2,900+ | OC |
-[PINRemoteImage](https://github.com/pinterest/PINRemoteImage)</br>A thread safe, performant, feature rich image fetcher. | 3,200+ | OC, Swift |
-[ios-twitter-image-pipeline](https://github.com/twitter/ios-twitter-image-pipeline)</br>Twitter Image Pipeline is a robust and performant image loading and caching framework for iOS clients. | 1,400+ | OC |
-[Kingfisher](https://github.com/onevcat/Kingfisher)</br>A lightweight, pure-Swift library for downloading and caching images from the web. | 10,000+ | Swift |
-[MWPhotoBrowser](https://github.com/mwaterfall/MWPhotoBrowser) [疑似已停更]</br>A simple iOS photo and video browser with grid view, captions and selections. | 7,800+ | OC |
-[TZImagePickerController](https://github.com/banchichen/TZImagePickerController)</br>一个支持多选、选原图和视频的图片选择器，同时有预览、裁剪功能，支持 iOS6+。| 3,900+ | OC |
-[ZLPhotoBrowser](https://github.com/longitachi/ZLPhotoBrowser)</br>方便易用的相册多选框架 | 1,400+ | OC |
 
 ### Navigation
 Repo | Stars | Language |
@@ -97,6 +83,26 @@ Repo | Stars | Language |
 Repo | Stars | Language |
 ---- | ----- | -------- |
 [JSQMessagesViewController](https://github.com/jessesquires/JSQMessagesViewController) [已停更] | 10,000+ | OC |
+
+### Image
+Repo | Stars | Language |
+---- | ----- | -------- |
+[GPUImage](https://github.com/BradLarson/GPUImage)</br>An open source iOS framework for GPU-based image and video processing. | 16,000+ | OC |
+[FLAnimatedImage](https://github.com/Flipboard/FLAnimatedImage)</br>Performant animated GIF engine for iOS. | 6,200+ | OC |
+[SDWebImage](https://github.com/rs/SDWebImage)</br>Asynchronous image downloader with cache support as a UIImageView category.</br></br>[iOS 源代码分析 ---- SDWebImage](https://draveness.me/ios-yuan-dai-ma-jie-xi-sdwebimage) by draveness | 18,000+ | OC |
+[YYImage](https://github.com/ibireme/YYImage)</br>Image framework for iOS to display/encode/decode animated WebP, APNG, GIF, and more.</br></br>[移动端图片格式调研](https://blog.ibireme.com/2015/11/02/mobile_image_benchmark/) by ibireme</br>[iOS 处理图片的一些小 Tip](https://blog.ibireme.com/2015/11/02/ios_image_tips/) by ibireme | 1,000+ | OC |
+[YYWebImage](https://github.com/ibireme/YYWebImage)</br>Asynchronous image loading framework. | 2,900+ | OC |
+[PINRemoteImage](https://github.com/pinterest/PINRemoteImage)</br>A thread safe, performant, feature rich image fetcher. | 3,200+ | OC, Swift |
+[ios-twitter-image-pipeline](https://github.com/twitter/ios-twitter-image-pipeline)</br>Twitter Image Pipeline is a robust and performant image loading and caching framework for iOS clients. | 1,400+ | OC |
+[Kingfisher](https://github.com/onevcat/Kingfisher)</br>A lightweight, pure-Swift library for downloading and caching images from the web. | 10,000+ | Swift |
+[MWPhotoBrowser](https://github.com/mwaterfall/MWPhotoBrowser) [疑似已停更]</br>A simple iOS photo and video browser with grid view, captions and selections. | 7,800+ | OC |
+[TZImagePickerController](https://github.com/banchichen/TZImagePickerController)</br>一个支持多选、选原图和视频的图片选择器，同时有预览、裁剪功能，支持 iOS6+。| 3,900+ | OC |
+[ZLPhotoBrowser](https://github.com/longitachi/ZLPhotoBrowser)</br>方便易用的相册多选框架 | 1,400+ | OC |
+
+### Video
+Repo | Stars | Language |
+---- | ----- | -------- |
+[ijkplayer](https://github.com/Bilibili/ijkplayer)</br>Android / iOS video player based on [FFmpeg](http://ffmpeg.org) n3.3, with MediaCodec, VideoToolbox support. | 16,000+ | C, OC, Java |
 
 ## Networking
 Repo | Stars | Language |
