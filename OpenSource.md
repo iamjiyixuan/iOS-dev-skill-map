@@ -1,4 +1,4 @@
-# 开源项目
+# 开源项目索引
 
 Index
 <!-- TOC -->
@@ -16,15 +16,23 @@ Index
     - [Image](#image)
     - [Video](#video)
 - [Networking](#networking)
+    - [HTTP](#http)
+    - [XMPP](#xmpp)
 - [SQLite](#sqlite)
 - [Cache](#cache)
 - [Model](#model)
 - [Util](#util)
+- [Log](#log)
 - [Hotfix](#hotfix)
-- [React Native](#react-native)
+- [Cross Platform](#cross-platform)
+    - [React Native](#react-native)
+    - [Weex](#weex)
+    - [Util](#util-1)
 - [App](#app)
 
 <!-- /TOC -->
+
+> 语言缩写：OC=Objective-C, JS=JavaScript, TS=TypeScript
 
 ## UI
 
@@ -105,13 +113,20 @@ Repo | Stars | Language |
 [ijkplayer](https://github.com/Bilibili/ijkplayer)</br>Android / iOS video player based on [FFmpeg](http://ffmpeg.org) n3.3, with MediaCodec, VideoToolbox support. | 16,000+ | C, OC, Java |
 
 ## Networking
+
+### HTTP
 Repo | Stars | Language |
 ---- | ----- | -------- |
 [AFNetworking](https://github.com/AFNetworking/AFNetworking)</br>A delightful networking framework for iOS, macOS, watchOS, and tvOS.</br></br>[AFNetworking 概述（一）](https://draveness.me/afnetworking1) by draveness </br> [AFNetworking 的核心 AFURLSessionManager（二）](https://draveness.me/afnetworking2) by draveness </br> [处理请求和响应 AFURLSerialization（三）](https://draveness.me/afnetworking3) by draveness </br> [AFNetworkReachabilityManager 监控网络状态（四）](https://draveness.me/afnetworking4) by draveness </br> [验证 HTTPS 请求的证书（五）](https://draveness.me/afnetworking5) by draveness </br> | 30,000+ | OC |
 [YTKNetwork](https://github.com/yuantiku/YTKNetwork) | 4,800+ | OC |
 [XMNetworking](https://github.com/kangzubin/XMNetworking) | 700+ | OC |
 [Alamofire](https://github.com/Alamofire/Alamofire)</br>Elegant HTTP Networking in Swift.</br></br>[iOS 源代码分析 ---- Alamofire](https://draveness.me/ios-yuan-dai-ma-fen-xi-alamofire) by draveness | 25,000+ | Swift |
-[RestKit](https://github.com/RestKit/RestKit) | 10,000+ | OC |
+[RestKit](https://github.com/RestKit/RestKit)</br>RestKit is a framework for consuming and modeling RESTful web resources on iOS and OS X. | 10,000+ | OC |
+[axios](https://github.com/axios/axios)</br>Promise based HTTP client for the browser and node.js. | 29,000+ | JS |
+
+### XMPP
+Repo | Stars | Language |
+---- | ----- | -------- |
 [XMPPFramework](https://github.com/robbiehanson/XMPPFramework) | 5,300+ | OC |
 
 ## SQLite
@@ -145,29 +160,46 @@ Repo | Stars | Language |
 [RxSwift](https://github.com/ReactiveX/RxSwift) | 11,000+ | Swift |
 [BlocksKit](https://github.com/BlocksKit/BlocksKit)</br></br>[神奇的 BlocksKit （一）](https://draveness.me/blockskit-1) by draveness </br> [神奇的 BlocksKit （二）](https://draveness.me/blockskit-2) by draveness | 6,400+ | OC |
 [MLeaksFinder](https://github.com/Tencent/MLeaksFinder) | 2,800+ | OC |
-[CocoaLumberjack](https://github.com/CocoaLumberjack/CocoaLumberjack) | 9,600+ | OC |
+
+## Log
+Repo | Stars | Language |
+---- | ----- | -------- |
+[CocoaLumberjack](https://github.com/CocoaLumberjack/CocoaLumberjack)</br>A fast & simple, yet powerful & flexible logging framework for Mac and iOS. | 9,700+ | OC |
 
 ## Hotfix
 Repo | Stars | Language |
 ---- | ----- | -------- |
-[JSPatch](https://github.com/bang590/JSPatch)</br>JSPatch bridge Objective-C and Javascript using the Objective-C runtime. You can call any Objective-C class and method in JavaScript by just including a small engine. JSPatch is generally used to hotfix iOS App.</br></br>[JSPatch – 动态更新iOS APP](http://blog.cnbang.net/works/2767/) by bang </br> [JSPatch 实现原理详解](http://blog.cnbang.net/tech/2808/) by bang </br> [JSPatch 实现原理详解<二>](http://blog.cnbang.net/tech/2855/) by bang </br> [JSPatch 部署安全策略](http://blog.cnbang.net/tech/2879/) by bang </br> [JSPatch Convertor 实现原理详解](http://blog.cnbang.net/tech/2915/) by bang </br> [回应一下 JSPatch 安全问题](http://blog.cnbang.net/internet/2990/) by bang </br> [JSPatch 平台介绍](http://blog.cnbang.net/archives/) by bang </br> [JSPatch 近期新特性解析](http://blog.cnbang.net/tech/3038/) by bang </br> [JSPatch 更新：完善开发功能模块的能力](http://blog.cnbang.net/tech/3123/) by bang </br> [如何动态调用 C 函数](http://blog.cnbang.net/tech/3219/) by bang </br> [iOS 动态更新方案对比:JSPatch vs React Native](http://blog.cnbang.net/archives/) by bang </br> [如何动态创建 block - JPBlock 扩展原理详解](http://blog.cnbang.net/tech/3332/) by bang </br> | 10,000+ | C, OC |
+[JSPatch](https://github.com/bang590/JSPatch)</br>JSPatch bridge Objective-C and Javascript using the Objective-C runtime.</br></br>[JSPatch – 动态更新iOS APP](http://blog.cnbang.net/works/2767/) by bang </br> [JSPatch 实现原理详解](http://blog.cnbang.net/tech/2808/) by bang </br> [JSPatch 实现原理详解<二>](http://blog.cnbang.net/tech/2855/) by bang </br> [JSPatch 部署安全策略](http://blog.cnbang.net/tech/2879/) by bang </br> [JSPatch Convertor 实现原理详解](http://blog.cnbang.net/tech/2915/) by bang </br> [回应一下 JSPatch 安全问题](http://blog.cnbang.net/internet/2990/) by bang </br> [JSPatch 平台介绍](http://blog.cnbang.net/archives/) by bang </br> [JSPatch 近期新特性解析](http://blog.cnbang.net/tech/3038/) by bang </br> [JSPatch 更新：完善开发功能模块的能力](http://blog.cnbang.net/tech/3123/) by bang </br> [如何动态调用 C 函数](http://blog.cnbang.net/tech/3219/) by bang </br> [iOS 动态更新方案对比:JSPatch vs React Native](http://blog.cnbang.net/archives/) by bang </br> [如何动态创建 block - JPBlock 扩展原理详解](http://blog.cnbang.net/tech/3332/) by bang </br> | 10,000+ | C, OC |
 
-## React Native
+## Cross Platform
+### React Native
 Repo | Stars | Language |
 ---- | ----- | -------- |
-[react](https://github.com/facebook/react) | 80,000+ | JS |
-[react-redux](https://github.com/reactjs/react-redux) | 9,800+ | JS |
-[redux](https://github.com/reactjs/redux) | 35,000+ | JS |
-[mobx](https://github.com/mobxjs/mobx) | 11,000+ | JS |
-[react-router](https://github.com/ReactTraining/react-router) | 25,000+ | JS |
-[react-router-redux](https://github.com/reactjs/react-router-redux) | 6,700+ | JS |
-[redux-saga](https://github.com/redux-saga/redux-saga) | 9,800+ | JS |
-[dva](https://github.com/dvajs/dva) | 6,300+ | JS |
-[axios](https://github.com/axios/axios) | 29,000+ | JS |
-[react-native](https://github.com/facebook/react-native)</br></br>[React Native 源码导读(零) – 创建/运行/调试](http://blog.cnbang.net/tech/3461/) by bang</br>[React Native 通信机制详解](http://blog.cnbang.net/tech/2698/) by bang | 55,000+ | JS |
-[react-native-calendars](https://github.com/wix/react-native-calendars) | 1,400+ | JS |
-[react-native-storage](https://github.com/sunnylqm/react-native-storage) | 1,300+ | JS |
-[ant-design-mobile](https://github.com/ant-design/ant-design-mobile) | 3,200+ | TS |
+[React Native](https://github.com/facebook/react-native)</br>A framework for building native apps with React.</br></br>[React Native 源码导读(零) – 创建/运行/调试](http://blog.cnbang.net/tech/3461/) by bang</br>[React Native 通信机制详解](http://blog.cnbang.net/tech/2698/) by bang | 57,000+ | JS, OC, Java |
+[React](https://github.com/facebook/react)</br>A declarative, efficient, and flexible JavaScript library for building user interfaces. | 80,000+ | JS |
+[Redux](https://github.com/reactjs/redux)</br>Predictable state container for JavaScript apps. | 35,000+ | JS |
+[React Redux](https://github.com/reactjs/react-redux)</br>Official React bindings for Redux. | 9,800+ | JS |
+[redux-saga](https://github.com/redux-saga/redux-saga)</br>一个用于管理 Redux 应用异步操作的中间件。 | 9,800+ | JS |
+[React Router](https://github.com/ReactTraining/react-router)</br>Declarative routing for React. | 25,000+ | JS |
+[react-router-redux](https://github.com/reactjs/react-router-redux)</br>Ruthlessly simple bindings to keep react-router and redux in sync. | 6,700+ | JS |
+[dva](https://github.com/dvajs/dva)</br>支付宝前端团队出品的基于 redux、redux-saga 和 react-router 的轻量级前端框架。 | 6,300+ | JS |
+[react-navigation](https://github.com/react-community/react-navigation)</br>Learn once, navigate anywhere. RN 官方导航解决方案。 | 7,700+ | JS |
+[react-native-navigation](https://github.com/wix/react-native-navigation)</br>A complete native navigation solution for React Native. | 5,000+ | JS, OC, Java |
+[native-navigation](https://github.com/airbnb/native-navigation)</br>Native navigation library for React Native applications. airbnb 出品的 RN 导航解决方案。 | 2,500+ | JS |
+[react-native-calendars](https://github.com/wix/react-native-calendars)</br>React Native Calendar Components. | 1,400+ | JS |
+[react-native-sqlite-storage](https://github.com/andpor/react-native-sqlite-storage)</br>Full featured SQLite3 Native Plugin for React Native (Android and iOS). | 1,000+ | JS, Java, OC |
+[ant-design-mobile](https://github.com/ant-design/ant-design-mobile)</br>antd-mobile 是 Ant Design 的移动规范的 React 实现，服务于蚂蚁及口碑无线业务。 | 3,200+ | TS |
+
+### Weex
+Repo | Stars | Language |
+---- | ----- | -------- |
+[Weex](https://github.com/apache/incubator-weex)</br>A framework for building Mobile cross-platform UI. | 6,000+ | JS, OC, Java |
+[Vue.js](https://github.com/vuejs/vue)</br>A progressive, incrementally-adoptable JavaScript framework for building UI on the web. | 77,000+ | JS |
+
+### Util
+Repo | Stars | Language |
+---- | ----- | -------- |
+[pinyin](https://github.com/hotoo/pinyin)</br>转换中文字符为拼音。可以用于汉字注音、排序、检索。支持多音字、繁体、多种不同拼音风格。 | 2,500+ | JS |
 
 ## App
 Repo | Stars | Language | Articles |
