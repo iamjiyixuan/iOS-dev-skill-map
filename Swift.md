@@ -1,11 +1,16 @@
-# Swift
+# Swift 4
 
 ## 1. 变量 & 常量
 
 ``` Swift
-let maximumNumberOfLoginAttempts = 10 // 常量
-var currentLoginAttempt = 0 // 变量
-var welcomeMessage: String = "Hello" // 声明常量或变量时可以指定类型，但一般不需要
+// 常量
+let maximumNumberOfLoginAttempts = 10
+
+// 变量
+var currentLoginAttempt = 0
+
+// 声明常量或变量时可以指定类型，但一般不需要
+var welcomeMessage: String = "Hello"
 ```
 
 ## 2. 基本数据类型

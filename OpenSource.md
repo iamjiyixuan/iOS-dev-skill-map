@@ -39,8 +39,8 @@ Index
 ### Layout
 Repo | Stars | Language |
 ---- | ----- | -------- |
-[Masonry](https://github.com/SnapKit/Masonry)</br>Harness the power of AutoLayout NSLayoutConstraints with a simplified, chainable and expressive syntax.</br></br>[iOS 源代码分析 ---- Masonry](https://draveness.me/ios-yuan-dai-ma-fen-xi-masonry) by draveness | 15,000+ | OC |
-[SnapKit](https://github.com/SnapKit/SnapKit)</br>A Swift Autolayout DSL for iOS & OS X. | 11,000+ | Swift |
+[Masonry](https://github.com/SnapKit/Masonry)</br>Harness the power of AutoLayout NSLayoutConstraints with a simplified, chainable and expressive syntax.</br></br>[iOS 源代码分析 ---- Masonry](https://draveness.me/ios-yuan-dai-ma-fen-xi-masonry) by draveness | ![GitHub stars](https://img.shields.io/github/stars/SnapKit/Masonry.svg?style=social&label=Star) | OC |
+[SnapKit](https://github.com/SnapKit/SnapKit)</br>A Swift Autolayout DSL for iOS & OS X. | ![GitHub stars](https://img.shields.io/github/stars/SnapKit/SnapKit.svg?style=social&label=Star) | Swift |
 [MyLinearLayout](https://github.com/youngsoft/MyLinearLayout) | 2,600+ | OC |
 [TangramKit](https://github.com/youngsoft/TangramKit)</br>The MyLayout's Swift version. | 480+ | Swift |
 [Yoga](https://github.com/facebook/yoga)</br>Yoga is a cross-platform layout engine which implements Flexbox. | 8,600+ | C++ |
@@ -207,3 +207,5 @@ Repo | Stars | Language | Articles |
 
 <!-- []() | 0+ | OC | []() | -->
 <!-- []() | 0+ | JS | []() | -->
+
+<!-- ![GitHub stars](https://img.shields.io/github/stars/.svg?style=social&label=Star) -->

@@ -63,7 +63,7 @@
     - Clang Attributes
     - [dyld](编程语言/Objective-C/dyld.md)
 - [C++](编程语言/C++/README.md)
-- [Swift](编程语言/Swift/README.md)
+- [Swift](Swift.md)
 - [JavaScript / ES6](编程语言/ES6/README.md)
 - 汇编语言
 
