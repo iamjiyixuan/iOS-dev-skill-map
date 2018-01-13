@@ -1,0 +1,544 @@
+# iOS 开发技能图谱
+
+目录
+<!-- TOC -->
+
+- [编程语言](#编程语言)
+- [Cocoa 基础](#cocoa-基础)
+- [UI](#ui)
+- [APNS](#apns)
+- [iOS 新特性](#ios-新特性)
+- [网络](#网络)
+- [存储](#存储)
+- [并发](#并发)
+- [多媒体](#多媒体)
+- [LBS](#lbs)
+- [机器学习](#机器学习)
+- [架构](#架构)
+- [Hybrid / JS-Native](#hybrid--js-native)
+- [软件工程](#软件工程)
+- [逆向工程](#逆向工程)
+- [算法与数据结构](#算法与数据结构)
+- [安全](#安全)
+- [操作系统](#操作系统)
+- [硬件设备](#硬件设备)
+- [职业生涯](#职业生涯)
+- [辅助工具](#辅助工具)
+- [开源项目](#开源项目)
+- [开放平台](#开放平台)
+
+<!-- /TOC -->
+
+## 编程语言
+- [C](编程语言/C/README.md)
+  - 标准库（libc）
+  - 指针
+  - 内存管理
+- [Objective-C](编程语言/Objective-C/README.md)
+  - OC 方面的好书不多，推荐 [《Effective Objective-C 2.0》](https://book.douban.com/subject/25829244/) 和 [《Objective-C 高级编程》](https://book.douban.com/subject/24720270/) 这两本，但不适合初学者，建议有一定基础后再阅读。
+  - 了解 OC 语言的起源
+  - 基础
+    - 类与对象
+      - NSObject
+      - [属性 @property](编程语言/Objective-C/oc_property.md)
+      - 方法
+    - 协议
+    - Category
+    - Block
+      - 循环引用
+      - weak-strong dance
+        - 为什么需要 `__weak typeof(self) weakSelf = self;`？答：避免循环引用。
+        - 为什么需要 `__strong typeof(self) strongSelf = weakSelf;`？答：防止 block 执行到一半的时候 self 被释放。里需要注意，持有 self 的行为是在 block 执行的时候才发生，因此有可能在 block 执行前 self 已经被释放，更安全的做法应该是在 block 内部使用 strongSelf 时仍然需要 nil 检测防止 Crash。
+  - 进阶
+    - Runtime
+      - 对象模型
+      - 关联对象（Associated Objects）
+      - 消息转发机制
+      - Method Swizzling
+      - 内存管理
+        - 引用计数
+        - ARC
+        - @autoreleasepool
+  - 高阶
+    - Clang Attributes
+    - [dyld](编程语言/Objective-C/dyld.md)
+- [C++](编程语言/C++/README.md)
+- [Swift](Swift.md)
+- [JavaScript / ES6](编程语言/ES6/README.md)
+- 汇编语言
+
+## Cocoa 基础
+- NSString
+- NSNumber
+- 集合
+  - NSArray
+  - NSSet
+  - NSDictionary
+- NSPredicate
+- Notification
+- KVO
+- [GNUstep](http://gnustep.org) - 开源版 Cocoa（Cocoa 在 NeXT 时代叫 OpenStep）
+
+## UI
+- 布局
+  - frame
+  - Auto Layout
+    - Cassowary 算法
+    - VFL
+    - Masonry
+- 控件
+  - UIView
+  - UIButton
+  - UITableview
+  - UICollectionView
+- 转场
+- 手势
+- 动画
+- Storyboard
+- 保持界面流畅
+  - 3rd
+    - <del>[AsyncDisplayKit](https://github.com/facebookarchive/AsyncDisplayKit)</del> 已更名并迁移至 [Texture](https://github.com/texturegroup/texture/)
+  - 扩展阅读
+    - [iOS 保持界面流畅的技巧](http://blog.ibireme.com/2015/11/12/smooth_user_interfaces_for_ios/) by ibireme 2015.11
+
+## APNS
+- [国内 90%以上的 iOS 开发者，对 APNs 的认识都是错的](http://www.jianshu.com/p/ace1b422bad4) by iOS程序犭袁 2016.04
+
+## iOS 新特性
+- iPhone X
+  - Safe Area
+  - Face ID
+  - [苹果官方 iPhone X 适配指南](https://developer.apple.com/cn/ios/update-apps-for-iphone-x/)
+- iOS 11
+  - Core ML
+  - ARKit
+  - 扩展阅读
+    - [WWDC 2017](https://developer.apple.com/videos/wwdc2017/)
+    - [开发者所需要知道的 iOS 11 SDK 新特性](https://onevcat.com/2017/06/ios-11-sdk/) by onevcat 2017.06
+- iOS 10
+  - Extension
+  - SiriKit
+  - 扩展阅读
+    - [WWDC 2016](https://developer.apple.com/videos/wwdc2016/)
+    - [开发者所需要知道的 iOS 10 SDK 新特性](https://onevcat.com/2016/06/ios-10-sdk/) by onevcat 2016.06
+- iOS 9
+  - Multitasking
+  - UI Test
+  - 扩展阅读
+    - [WWDC 2015](https://developer.apple.com/videos/wwdc2015/)
+    - [开发者所需要知道的 iOS 9 SDK 新特性](https://onevcat.com/2015/06/ios9-sdk/) by onevcat 2015.06
+- iOS 8
+  - [iOS 8 VoIP Notifications](http://pierremarcairoldi.com/ios-8-voip-notifications/) by Pierre-Marc Airoldi 2015.03
+  - 扩展阅读
+    - [WWDC 2014](https://developer.apple.com/videos/wwdc2014/)
+    - [开发者所需要知道的 iOS 8 SDK 新特性](https://onevcat.com/2014/07/developer-should-know-about-ios8/) by onevcat 2014.07
+- iOS 7
+  - Multitasking 
+    - [WWDC 2013 Session 204 - What's New with Multitasking](https://developer.apple.com/videos/play/wwdc2013/204/)
+    - 后台获取 (Background Fetch)
+    - 推送唤醒 / 静默推送 (Silent Remote Notifications)
+    - 后台传输 (Background Transfer Service)
+  - 扩展阅读
+    - [WWDC 2013](https://developer.apple.com/videos/wwdc2013/) 
+    - [开发者所需要知道的 iOS 7 SDK 新特性](https://onevcat.com/2013/06/developer-should-know-about-ios7/) by onevcat 2013.06
+
+## 网络
+- TCP/IP
+  - TCP 属于 Transport 层协议
+  - TCP 头格式
+  - TCP 的状态机
+  - TCP 重传机制
+  - 抓包
+    - tcpdump
+      - [iOS, Android 网络抓包教程之 tcpdump](http://mrpeak.cn/blog/tutorial-tcpdump/) by MrPeak 2016.02
+    - Wireshark
+      - [Wireshark 抓包 iOS 入门教程](http://mrpeak.cn/blog/wireshark/) by MrPeak 2016.11
+  - 扩展阅读
+    - [TCP 的那些事儿（上）](http://coolshell.cn/articles/11564.html) by 陈皓 2014.05
+    - [TCP 的那些事儿（下）](http://coolshell.cn/articles/11609.html) by 陈皓 2014.05
+    - MrPeak 的 TCP/IP 系列
+      - [TCP/IP 系列之初印象](http://mrpeak.cn/blog/tcp-preface/) by MrPeak 2017.03
+      - [TCP/IP 系列之 Header 篇](http://mrpeak.cn/blog/tcp-headers/) by MrPeak 2017.03
+      - [TCP/IP 系列之重新认识 IP 地址](http://mrpeak.cn/blog/tcp-ip/) by MrPeak 2017.03
+      - [TCP/IP 系列之 TCP 流控与拥塞控制（一）](http://mrpeak.cn/blog/tcp-flow-control00/) by MrPeak 2017.04
+      - [TCP/IP 系列之包与流](http://mrpeak.cn/blog/tcp-packet-stream/) by MrPeak 2017.05
+- Socket API
+  - TCP 服务端: socket() -> bind() -> listen() -> accept() ... close()
+  - TCP 客户端: socket() -> connect() ... close()
+  - struct addrinfo
+  - getaddrinfo() & freeaddrinfo() - 域名解析
+  - socket(domain, type, protocol)
+    - domain - 协议域，又称为协议族（family）
+    - type - socket 类型
+    - protocol - 指定协议
+  - connect()
+    - 1）向服务器发送 SYN J 包
+    - 2）进入阻塞状态
+    - 3）收到服务器的 SYN K ，ACK J+1 之后返回
+  - bind()
+  - listen()
+  - accept()
+  - I/O
+    - read() & write()
+    - recv() & send()
+  - close()
+- HTTP
+  - HTTPS
+  - HTTP2
+- DNS
+
+## 存储
+- 沙盒机制
+- Bundle
+- 钥匙串
+- SQLite
+- 缓存
+- 数据格式
+  - xml
+  - json
+
+## 并发
+- [Concurrency Programming Guide](https://developer.apple.com/library/content/documentation/General/Conceptual/ConcurrencyProgrammingGuide/Introduction/Introduction.html#//apple_ref/doc/uid/TP40008091)
+- [Threading Programming Guide](https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/Multithreading/AboutThreads/AboutThreads.html)
+- 进程
+- 线程
+- [GCD](GCD.md)
+  - [libdispatch 源码](https://opensource.apple.com/tarballs/libdispatch/)
+- OperationQueue
+  - [NSOperation](https://developer.apple.com/reference/foundation/nsoperation?language=objc)
+    - 适合用于封装可重复、耗时的任务。相较基于 block 的 GCD，NSOperation 的最大优点是可控。
+    - 子类：NSInvocationOperation, NSBlockOperation
+    - 状态机: ready → executing → finished
+    - KVO 属性
+      - isCancelled
+      - isAsynchronous
+      - isExecuting
+      - isFinished
+      - isReady
+      - dependencies
+      - queuePriority
+      - completionBlock
+    - 自定义 Operation 覆盖方法
+      - 对于 non-concurrent 操作
+        - main
+          - 默认行为：不执行任何操作
+          - 不要调用 `super`
+          - 自动在 NSOperation 提供的 autorelease pool 中执行
+      - 对于 concurrent 操作
+        - start
+          - 默认行为：1）更新执行状态；2）调用 `main`；3）如果当前操作处于不合适的状态，则抛 NSInvalidArgumentException 异常
+          - 不要调用 `super`
+          - 自己管理状态机
+          - manually generate KVO notifications for the isExecuting and isFinished key paths 
+        - asynchronous
+        - executing
+        - finished
+  - [NSOperationQueue](https://developer.apple.com/reference/foundation/nsoperationqueue?language=objc)
+  - 扩展阅读
+    - [WWDC 2015 Session 226 - Advanced NSOperations](https://developer.apple.com/videos/play/wwdc2015/226/) | 示例代码: [Advanced-NSOperations.zip](https://developer.apple.com/sample-code/wwdc/2015/downloads/Advanced-NSOperations.zip)
+      - [Advanced NSOperation 源代码分析（一）](https://chengwey.com/advanced-nsoperation-yuan-dai-ma-fen-xi/) by chengway 2015.07
+    - [NSOperation](http://nshipster.com/nsoperation/) by Mattt Thompson 2014.07
+    - [iOS 并发编程之 Operation Queues](http://blog.leichunfeng.com/blog/2015/07/29/ios-concurrency-programming-operation-queues/) by 雷纯锋 2015.07
+- 锁
+  - [深入理解 iOS 开发中的锁](https://bestswifter.com/ios-lock/) by bestswifter 2016.10
+- Runloop
+  - [NSRunLoop](https://developer.apple.com/documentation/foundation/nsrunloop) - 
+  - [CFRunLoopRef](https://developer.apple.com/documentation/corefoundation/cfrunloop-rht) - 属于 CoreFoundation 框架，提供 C API，且所有 API 都线程安全。CFRunLoopRef 是开源的，源码地址: [http://opensource.apple.com/tarballs/CF/](http://opensource.apple.com/tarballs/CF/)
+  - 扩展阅读
+    - [深入理解 RunLoop](http://blog.ibireme.com/2015/05/18/runloop/) by ibireme 2015.05
+    - [深入研究 Runloop 与线程保活](https://bestswifter.com/runloop-and-thread/) by bestswifter 2016.07
+
+## 多媒体
+- 图片
+- 音频
+  - [Audio Session Programming Guide](https://developer.apple.com/library/content/documentation/Audio/Conceptual/AudioSessionProgrammingGuide/Introduction/Introduction.html#//apple_ref/doc/uid/TP40007875)
+  - iOS 音频播放 by 程寅 2014
+    - [iOS音频播放 (一)：概述](http://msching.github.io/blog/2014/07/07/audio-in-ios/)
+    - [iOS音频播放 (二)：AudioSession](http://msching.github.io/blog/2014/07/08/audio-in-ios-2/)
+    - [iOS音频播放 (三)：AudioFileStream](http://msching.github.io/blog/2014/07/09/audio-in-ios-3/)
+    - [iOS音频播放 (四)：AudioFile](http://msching.github.io/blog/2014/07/19/audio-in-ios-4/)
+    - [iOS音频播放 (五)：AudioQueue](http://msching.github.io/blog/2014/08/02/audio-in-ios-5/)
+    - [iOS音频播放 (六)：简单的音频播放器实现](http://msching.github.io/blog/2014/08/09/audio-in-ios-6/)
+    - [iOS音频播放 (七)：播放iPod Library中的歌曲](http://msching.github.io/blog/2014/09/07/audio-in-ios-7/)
+    - [iOS音频播放 (八)：NowPlayingCenter和RemoteControl](http://msching.github.io/blog/2014/11/06/audio-in-ios-8/)
+    - [iOS音频播放 (九)：边播边缓存](http://msching.github.io/blog/2016/05/24/audio-in-ios-9/)
+- 视频
+
+## LBS
+
+## 机器学习
+- [Apple Machine Learning](https://developer.apple.com/machine-learning/)
+- [Core ML](https://developer.apple.com/documentation/coreml) 
+  - [WWDC 2017 Session 703 - Introducing Core ML](https://developer.apple.com/videos/play/wwdc2017/703/)
+  - [WWDC 2017 Session 710 - Core ML in depth](https://developer.apple.com/videos/play/wwdc2017/710/)
+- [Vision](https://developer.apple.com/documentation/vision)
+- Natural Language Processing
+  - [WWDC 2017 Session 208 - Natural Language Processing and your Apps](https://developer.apple.com/videos/play/wwdc2017/208/)
+
+## 架构
+- 面向对象编程（Object-Oriented Programming）
+- 面向切面编程（Aspect-Oriented Programming）
+  - Aspects
+- 面向协议编程（Protocol-Oriented Programming）
+- 函数式编程（Functional Programming）
+- 响应式编程（Reactive Programming）
+  - [ReactiveX](http://reactivex.io)
+    - [RxSwift](https://github.com/ReactiveX/RxSwift)
+  - [ReactiveCocoa](https://github.com/ReactiveCocoa/ReactiveCocoa)
+- MVC
+- MVVM
+- 设计模式
+  - 单例
+  - 工厂
+  - 观察者
+- 组件化
+  - 扩展阅读
+    - [iOS 应用架构谈 组件化方案](https://casatwy.com/iOS-Modulization.html) by Casa Taloyum 2016.03
+- Model
+  - 3rd 
+    - [remodel](https://github.com/facebook/remodel)
+  - 扩展阅读
+    - [Improving Immutable Object Initialization in Objective-C](http://holko.pl/2015/05/12/immutable-object-initialization/) by Arek Holko 2015.05
+    - [去 model 化和数据对象](https://casatwy.com/OOP_nomodel.html) by Casa Taloyum 2016.05
+    - [iOS 创建对象的姿势](http://mrpeak.cn/blog/ios-init/) by MrPeak 2017.01
+    - [Facebook model 库 Remodel 观感](http://mrpeak.cn/blog/remodel/) by MrPeak 2017.05
+- 响应式架构
+  - 扩展阅读
+    - [iOS 响应式架构](http://blog.mrriddler.com/2017/06/28/iOS响应式架构/) by mrriddler 2017.06
+
+## Hybrid / JS-Native
+- 对 WEB 前端技术的发展和开发模式应该有基本的认识
+  - [Roadmap to becoming a web developer in 2017](https://github.com/kamranahmedse/developer-roadmap)
+  - [front-end-guide](https://github.com/grab/front-end-guide) - Study guide and introduction to the modern front end stack.
+  - HTML
+  - 1995 年，JavaScript（简称 JS）诞生。
+    - [mozilla 官方的 JavaScript 技术文档](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript)
+    - JS 的标准化进程 
+      - 1996 年，标准化为 ECMAScript（简称 ES），JS 成为 ES 的一种实现，另外的 ES 方言还有 Jscript 和 ActionScript。
+      - 2009 年，ES5 标准发布。
+      - 2015 年，ES6 / ES2015 标准发布，新增了许多 [新特性](https://babeljs.io/learn-es2015/)。推荐阅读 [阮一峰的 《ECMAScript 6 入门》](http://es6.ruanyifeng.com)。
+    - [js-stack-from-scratch](https://github.com/verekia/js-stack-from-scratch) 教你从零开始构建 JavaScript 技术栈。
+    - 2012 年 10 月，微软发布 [TypeScript](http://www.typescriptlang.org)，一种自由和开源的编程语言，JavaScript 的严格超集。设计目标是开发大型应用，然后转译成 JavaScript。
+  - 1996 年，CSS 诞生
+    - [Flexbox](https://www.w3.org/TR/css-flexbox-1/)
+  - Ajax
+    - XMLHttpRequest
+  - 2009 年，JavaScript 运行环境 [Node.js](https://nodejs.org/en/) 发布。[NPM](https://www.npmjs.com) 是 Node 默认的包管理器，随 Node 自动安装。另一个流行的 JS 包管理器是 2016 年发布的 [Yarn](https://yarnpkg.com/)。
+  - 2010 年，MVC 框架 [Backbone.js](http://backbonejs.org) 和 MVVM 框架 [Angular.js](https://angular.io) 发布
+  - 2012 年，自动化工具 [Grunt](https://gruntjs.com) 发布
+  - 2012 年，打包工具 [webpack](https://webpack.github.io) 发布
+    - 核心概念
+      - Entry - 入口，告诉 webpack 从哪里开始
+      - Output - 出口，告诉 webpack bundle 的名称，以及我们想要生成到哪里
+      - Loader
+      - Plugins
+  - 2013 年，Facebook 发布 [React.js](https://facebook.github.io/react/)，是一套全新的开发模式
+    - 核心技术 Virtual DOM
+    - 采用 JSX 语法描述界面，需要通过 [Babel](https://babeljs.io) 翻译为标准 JS 代码才能运行在浏览器或 Node 上
+    - 组件
+    - 状态管理
+      - [Flux](http://facebook.github.io/flux/) 架构
+      - [MobX](https://mobx.js.org) 架构
+      - [Redux](http://redux.js.org) 架构
+    - 路由
+      - [React Router](https://github.com/ReactTraining/react-router)
+    - 3rd
+      - [awesome-react](https://github.com/enaqx/awesome-react)
+      - [React-Bootstrap](https://react-bootstrap.github.io)
+      - [Element React](https://github.com/eleme/element-react)
+  - 2014 年，MVVM 框架 [Vue.js](https://vuejs.org) 发布。2016 年，Vue 2.0 发布。
+    - 与 React 一样，也基于 Virtual DOM 技术（但实现上有差异）。
+    - 采用模板语法（合法的 HTML）描述界面，相比 JXS 更接近 Web 标准。
+    - 组件化开发：Vue.js 设计了一个 `*.vue` 格式的文件，令每一个组件的样式、模板和脚本集合成了一整个文件，每个文件就是一个组件，同时还包含了组件之间的依赖关系。
+    - 组件
+    - 状态管理
+      - [vuex](https://vuex.vuejs.org/zh-cn/)
+    - 路由
+      - [vue-router](http://router.vuejs.org/zh-cn/)
+    - 3rd
+      - [awesome-vue](https://github.com/vuejs/awesome-vue)
+      - [element](https://github.com/ElemeFE/element) - 饿了么前端团队出品的基于 Vue 2.0 的组件库。
+      - [iview](https://github.com/iview/iview)
+      - [vux](https://github.com/airyland/vux) - Vue UI Components based on [WeUI](https://github.com/weui/weui)
+- 基于 JS-Native 的跨平台方案
+  - 2015 年，Facebook 发布基于 React 的移动端开发框架 [React Native](http://facebook.github.io/react-native/)，宣称 `Learn once, write anywhere`。
+    - React 概念
+      - JSX
+      - components - 组件
+      - state - 状态，可变的
+      - props - 属性，固定不变的
+    - Style - 每个 component 都有一个名为 `style` 的 prop
+      - 外观
+      - 布局
+        - flexbox
+      - [React Native Styling Cheat Sheet](https://github.com/vhpoet/react-native-styling-cheat-sheet) - Most of the React Native styling material in one page.
+    - 基础组件
+    - React Native 与 Native 间通信
+      - iOS
+        - Native → React Native
+          - 方式一：通过 `RCTRootView` 的 `initWithBridge:moduleName:initialProperties:` 初始化方法传入属性。通过设置 `RCTRootView` 的 read-only 属性 `appProperties` 来更新。设置新属性后（新值与旧值不同时），React Native 将重新渲染界面。
+        - React Native → Native
+          - Native Modules
+            - RCTBridgeModule
+            - RCT_EXPORT_MODULE() - 注册供 js 调用的模块
+            - RCT_EXPORT_METHOD() or RCT_REMAP_METHOD() - 注册供 js 调用的方法
+      - Android
+    - for Web
+      - [React Native for Web](https://github.com/necolas/react-native-web) - Twitter 工程师 Nicolas Gallagher 开发，使 React Native 组件可以在 Web 端工作。React Native for Web 与 React Native for iOS and Android 是平级关系。
+      - [react-web](https://github.com/taobaofed/react-web) - 淘宝出品 A framework for building web apps with React Native compatible API.
+      - 2017 年 4 月，微软发布基于 React Native 的跨平台开发框架 [ReactXP](https://microsoft.github.io/reactxp/)，支持 Web。
+    - 3rd
+      - [awesome-react-native](https://github.com/jondot/awesome-react-native) 
+      - 组件库
+        - [React-Native-Elements](https://github.com/react-native-community/React-Native-Elements) - Cross Platform React Native UI Toolkit.
+        - [NativeBase](https://github.com/GeekyAnts/NativeBase) - Essential cross-platform UI components for React Native.
+        - [Shoutem UI](https://github.com/shoutem/ui) - Customizable set of components for React Native applications.
+        - [lottie-react-native](https://github.com/airbnb/lottie-react-native) - Lottie component for React Native (iOS and Android). Lottie is a mobile library for Android and iOS that parses Adobe After Effects animations exported as JSON with bodymovin and renders them natively on mobile!
+      - [30-days-of-react-native](https://github.com/fangwei716/30-days-of-react-native) - 30 days of React Native examples (inspired by 30DaysofSwift).
+      - [react-native-hiapp](https://github.com/BelinChung/react-native-hiapp) - A simple and Twitter like demo app written in react-native.
+      - [react-native-nw-react-calculator](https://github.com/benoitvallon/react-native-nw-react-calculator) - Mobile, desktop and website Apps with the same code. 工程结构值得借鉴。
+    - 扩展阅读
+      - [React Native 在 Glow 的实践](http://tech.glowing.com/cn/react-native-at-glow/) by Allen 许帅 2017.04
+      - [React Native 通信机制详解](http://blog.cnbang.net/tech/2698/) by bang 2015.03
+      - [Moles：携程基于 React Native 的跨平台开发框架](http://www.infoq.com/cn/articles/ctrip-moles) by 魏晓军 2016.07
+  - 2017 年，阿里发布跨平台用户界面开发框架 [Weex](https://weex.apache.org)，宣称 `一次编写，多端运行`，目前支持 iOS、Android、HTML5 三端，并支持 Vue 语法。可以把 Weex 看成 Vue Native。
+    - [WEEX Conf](https://yq.aliyun.com/activity/145)
+    - [中文 FAQ](https://segmentfault.com/t/weex)
+    - 扩展阅读
+      - [Weex 是如何在 iOS 客户端上跑起来的](https://www.halfrost.com/weex_ios/) by 一缕殇流化隐半边冰霜 2017.03
+      - [由 FlexBox 算法强力驱动的 Weex 布局引擎](https://www.halfrost.com/weex_flexbox/) by 一缕殇流化隐半边冰霜 2017.04 
+      - [Weex 事件传递的那些事儿](https://www.halfrost.com/weex_event/) by 一缕殇流化隐半边冰霜 2017.04
+      - [Weex 中别具匠心的 JS Framework](https://www.halfrost.com/weex_js_framework/) by 一缕殇流化隐半边冰霜 2017.04
+      - [iOS 开发者的 Weex 伪最佳实践指北](https://www.halfrost.com/weex_best_practice_guidelines/) by 一缕殇流化隐半边冰霜 2017.05
+
+## 软件工程
+- 脚本
+  - Shell
+  - Ruby
+  - Python
+  - Perl
+  - Node.js
+- 包管理
+  - CocoaPods
+  - Carthage
+- 代码管理
+  - svn
+  - git
+    - [廖雪峰的 Git 教程](http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000)
+    - 理解 `集中式` 与 `分布式` 的区别
+    - 基本操作
+      - git init
+      - git add <file>
+      - git commit
+      - git status
+      - git diff
+      - git log - 查看提交历史
+      - git reflog - 查看命令历史
+      - git reset
+    - 分支管理
+    - 搭建 git 服务器
+- 测试
+  - 单元测试
+  - 自动化 UI 测试
+- 性能监控 / APM
+  - 测量效率
+    - [NSDate date]
+    - clock()
+    - CFAbsoluteTimeGetCurrent()
+    - CACurrentMediaTime()
+    - mach_absolute_time()
+    - dispatch_benchmark
+  - 卡顿检测
+  - 网络监控
+  - 扩展阅读
+    - [移动端监控体系之技术原理剖析](http://www.jianshu.com/p/8123fc17fe0e) by Joy___ 2017.02
+    - [微信读书 iOS 质量保证及性能监控](http://wereadteam.github.io/2016/12/12/Monitor/) by 微信读书技术团队 2016.12
+    - [网易 NeteaseAPM iOS SDK 技术实现分享](http://www.infoq.com/cn/articles/netease-ios-sdk-neteaseapm-technology-share) by 朱志强 2016.05
+    - [Benchmarking](http://nshipster.cn/benchmarking/) by Mattt Thompson 撰写 Croath Liu 翻译 2014.05
+  - 3rd lib
+    - [GodEye](https://github.com/zixun/GodEye) - Automaticly display Log, Crash, Network, ANR, Leak, CPU, RAM, FPS, NetFlow, Folder and etc with one line of code based on Swift. Just like God opened his eyes.
+- 持续集成
+  - xcodebuild
+  - xctool
+- 发布
+- 热修复
+  - JSPatch - 目前已经被苹果禁止使用了
+- 异常处理
+  - 设备日志
+  - 深入理解 Crash
+    - [如何定位Obj-C野指针随机Crash(一)：先提高野指针Crash率](http://dev.qq.com/topic/59141e56ca95d00d727ba750) by 腾讯 Bugly
+    - [如何定位Obj-C野指针随机Crash(二)：让非必现Crash变成必现](http://dev.qq.com/topic/59142d61ca95d00d727ba752) by 腾讯 Bugly
+    - [如何定位Obj-C野指针随机Crash(三)：如何让Crash自报家门](http://dev.qq.com/topic/5915134b75d11c055ca7fca0) by 腾讯 Bugly
+    - [iOS 崩溃 crash 大解析](http://www.qidiandasheng.com/2016/04/10/crash-xuebeng/) by 齐滇大圣 2016.04
+  - Hook 技术
+  - 第三方服务
+- 运营统计
+- 任务管理
+- 文档
+
+## 逆向工程
+- 越狱
+
+## 算法与数据结构
+
+## 安全
+
+## 操作系统
+- Unix
+  - BSD
+- Darwin
+- 内核：XNU
+- 可执行文件：Mach-O
+
+## 硬件设备
+- iPhone
+  - 4 / 4S
+  - 5 / 5C / 5S
+  - 6 / 6 Plus / 6S / 6S Plus
+  - SE
+  - 7 / 7 Plus
+- iPad
+  - 1, 2, 3, 4
+  - Air 1, 2
+  - Mini 1, 2, 3, 4
+  - Pro
+
+## 职业生涯
+- 面试 & 招聘
+  - [iOSInterviewQuestions](https://github.com/ChenYilong/iOSInterviewQuestions) by ChenYilong
+  - [iOS-Developer-Interview-Questions](https://github.com/lzyy/iOS-Developer-Interview-Questions) by lzyy
+  - [怎么面试架构师](https://casatwy.com/zen-yao-mian-shi-jia-gou-shi.html)
+  - [招聘一个靠谱的 iOS](http://blog.sunnyxx.com/2015/07/04/ios-interview/) by sunnyxx 2015.07
+  - [BAT 面试指南](https://bestswifter.com/bat-interview/) by bestswifter 2016.04
+  - [如何面试 iOS 工程师](http://blog.cnbang.net/internet/3245/) by bang 2016.09
+  - [2016 年 10 月求职记：iOS 工作经验不到 1 年，在 1 个月内拿到了 3 个offer](https://knightsj.github.io/2017/01/13/2016年10月求职记：iOS工作经验不到1年，在1个月内拿到了3个offer/) by J_Knight 2017.01
+  - [2017 年 5 月 iOS 招人心得（附面试题）](https://knightsj.github.io/2017/06/08/2017年5月iOS招人心得（附面试题）/) by J_Knight 2017.06
+- 技术人员发展之路 & 工程师文化
+  - [这多年来我一直在钻研的技术](http://coolshell.cn/articles/17446.html) by 陈皓 2016.08
+  - [什么是工程师文化？](http://coolshell.cn/articles/17497.html) by 陈皓 2016.09
+  - [技术人员的发展之路](http://coolshell.cn/articles/17583.html) by 陈皓 2016.12
+- 如何面对绩效
+  - [我看绩效考核](http://coolshell.cn/articles/17972.html) by 陈皓 2017.07
+- 创业
+  - [写在创业五周年](http://blog.devtang.com/2017/05/31/startup-5th-year-summary/) by 唐巧 2017.05
+
+## 辅助工具
+- 终端 / Shell
+  - [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh)
+  - [iTerm2](https://github.com/gnachman/iTerm2)
+- CLI
+  - [Homebrew](https://brew.sh) - macOS 下必备，用于安装其他 CLI 工具。
+  - tree - 以树状格式打印文件目录结构。Linux 下自带，macOS 下需要用 `brew install tree` 安装。
+  - 更多终端工具 -> [terminals-are-sexy](https://github.com/k4m4/terminals-are-sexy)
+- [Visual Studio Code](https://code.visualstudio.com)
+- [StarUML](http://staruml.io)
+- [SourceTree](https://www.sourcetreeapp.com) - Git 客户端
+- 应用推荐社区
+  - [少数派](https://sspai.com)
+  - [利器](http://liqi.io)
+
+## 开源项目
+- [传送门](OpenSource.md)
+
+## 开放平台
+- [传送门](OpenPlatform.md)
