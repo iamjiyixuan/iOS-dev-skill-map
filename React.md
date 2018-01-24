@@ -19,7 +19,16 @@
     - 兼容版 Fetch: [github-fetch](https://github.com/github/fetch) / [isomorphic-fetch](https://github.com/matthew-andrews/isomorphic-fetch)
     - 基于 [XMLHttpRequest](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest) 的 [axios](https://github.com/axios/axios)
 
-## 2. References
+## 2. 使用 Jest 编写单元测试
+
+### 2.1. 测试异步函数
+- Callback API
+- Promise API
+- Async/Await
+
+### 2.2. Mock
+
+## 3. References
 
 React Native
 - [RN 官网](http://facebook.github.io/react-native/)
