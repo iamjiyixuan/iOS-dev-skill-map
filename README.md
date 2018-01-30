@@ -16,7 +16,16 @@
         - [高阶] dyld
     - [Swift](Swift.md)
     - [ES6](ES6.md)
+    - Ruby
     - 汇编语言
+    - 编程范式
+        - 面向对象编程
+        - 泛型编程
+        - 函数式编程
+        - 响应式编程
+- 算法与数据结构
+    - 哈希
+    - 压缩
 - Foundation
     - NSString
     - 集合
@@ -27,7 +36,7 @@
     - KVO
     - [GNUstep](http://gnustep.org) - 开源版 Cocoa（Cocoa 在 NeXT 时代叫 OpenStep）
 - UIKit
-    - Layout
+    - AutoLayout
     - Navigation
     - UITableView
     - UICollectionView
@@ -48,6 +57,8 @@
         - <del>NSURLConnection</del> Deprecated in iOS 9 
         - NSURLSession
 - 存储
+    - Sandbox
+    - SQLite
 - 并发
     - [GCD](GCD.md)
     - Operation Queue
@@ -61,6 +72,8 @@
 - 架构
     - MVC
     - MVVM
+    - VIPER
+    - 设计模式
 - 工程
     - 版本控制
         - svn
@@ -74,13 +87,13 @@
 - 安全
 - 逆向工程
 - [开源项目](OpenSource.md)
-- 开放平台
+- [开放平台](OpenPlatform.md)
 - 应用领域
-    - 即时通信 IM
-    - 人工智能 AI
-- [面试招聘](Interview.md)
+    - 即时通信
+    - 人工智能
 - 了解技术团队中的其他角色
-    - 产品
+    - 产品设计
     - 视觉设计
-    - 后台开发
+    - 服务器开发
     - 运维
+    - 运营
