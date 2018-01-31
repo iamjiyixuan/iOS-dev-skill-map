@@ -13,6 +13,7 @@
 - [Chapter 4. Functions and Program Structure](#chapter-4-functions-and-program-structure)
 - [Chapter 5. Pointers and Array 指针与数组](#chapter-5-pointers-and-array-指针与数组)
     - [5.1 Pointers and Addresses 指针与地址](#51-pointers-and-addresses-指针与地址)
+    - [5.2 Pointers and Function Arguments 指针与函数参数](#52-pointers-and-function-arguments-指针与函数参数)
 - [Chapter 6. Structures](#chapter-6-structures)
 - [Chapter 7. Input and Output](#chapter-7-input-and-output)
 - [Chapter 8. The UNIX System Interface](#chapter-8-the-unix-system-interface)
@@ -123,14 +124,22 @@ ANSI C 的一个最重要的变化是，它明确地制定了操纵指针的规�
 
 Let us begin with a simplified picture of how memory is organized. A typical machine has an array of consecutively numbered or addressed memory cells that may be manipulated individually or in contiguous groups. One common situation is that any byte can be a char, a pair of one-byte cells can be treated as a short integer, and four adjacent bytes form a long. A pointer is a group of cells (often two or four) that can hold an address. So if c is a char and p is a pointer that points to it, we could represent the situation this way:
 
-首先，我们通过一个简单的示意图来说明内存是如何组织的。通常的机器都有一系列连 续编号或编址的存储单元，过些存储单元可以单个进行操纵，也可以以连续成组的方式操纵。 通常情况下，机器的一个字节可以存放一个 char 类型的数据，两个相邻的字节存储单元可存 储一个 short(短整型)类型的数据，而 4 个相邻的字节存储单元可存储一个 long(长整型) 类型的数据。指针是能够存放一个地址的一组存储单元(通常是两个或 4 个字节)。因此，如 果 c 的类型是 char，并且 p 是指向 c 的指针，则可用图 5-1 表示它们之间的关系:
+首先，我们通过一个简单的示意图来说明内存是如何组织的。通常的机器都有一系列连续编号或编址的存储单元，过些存储单元可以单个进行操纵，也可以以连续成组的方式操纵。 通常情况下，机器的一个字节可以存放一个 char 类型的数据，两个相邻的字节存储单元可存储 1 个 short（短整型）类型的数据，而 4 个相邻的字节存储单元可存储 1 个 long（长整型）类型的数据。指针是能够存放一个地址的一组存储单元(通常是 2 个或 4 个字节)。因此，如果 c 的类型是 char，并且 p 是指向 c 的指针，则可用图 5-1 表示它们之间的关系:
 
 ![](TCPL-5-1.png)
 
 ----
-The unary operator & gives the address of an object, so the statement `p = &c;` assigns the address of c to the variable p, and p is said to ``point to'' c. The & operator only applies to objects in memory: variables and array elements. It cannot be applied to expressions, constants, or register variables.
+The unary operator & gives the address of an object, so the statement 
 
-一元运算符 & 可用于取一个对象的地址，因此，下列语句 `p = &c;` 将把 c 的地址赋值给变量 p，我们称 p 为“指向”c 的指针。地址运算符&只能应用于内存中的对象，即变量与数组元素。它不能作用于表达式、常量或 register 类型的变量。
+一元运算符 & 可用于取一个对象的地址，因此，下列语句 
+
+``` C
+p = &c;
+``` 
+
+assigns the address of c to the variable p, and p is said to 'point to' c. The & operator only applies to objects in memory: variables and array elements. It cannot be applied to expressions, constants, or register variables.
+
+将把 c 的地址赋值给变量 p，我们称 p 为指向 c 的指针。地址运算符 & 只能应用于内存中的对象，即变量与数组元素。它不能作用于表达式、常量或 register 类型的变量。
 
 ----
 The unary operator * is the indirection or dereferencing operator; when applied to a pointer, it accesses the object the pointer points to. Suppose that x and y are integers and ip is a pointer to int. This artificial sequence shows how to declare a pointer and how to use & and *:
@@ -154,13 +163,62 @@ int *ip;
 ``` 
 is intended as a mnemonic; it says that the expression *ip is an int. The syntax of the declaration for a variable mimics the syntax of expressions in which the variable might appear. This reasoning applies to function declarations as well. For example,
 
-这样声明是为了便于记忆。该声明语句表明表达式*ip 的结果是 int 类型。这种声明变量的 语法与声明该变量所在表达式的语法类似。同样的原因，对函数的声明也可以采用这种方式。 例如，声明
+这样声明是为了便于记忆。该声明语句表明表达式 *ip 的结果是 int 类型。这种声明变量的语法与声明该变量所在表达式的语法类似。同样的原因，对函数的声明也可以采用这种方式。例如，声明
 ``` C
 double *dp, atof(char *);
 ```
 says that in an expression *dp and atof(s) have values of double, and that the argument of atof is a pointer to char.
 
-表明，在表达式中，*dp 和 atof(s)的值都是 double 类型，且 atof 的参数是一个指向 char 类型的指针。
+表明，在表达式中，*dp 和 atof(s) 的值都是 double 类型，且 atof 的参数是一个指向 char 类型的指针。
+
+You should also note the implication that a pointer is constrained to point to a particular kind of object: every pointer points to a specific data type. (There is one exception: a 'pointer to void' is used to hold any type of pointer but cannot be dereferenced itself. We'll come back to it in Section 5.11.)
+
+我们应该注意，指针只能指向某种特定类型的对象，也就是说，每个指针都必须指向某种特定的数据类型。(一个例外情况是指向 void 类型的指针可以存放指向任何类型的指针，但它不能间接引用其自身。我们将在 5.11 节中详细讨论该问题)。
+
+If ip points to the integer x, then *ip can occur in any context where x could, so
+``` C
+// 如果指针 ip 指向整型变量，那么在 x 可以出现的任何上下文中都可以使用 *ip，因此，语句将把 *ip 的值增加 10
+ip = *ip + 10;
+```
+increments *ip by 10.
+
+The unary operators * and & bind more tightly than arithmetic operators, so the assignment
+``` C
+// 一元运算符 * 和 & 的优先级比算术运算符的优先级高，因此，赋值语句将把 *ip 指向的对象的值取出并加 1，然后再将结果赋值给 y
+y = *ip + 1;
+```
+takes whatever ip points at, adds 1, and assigns the result to y, while
+``` C
+// 将 ip 指向的对象的值加 1
+*ip += 1;
+```
+increments what ip points to, as do
+``` C
+++*ip;
+```
+and
+``` C
+(*ip)++;
+```
+
+The parentheses are necessary in this last example; without them, the expression would increment ip instead of what it points to, because unary operators like * and ++ associate right to left.
+
+语句 (* ip)++ 中的圆括号是必需的，否则，该表达式将对 ip 进行加 1 运算， 而不是对 ip 指向的对象进行加 1 运算，这是因为，类似于 * 和 ++ 这样的一元运算符遵循从右至左的结合顺序。
+
+----
+Finally, since pointers are variables, they can be used without dereferencing. For example, if iq is another pointer to int,
+
+最后说明一点，由于指针也是变量，所以在程序中可以直接使用，而不必通过间接引用的方法使用。例如，如果 iq 是另一个指向整型的指针，那么语句
+
+``` C
+iq = ip;
+```
+
+copies the contents of ip into iq, thus making iq point to whatever ip pointed to.
+
+将把 ip 中的值拷贝到 iq 中，这样，指针 iq 也将指向 ip 指向的对象。
+
+### 5.2 Pointers and Function Arguments 指针与函数参数
 
 ## Chapter 6. Structures
 
