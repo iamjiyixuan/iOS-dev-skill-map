@@ -20,6 +20,14 @@ ES6 泛指 ES5.1 版本以后的 ECMAScript 标准，包括 ES2015、ES2016、ES
 ## 5. ES 编程风格
 - [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascript) | [中文版](https://github.com/sivan/javascript-style-guide)
 - [ESLint](https://github.com/eslint/eslint)
+    - plugin
+        - [eslint-plugin-react](https://github.com/yannickcr/eslint-plugin-react)
+    - config
+        - [Airbnb's base JS ESLint config, following our styleguide](https://github.com/airbnb/javascript)
+        - [Airbnb's ESLint config, following our styleguide](https://github.com/airbnb/javascript)
+        - [Google ESLint 规则](https://github.com/google/eslint-config-google)
+        - [AlloyTeam ESLint 规则](https://github.com/AlloyTeam/eslint-config-alloy)
+        - [饿了么前端 ESLint 规则](https://github.com/ElemeFE/eslint-config-elemefe)
 
 ## 6. 参考资料
 - [ECMAScript 6 入门](http://es6.ruanyifeng.com/#docs/intro) by 阮一峰
