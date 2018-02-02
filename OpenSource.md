@@ -175,7 +175,7 @@ Repo | Stars | Language |
 ## Hook
 Repo | Stars | Language |
 ---- | ----- | -------- |
-[fishhook](https://github.com/facebook/fishhook)</br>A library that enables dynamically rebinding symbols in Mach-O binaries running on iOS. | [![GitHub stars](https://img.shields.io/github/stars/facebook/fishhook.svg?style=social&label=Star)](https://github.com/facebook/fishhook) | C |
+[fishhook](https://github.com/facebook/fishhook)</br>A library that enables dynamically rebinding symbols in Mach-O binaries running on iOS.</br></br>[动态修改 C 语言函数的实现](https://draveness.me/fishhook) by draveness 2016 | [![GitHub stars](https://img.shields.io/github/stars/facebook/fishhook.svg?style=social&label=Star)](https://github.com/facebook/fishhook) | C |
 
 ## Cross Platform
 ### React Native
