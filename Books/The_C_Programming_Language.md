@@ -4,9 +4,9 @@
 
 <!-- TOC -->
 
-- [Preface](#preface)
+- [Preface 序](#preface-序)
 - [Preface to the First Edition](#preface-to-the-first-edition)
-- [Introduction](#introduction)
+- [Introduction 引言](#introduction-引言)
 - [Chapter 1. A Tutorial Introduction](#chapter-1-a-tutorial-introduction)
 - [Chapter 2. Types, Operators, and Expressions](#chapter-2-types-operators-and-expressions)
 - [Chapter 3. Control Flow](#chapter-3-control-flow)
@@ -23,23 +23,37 @@
 
 <!-- /TOC -->
 
-## Preface
+## Preface 序
 
 The computing world has undergone a revolution since the publication of The C Programming Language in 1978. Big computers are much bigger, and personal computers have capabilities that rival the mainframes of a decade ago. During this time, C has changed too, although only modestly, and it has spread
 far beyond its origins as the language of the UNIX operating system.
 
+自从 1978 年《The C Programming Language》一书出版以来，计算机领域经历了一场革命。大型计算机的功能越来越强大，而个人计算机的性能也可以与十多年前的大型机相媲美。在此期间，C 语言也在悄悄地演进，其发展早己超出了它仅仅作为 UNIX 操作系统的编程语言的研衷。
+
 The growing popularity of C, the changes in the language over the years, and the creation of compilers by groups not involved in its design, combined to
-demonstrate a need for a more precise and more contemporary definition of the language than the first edition of this book provided. In 1983, the American ' National Standards Institute (ANSI) established a committee whose goal was to produce "an unambiguous and machine-independent definition of the language C," while still retaining its spirit. The result is the ANSI standard for C.
+demonstrate a need for a more precise and more contemporary definition of the language than the first edition of this book provided. In 1983, the American National Standards Institute (ANSI) established a committee whose goal was to produce "an unambiguous and machine-independent definition of the language C," while still retaining its spirit. The result is the ANSI standard for C.
 
-The standard formalizes constructions that were hinted at but not described in the first edition, particularly structure assignment and enumerations. It provides a new form of function declaration that permits cross-checking of definition with use. It specifiesa standard library, with an extensiveset of functions for performing input and output, memory management, string manipulation, and similar tasks. It makes precise the behavior of features that were not spelled out in the original definition, and at the same time states explicitly which aspects of the language remain machine-dependent.
+C 语言普及程度的逐渐增加以及该语言本身的发展，加之很多组织开发出了与其设计有所不同的编译器，所有这一切都要求对 C 语言有一个比本书第 1 版更精确、更适应其发展的定义。1983 年，美国国家标准协会（ANSI）成立了一个委员会，其目标是制定**一个无歧义性的且与具体机器无关的 C 语言定义**，而同时又要保持 C 语言原有的**精神**。结果产生了 C 语言的 ANSI 标准。
 
-This second edition of The C Programming Language describes C as defined by the ANSI standard. Although we have noted the places where the language has evolved,we have chosen to write exclusivelyin the new form. For the most part, this makes no significant difference; the most visible change is the new form of function declaration and definition. Modern compilers already support most features of the standard.
+The standard formalizes constructions that were hinted at but not described in the first edition, particularly structure assignment and enumerations. It provides a new form of function declaration that permits cross-checking of definition with use. It specifiesa standard library, with an extensive set of functions for performing input and output, memory management, string manipulation, and similar tasks. It makes precise the behavior of features that were not spelled out in the original definition, and at the same time states explicitly which aspects of the language remain machine-dependent.
+
+ANSI 标准规范了一些在本书第 1 版中提及但没有具体描述的结构，特别是结构赋值和枚举。该标准还提供了一种新的函数声明形式，允许在使用过程中对函数的定义进行交叉检查。标准中还详细说明了一个具有标准输入／输出、内存管理和字符串操作等扩展函数集的标准库。它精确地说明了在 C 语言原始定义中并不明晰的某些特性的行为，同时还明确了 C 语言中与具体机器相关的一些特性。
+
+This second edition of The C Programming Language describes C as defined by the ANSI standard. Although we have noted the places where the language has evolved, we have chosen to write exclusively in the new form. For the most part, this makes no significant difference; the most visible change is the new form of function declaration and definition. Modern compilers already support most features of the standard.
+
+本书第 2 版介绍的是 ANSI 标准定义的 C 语言。尽管我们已经注意到了该语言中已经变化了的地方，但我们还是决定在这里只列出它们的新形式。最重要的原因是，新旧形式之间并没有太大的差别；最明显的变化是函数的声明和定义。目前的编译器已经能够支持该标准的大部分特性。
 
 We have tried to retain the brevity of the first edition. C is not a big language, and it is not well served by a big book. We have improved the exposition of critical features, such as pointers, that are central to C programming. We have refined the original examples, and have added new examples in several chapters. For instance, the treatment of complicated declarations is augmented by programs that convert declarations into words and vice versa. As before, all examples have been tested directly from the text, which is in machine-readable form.
 
+我们将尽力保持本书第 1 版的简洁性。C 语言并不是一种大型语言，也不需要用一本很厚的书来描述。我们在讲解一些关键特性（比如指针）时做了改进，它是 C 语言程序设计的核心。我们重新对以前的例子进行了精炼，并在某些章节中增加了一些新例子。例如，我们通过实例程序时复杂的声明进行处理，以将复杂的声明转换为描述性的说明或反之。像前一版中的例子一样，本版中所有例子都以可被机器读取的文本形式直接通过了测试。
+
 Appendix A, the reference manual, is not the standard, but our attempt to convey the essentials of the standard in a smaller space. It is meant for easy comprehension by programmers, but not as a definition for compiler writersthat role properly belongs to the standard itself. Appendix B is a summary of the facilities of the standard library. It too is meant for reference by programmers, not implementers. Appendix C is a concise summary of the changes from the original version.
 
+附录 A 只是一个参考手册，而非标准，我们希望通过较少的篇幅概述标准中的要点。该附录的目的是帮助程序员更好地理解语言本身，而不是为编译器的实现者提供一个精确的定义——这正是语言标准所应当扮演的角色。附录 B 对标准库提供的功能进行了总结，它同样是面向程序员而非编译器实现者的。附录 C 对 ANSI 标准相对于以前版本所做的变更进行了小结。
+
 As we said in the preface to the first edition, C "wears well as one's experience with it grows." With a decade more experience, we still feel that way. We hope that this book will help you to learn C and to use it well.
+
+我们在第 1 版中曾说过：”随着使用经验的增加，使用者会越来越感到得心应手”。经过十几年的实践，我们仍然这么认为。我们希望这本书能够帮助读者学好并用好 C 语言。
 
 We are deeply indebted to friends who helped us to produce this second edition. Jon Bentley, Doug Gwyn, Doug Mcllroy, Peter Nelson, and Rob Pike gave us perceptive comments on almost every page of draft manuscripts. We are grateful for careful reading by Al Aho, Dennis Allison, Joe Campbell, G. R. Emlin, Karen Fortgang, Allen Holub, Andrew Hume, Dave Kristol, John Linderman, Dave Prosser, Gene Spafford, and Chris Van Wyk. We also received helpful suggestions from BHl Cheswick, Mark Kernighan, Andy Koenig, Robin Lake, Tom London, Jim Reeds, Clovis Tondo, and Peter Weinberger. Dave Prosser answered many detailed questions about the ANSI standard. We used Bjarne Stroustrup's C++ translator extensively for local testing of our programs, and Pave Kristol provided us with an ANSI C compiler for final testing, Rich Drechsler helped greatly with typesetting.
 
@@ -48,20 +62,34 @@ Our sincere thanks to all.
 ## Preface to the First Edition
 ...
 
-## Introduction
-C is a general-purpose programming language. It has been closely associated with the UNIX system where it was developed, since both the system and most of the programs that run on it are written in C. The language, however,is not tied to anyone operating system or machine; and although it has been called a "system programming language" because it is useful for writing compilers and operating systems, it has been used equally well to write major programs in many different domains.
+## Introduction 引言
+C is a general-purpose programming language. It has been closely associated with the UNIX system where it was developed, since both the system and most of the programs that run on it are written in C. The language, however, is not tied to anyone operating system or machine; and although it has been called a "system programming language" because it is useful for writing compilers and operating systems, it has been used equally well to write major programs in many different domains.
+
+C 语言是一种通用的程序设计语言。它同 UNIX 系统之间具有非常密切的联系，C 语言是在 UNIX 系统上开发的，并且，无论是 UNIX 系统本身还是其上运行的大部分程序，都是用 C 语言编写的。但是 C 语言并不受限于任何一种操作系统或机器。由于它很适合用来编写编译器和操作系统，因此被称为“系统编程语言”，但它同样适合于编写不同领城中的大多数程序。
 
 Many of the important ideas of C stem from the language BCPL, developed by Martin Richards. The influence of BCPL on C proceeded indirectly through the language B, which was written by Ken Thompson in 1970 for the first UNIX system on the DEC PDP-7.
 
+C 语言的很多重要概念来源于由 Martin Richards 开发的 BCPL 语言。BCPL 对 C 语言的影响间接地来自于 B 语言，它是 Ken Thompson 为第一个 UNIX 系统而于 1970 年在 DEC PDP-7 计算机上开发的。
+
 BCPL and Bare "typeless" languages. By contrast, C provides a variety of data types. The fundamental types are characters, and integers and floatingpoint numbers of several sizes. In addition, there is a hierarchy of derived data types created with pointers, arrays, structures, and unions. Expressions are formed from operators and operands; any expression, including an assignment or a function call, can be a statement. Pointers provide for machine-independent address arithmetic.
+
+BCPL 和 B 语言都是“无类型”的语言。相比较而言，C 语言提供了很多数据类型。其基本类型包括字符、具有多种长度的整型和浮点数等。另外，还有通过指针、数组、结构和联合派生的各种数据类型。表达式由运算符和操作数组成任何一个表达式，包括赋值表达式或函数调用表达式，都可以是一个语句。指针提供了与具体机器无关的地址算术运算。
 
 C provides the fundamental control-flow constructions required for well-structured programs: statement grouping, decision making (if-else), selecting one of a set of possible cases (switch), looping with the termination test at the top (while, for) or at the bottom (do), and early loop exit (break).
 
+C 语言为实现结构良好的程序提供了基本的控制流结构：语句组、条件判断（if-else）、多路选择（switch）、终止测试在顶部的循环（while、for）、终止测试在底部的循环（do）、提前跳出循环（break）等。
+
 Functions may return values of basic types, structures, unions, or pointers. Any function may be called recursively. Local variables are typically "automatic," or created anew with each invocation. Function definitions may not be nested but variables may be declared in a block-structured fashion. The functions of a C program may exist in separate source files that are compiled separately. Variables may be internal to a function, external but known only within a single source file, or visible to the entire program.
+
+函数可以返回基本类型、结构、联合或指针类型的值。任何函数都可以递归调用。局部变量通常是“自动的”，即在每次函数调用时重新创建。函数定义可以不是嵌套的，但可以用块结构的方式声明变量。一个 C 语言程序的不同函数可以出现在多个单独编译的不同源文件中。变量可以只在函数内部有效，也可以在函数外部但仅在一个源文件中有效，还可以在整个程序中都有效。
 
 A preprocessing step performs macro substitution on program text, inclusion of other source files, and conditional compilation.
 
+编译的预处理阶段将对程序文本进行宏替换、包含其它源文件以及进行条件编译。
+
 C is a relatively "low level" language. This characterization is not pejorative; it simply means that C deals with the same sort of objects that most computers do, namely characters, numbers, and addresses. These may be combined and moved about with the arithmetic and logical operators implemented by real machines.
+
+C 语言是一种相对“低级”的语言。这种说法并没有什么贬义，它仅仅意味着 C 语言可以处理大部分计算机能够处理的对象，比如字符、数字和地址。这些对象可以通过具体机器实现的算术运算符和逻辑运算符组合在一起并移动。
 
 C provides no operations to deal directly with composite objects such as character strings, sets, lists, or arrays. There are no operations that manipulate an entire array or string, although structures may be copied as a unit. The language does not define any storage allocation facility other than static definition and the stack discipline provided by the local variables of functions; there is no heap or garbage collection. Finally, C itself provides no input/output facilities; there are no READ or WRITE statements, and no built-in file access methods. All of these higher-level mechanisms must be provided by explicitlycalled functions. Most C implementations have included a reasonably standard collection of such functions.
 
