@@ -37,6 +37,7 @@
     - 压缩
 - Foundation
     - NSString
+    - Time
     - 集合
         - NSArray
         - NSSet
