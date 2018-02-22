@@ -21,19 +21,19 @@
     - 兼容版 Fetch: [github-fetch](https://github.com/github/fetch) / [isomorphic-fetch](https://github.com/matthew-andrews/isomorphic-fetch)
     - 基于 [XMLHttpRequest](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest) 的 [axios](https://github.com/axios/axios)
 
-## 2. 搭建舒适的开发环境
+## 2. 搭建舒适的开发环境
 
 ### 2.1. Node.js
 
-### 2.2. yarn 替代 npm
+### 2.2. yarn 替代 npm
 
-### 2.3. 用 VS Code 编写代码
+### 2.3. 用 VS Code 编写代码
 
-### 2.4. 用 Babel  
+### 2.4. 用 Babel
 
 ## 3. 使用 Jest 编写单元测试
 
-### 3.1. 测试异步函数
+### 3.1. 测试异步函数
 - Callback API
 - Promise API
 - Async/Await
