@@ -24,8 +24,10 @@ Index
 - [Log](#log)
 - [Hotfix](#hotfix)
 - [Hook](#hook)
-- [React Native](#react-native)
-- [Weex](#weex)
+- [Cross Platform](#cross-platform)
+    - [React Native](#react-native)
+    - [Weex](#weex)
+    - [Flutter](#flutter)
 - [Util](#util-1)
 - [App](#app)
 
@@ -166,13 +168,15 @@ Repo | Stars | Language |
 ## Hook
 Repo | Stars | Language |
 ---- | ----- | -------- |
-[fishhook](https://github.com/facebook/fishhook)</br>A library that enables dynamically rebinding symbols in Mach-O binaries running on iOS.</br></br>[动态修改 C 语言函数的实现](https://draveness.me/fishhook) by draveness 2016 | [![GitHub stars](https://img.shields.io/github/stars/facebook/fishhook.svg?style=social&label=Star)](https://github.com/facebook/fishhook) | C |
+[fishhook](https://github.com/facebook/fishhook)</br>A library that enables dynamically rebinding symbols in Mach-O binaries running on iOS.</br></br>[动态修改 C 语言函数的实现](https://draveness.me/fishhook) by draveness | [![GitHub stars](https://img.shields.io/github/stars/facebook/fishhook.svg?style=social&label=Star)](https://github.com/facebook/fishhook) | C |
 
-## React Native
+## Cross Platform
+
+### React Native
 Repo | Stars | Language |
 ---- | ----- | -------- |
+[React](https://github.com/facebook/react)</br>A declarative, efficient, and flexible JavaScript library for building user interfaces. | [![GitHub stars](https://img.shields.io/github/stars/facebook/react.svg?style=social&label=Star)](https://github.com/facebook/react) | JS |
 [React Native](https://github.com/facebook/react-native)</br>A framework for building native apps with React.</br></br>[React Native 源码导读(零) – 创建/运行/调试](http://blog.cnbang.net/tech/3461/) by bang</br>[React Native 通信机制详解](http://blog.cnbang.net/tech/2698/) by bang | 57,000+ | JS, OC, Java |
-[React](https://github.com/facebook/react)</br>A declarative, efficient, and flexible JavaScript library for building user interfaces. | 80,000+ | JS |
 [Redux](https://github.com/reactjs/redux)</br>Predictable state container for JavaScript apps. | 35,000+ | JS |
 [React Redux](https://github.com/reactjs/react-redux)</br>Official React bindings for Redux. | 9,800+ | JS |
 [redux-saga](https://github.com/redux-saga/redux-saga)</br>一个用于管理 Redux 应用异步操作的中间件。 | 9,800+ | JS |
@@ -185,21 +189,23 @@ Repo | Stars | Language |
 [react-native-calendars](https://github.com/wix/react-native-calendars)</br>React Native Calendar Components. | 1,400+ | JS |
 [react-native-sqlite-storage](https://github.com/andpor/react-native-sqlite-storage)</br>Full featured SQLite3 Native Plugin for React Native (Android and iOS). | 1,000+ | JS, Java, OC |
 [ant-design-mobile](https://github.com/ant-design/ant-design-mobile)</br>antd-mobile 是 Ant Design 的移动规范的 React 实现，服务于蚂蚁及口碑无线业务。 | 3,200+ | TS |
-[react-navigation](https://github.com/react-community/react-navigation)</br>Learn once, navigate anywhere. RN 官方导航解决方案。 | 7,700+ | JS |
-[react-native-navigation](https://github.com/wix/react-native-navigation)</br>A complete native navigation solution for React Native. | 5,000+ | JS, OC, Java |
-[native-navigation](https://github.com/airbnb/native-navigation)</br>Native navigation library for React Native applications. airbnb 出品的 RN 导航解决方案。 | 2,500+ | JS |
-[react-native-sqlite-storage](https://github.com/andpor/react-native-sqlite-storage)</br>Full featured SQLite3 Native Plugin for React Native (Android and iOS). | 1,000+ | JS, Java, OC |
 
-## Weex
+### Weex
 Repo | Stars | Language |
 ---- | ----- | -------- |
-[Weex](https://github.com/apache/incubator-weex)</br>A framework for building Mobile cross-platform UI. | 6,000+ | JS, OC, Java |
-[Vue.js](https://github.com/vuejs/vue)</br>A progressive, incrementally-adoptable JavaScript framework for building UI on the web. | 77,000+ | JS |
+[Weex](https://github.com/apache/incubator-weex)</br>A framework for building Mobile cross-platform UI.</br></br>[Weex Conf 2018](http://weex-project.io/weexConf2018/) </br>[Weex + Ui - Weex Conf 2018](https://zhuanlan.zhihu.com/p/33153760?iam=08abed520609736c2d292670aeb38a28?utm_medium=social&utm_source=weibo) by 汤威（侑夕），飞猪高级前端工程师 </br>[Weex Conf 2018 参会小结：Weex 的现状和未来](https://juejin.im/post/5a620abf6fb9a01c9950e4a0) by 没故事的卓同学 | [![GitHub stars](https://img.shields.io/github/stars/apache/incubator-weex.svg?style=social&label=Star)](https://github.com/apache/incubator-weex) | JS, OC, Java |
+[Vue.js](https://github.com/vuejs/vue)</br>A progressive, incrementally-adoptable JavaScript framework for building UI on the web. | [![GitHub stars](https://img.shields.io/github/stars/vuejs/vue.svg?style=social&label=Star)](https://github.com/vuejs/vue) | JS |
+[weex-ui](https://github.com/alibaba/weex-ui)</br>A rich interaction, lightweight, high performance UI library based on Weex. | [![GitHub stars](https://img.shields.io/github/stars/alibaba/weex-ui.svg?style=social&label=Star)](https://github.com/alibaba/weex-ui) | JS |
+
+### Flutter
+Repo | Stars | Language |
+---- | ----- | -------- |
+[flutter](https://github.com/flutter/flutter)</br>Flutter makes it easy and fast to build beautiful mobile apps. | [![GitHub stars](https://img.shields.io/github/stars/flutter/flutter.svg?style=social&label=Star)](https://github.com/flutter/flutter) | Dart |
 
 ## Util
 Repo | Stars | Language |
 ---- | ----- | -------- |
-[pinyin](https://github.com/hotoo/pinyin)</br>转换中文字符为拼音。可以用于汉字注音、排序、检索。支持多音字、繁体、多种不同拼音风格。 | 2,500+ | JS |
+[pinyin](https://github.com/hotoo/pinyin)</br>转换中文字符为拼音。可以用于汉字注音、排序、检索。支持多音字、繁体、多种不同拼音风格。 | [![GitHub stars](https://img.shields.io/github/stars/hotoo/pinyin.svg?style=social&label=Star)](https://github.com/hotoo/pinyin) | JS |
 
 ## App
 Repo | Stars | Language |
