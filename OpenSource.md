@@ -202,8 +202,9 @@ Repo | Stars | Language |
 [pinyin](https://github.com/hotoo/pinyin)</br>转换中文字符为拼音。可以用于汉字注音、排序、检索。支持多音字、繁体、多种不同拼音风格。 | 2,500+ | JS |
 
 ## App
-Repo | Stars | Language | Articles |
----- | ----- | -------- | -------- |
+Repo | Stars | Language |
+---- | ----- | -------- |
+[GitHub Desktop](https://github.com/desktop/desktop)</br>GitHub Desktop is an open source Electron-based GitHub app. It is written in TypeScript and uses React. | [![GitHub stars](https://img.shields.io/github/stars/desktop/desktop.svg?style=social&label=Star)](https://github.com/desktop/desktop) | TS |
 
 <!-- []() | 0+ | OC | []() | -->
 <!-- []() | 0+ | JS | []() | -->
