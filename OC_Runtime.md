@@ -173,7 +173,12 @@ objc_object::initIsa(Class cls, bool nonpointer, bool hasCxxDtor)
 }
 ```
 
-## 4. References
+## 4. 深入理解 +load 方法
+
+- 是一个钩子方法，main 函数执行前被调用
+- 重载 load 方法时不需要 `[super load]`，因为父类的 load 方法会自动被调用，且在子类之前
+
+## 5. References
 - [Runtime 源码](https://opensource.apple.com/tarballs/objc4/)
 - [Objective-C Runtime Programming Guide](https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/ObjCRuntimeGuide/Introduction/Introduction.html#//apple_ref/doc/uid/TP40008048)
 - [Objective-C Runtime Reference](https://developer.apple.com/library/mac/documentation/Cocoa/Reference/ObjCRuntimeRef/index.html)
