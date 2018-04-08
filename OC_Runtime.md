@@ -175,10 +175,21 @@ objc_object::initIsa(Class cls, bool nonpointer, bool hasCxxDtor)
 
 ## 4. 深入理解 +load 方法
 
-- 是一个钩子方法，main 函数执行前被调用
-- 重载 load 方法时不需要 `[super load]`，因为父类的 load 方法会自动被调用，且在子类之前
+- 钩子方法，在 main 函数执行前被调用
+- 重载 +load 方法时不需要 `[super load]`，因为父类的 load 方法会自动被调用，且在子类之前
+- 父类先于子类调用，类先于分类调用
+- +load 的调用不是惰性的（而 +initialize 是惰性的）
+- 如果在类与分类中都实现了 load 方法，它们都会被调用，，不像其它的在分类中实现的方法会被覆盖
+- 这个时间点，所有的 framework 都已经加载到了运行时中，所以调用 framework 中的方法都是安全的
+- Method Swizzling 一般写在 load 方法中
 
-## 5. References
+## 5. 深入理解 +initialize 方法
+- 钩子方法，惰性调用，+initialize 方法是在类或它的子类收到第一条消息之前被调用的，这里所指的消息包括实例方法和类方法的调用。
+- 被调用时，所有的类都已经加载到了内存中
+- 线程安全
+- 重载 +initialize 方法时不需要 `[super initialize]`，因为子类收到第一条消息时会调用父类的 initialize
+
+## 6. References
 - [Runtime 源码](https://opensource.apple.com/tarballs/objc4/)
 - [Objective-C Runtime Programming Guide](https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/ObjCRuntimeGuide/Introduction/Introduction.html#//apple_ref/doc/uid/TP40008048)
 - [Objective-C Runtime Reference](https://developer.apple.com/library/mac/documentation/Cocoa/Reference/ObjCRuntimeRef/index.html)
@@ -189,4 +200,8 @@ objc_object::initIsa(Class cls, bool nonpointer, bool hasCxxDtor)
 - [Objc 对象的今生今世](https://halfrost.com/objc_life/) by halfrost 2016
 - [重识 Objective-C Runtime - Smalltalk 与 C 的融合](http://blog.sunnyxx.com/2016/08/13/reunderstanding-runtime-0/) by sunnyxx 2016
 - [重识 Objective-C Runtime - 看透 Type 与 Value](http://blog.sunnyxx.com/2016/08/13/reunderstanding-runtime-1/) by sunnyxx 2016
-- [从 NSObject 的初始化了解 isa](https://github.com/Draveness/analyze/blob/master/contents/objc/从%20NSObject%20的初始化了解%20isa.md) by Draveness
+- [从 NSObject 的初始化了解 isa](https://draveness.me/isa) by Draveness 2016
+- [深入解析 ObjC 中方法的结构](https://draveness.me/method-struct) by Draveness 2016
+- [你真的了解 load 方法么？](https://draveness.me/load) by Draveness 2016
+- [懒惰的 initialize 方法](https://draveness.me/initialize) by Draveness 2016
+- [Objective-C +load vs +initialize](http://blog.leichunfeng.com/blog/2015/05/02/objective-c-plus-load-vs-plus-initialize/) by 雷纯锋 2015
