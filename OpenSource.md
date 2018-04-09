@@ -213,7 +213,7 @@ Repo | Stars | Language |
 ## App
 Repo | Stars | Language | CLOC |
 ---- | ----- | -------- | ---- |
-[GitHub Desktop](https://github.com/desktop/desktop)</br>GitHub Desktop is an open source Electron-based GitHub app. It is written in TypeScript and uses React. | [![GitHub stars](https://img.shields.io/github/stars/desktop/desktop.svg?style=social&label=Star)](https://github.com/desktop/desktop) | TS | 800+ files, 77,000+ lines code |
+[GitHub Desktop](https://github.com/desktop/desktop)</br>GitHub Desktop is an open source Electron-based GitHub app. It is written in TypeScript and uses React. | [![GitHub stars](https://img.shields.io/github/stars/desktop/desktop.svg?style=social&label=Star)](https://github.com/desktop/desktop) | TS | 800+ files</br>77,000+ code |
 
 <!-- []() | 0+ | OC | []() | -->
 <!-- []() | 0+ | JS | []() | -->
