@@ -45,9 +45,12 @@
     - Notification
     - [KVC & KVO](KVC_KVO.md)
     - [GNUstep](http://gnustep.org) - 开源版 Cocoa（Cocoa 在 NeXT 时代叫 OpenStep）
-- UIKit
-    - AutoLayout
-    - Navigation
+- UI
+    - 布局
+        - Frame
+        - AutoLayout
+        - FlexBox
+    - 导航
     - UITableView
     - UICollectionView
 - iOS New Features
