@@ -30,6 +30,9 @@ Index
     - [Flutter](#flutter)
 - [Util](#util-1)
 - [App](#app)
+    - [GitHub](#github)
+    - [IM](#im)
+    - [Others](#others)
 
 <!-- /TOC -->
 
@@ -209,9 +212,23 @@ Repo | Stars | Lang |
 [pinyin](https://github.com/hotoo/pinyin)</br>转换中文字符为拼音。可以用于汉字注音、排序、检索。支持多音字、繁体、多种不同拼音风格。 | [![GitHub stars](https://img.shields.io/github/stars/hotoo/pinyin.svg?style=social&label=Star)](https://github.com/hotoo/pinyin) | JS |
 
 ## App
+
+### GitHub
 Repo | Stars | Lang | CLOC |
 ---- | ----- | ---- | ---- |
-[GitHub Desktop](https://github.com/desktop/desktop)</br>GitHub Desktop is an open source Electron-based GitHub app. It is written in TypeScript and uses React. | [![GitHub stars](https://img.shields.io/github/stars/desktop/desktop.svg?style=social&label=Star)](https://github.com/desktop/desktop) | TS | 800+ files, 77,000+ code |
+[GitHub Desktop](https://github.com/desktop/desktop)</br>GitHub Desktop is an open source Electron-based GitHub app. It is written in TypeScript and uses React. | ![GitHub stars](https://img.shields.io/github/stars/desktop/desktop.svg?style=social&label=Star) | TS | 730 files, 62k lines |
+
+### IM
+Repo | Stars | Lang | CLOC |
+---- | ----- | ---- | ---- |
+[Telegram](https://github.com/peter-iakovlev/Telegram)</br>Telegram Messenger for iOS | ![GitHub stars](https://img.shields.io/github/stars/peter-iakovlev/Telegram.svg?style=social&label=Star) | OC | |
+[Messenger](https://github.com/relatedcode/Messenger)</br>This is a native iOS Messenger app, with audio/video calls and realtime chat conversations (full offline support). | ![GitHub stars](https://img.shields.io/github/stars/relatedcode/Messenger.svg?style=social&label=Star) | OC | |
+
+### Others
+Repo | Stars | Lang | CLOC |
+---- | ----- | ---- | ---- |
+[DanTang](https://github.com/hrscy/DanTang)</br>Swift - 单糖 | ![GitHub stars](https://img.shields.io/github/stars/hrscy/DanTang.svg?style=social&label=Star) | Swift | |
+[SwiftLanguageWeather](https://github.com/JakeLin/SwiftLanguageWeather)</br>Swift Language Weather is an iOS weather app developed in Swift 4. | ![GitHub stars](https://img.shields.io/github/stars/JakeLin/SwiftLanguageWeather.svg?style=social&label=Star) | Swift | |
 
 <!-- []() | 0+ | OC | []() | -->
 <!-- []() | 0+ | JS | []() | -->
