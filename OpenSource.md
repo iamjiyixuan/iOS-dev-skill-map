@@ -160,7 +160,7 @@ Repo | Stars | Lang |
 ## Util
 Repo | Stars | Lang | CLOC |
 ---- | ----- | ---- | ---- |
-[dyld](https://github.com/opensource-apple/dyld)</br>动态链接器</br></br>- [iOS 程序 main 函数之前发生了什么](http://blog.sunnyxx.com/2014/08/30/objc-pre-main/) by sunnyxx | ![GitHub stars](https://img.shields.io/github/stars/opensource-apple/dyld.svg?style=social&label=Star) | C | 39 files, 16K lines |
+[dyld](https://github.com/opensource-apple/dyld)</br>动态链接器</br></br>[iOS 程序 main 函数之前发生了什么](http://blog.sunnyxx.com/2014/08/30/objc-pre-main/) by sunnyxx | ![GitHub stars](https://img.shields.io/github/stars/opensource-apple/dyld.svg?style=social&label=Star) | C | 39 files, 16K lines |
 [libffi](https://github.com/libffi/libffi)</br> A portable foreign-function interface library. | ![GitHub stars](https://img.shields.io/github/stars/libffi/libffi.svg?style=social&label=Star) | C | 124 files, 28k lines |
 [RxSwift](https://github.com/ReactiveX/RxSwift) | [![GitHub stars](https://img.shields.io/github/stars/ReactiveX/RxSwift.svg?style=social&label=Star)](https://github.com/ReactiveX/RxSwift) | Swift |
 [BlocksKit](https://github.com/BlocksKit/BlocksKit)</br></br>[神奇的 BlocksKit （一）](https://draveness.me/blockskit-1) by draveness </br> [神奇的 BlocksKit （二）](https://draveness.me/blockskit-2) by draveness | [![GitHub stars](https://img.shields.io/github/stars/BlocksKit/BlocksKit.svg?style=social&label=Star)](https://github.com/BlocksKit/BlocksKit) | OC |
@@ -184,7 +184,7 @@ Repo | Stars | Lang | CLOC |
 ## Hook
 Repo | Stars | Lang | CLOC |
 ---- | ----- | ---- | ---- |
-[fishhook](https://github.com/facebook/fishhook)</br>A library that enables dynamically rebinding symbols in Mach-O binaries running on iOS.</br></br>- [动态修改 C 语言函数的实现](https://draveness.me/fishhook) by draveness</br>- [巧用符号表 - 探求 fishhook 原理（一）](http://www.desgard.com/fishhook-1/) by desgard</br>- [验证试验 - 探求 fishhook 原理（二）](http://www.desgard.com/fishhook-2/) by desgard | ![GitHub stars](https://img.shields.io/github/stars/facebook/fishhook.svg?style=social&label=Star) | C | 2 files, 196 lines |
+[fishhook](https://github.com/facebook/fishhook)</br>A library that enables dynamically rebinding symbols in Mach-O binaries running on iOS.</br></br>[动态修改 C 语言函数的实现](https://draveness.me/fishhook) by draveness</br>[巧用符号表 - 探求 fishhook 原理（一）](http://www.desgard.com/fishhook-1/) by desgard</br>[验证试验 - 探求 fishhook 原理（二）](http://www.desgard.com/fishhook-2/) by desgard | ![GitHub stars](https://img.shields.io/github/stars/facebook/fishhook.svg?style=social&label=Star) | C | 2 files, 196 lines |
 [BlockHook](https://github.com/yulingtianxia/BlockHook)</br>Hook Objective-C blocks with libffi.</br></br>[Hook Objective-C Block with Libffi](http://yulingtianxia.com/blog/2018/02/28/Hook-Objective-C-Block-with-Libffi/) by 杨萧玉 | ![GitHub stars](https://img.shields.io/github/stars/yulingtianxia/BlockHook.svg?style=social&label=Star) | OC | 2 files, 381 lines |
 
 ## Web Front End
