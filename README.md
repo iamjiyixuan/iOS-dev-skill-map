@@ -43,8 +43,7 @@
         - NSSet
         - NSDictionary
     - Notification
-    - KVC
-    - [KVO](KVO.md)
+    - [KVC 和 KVO](KVC&KVO.md)
     - [GNUstep](http://gnustep.org) - 开源版 Cocoa（Cocoa 在 NeXT 时代叫 OpenStep）
 - UI
     - 布局
