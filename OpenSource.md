@@ -154,7 +154,7 @@ Repo | Stars | Lang | CLOC |
 ---- | ----- | ---- | ---- |
 [Mantle](https://github.com/Mantle/Mantle)</br>Model framework for Cocoa and Cocoa Touch. | [![GitHub stars](https://img.shields.io/github/stars/Mantle/Mantle.svg?style=social&label=Star)](https://github.com/Mantle/Mantle) | OC |
 [MJExtension](https://github.com/CoderMJLee/MJExtension)</br>A fast, convenient and nonintrusive conversion between JSON and model. | [![GitHub stars](https://img.shields.io/github/stars/CoderMJLee/MJExtension.svg?style=social&label=Star)](https://github.com/CoderMJLee/MJExtension) | OC |
-[YYModel](https://github.com/ibireme/YYModel)</br>High performance model framework for iOS/OSX. | [![GitHub stars](https://img.shields.io/github/stars/ibireme/YYModel.svg?style=social&label=Star)](https://github.com/ibireme/YYModel) | OC | 5 files, 2006 lines |
+[YYModel](https://github.com/ibireme/YYModel)</br>High performance model framework for iOS/OSX. | [![GitHub stars](https://img.shields.io/github/stars/ibireme/YYModel.svg?style=social&label=Star)](https://github.com/ibireme/YYModel) | OC | 5 files, 2K lines |
 [SwiftyJSON](https://github.com/SwiftyJSON/SwiftyJSON)</br>The better way to deal with JSON data in Swift. | [![GitHub stars](https://img.shields.io/github/stars/SwiftyJSON/SwiftyJSON.svg?style=social&label=Star)](https://github.com/SwiftyJSON/SwiftyJSON) | Swift |
 
 ## Util
