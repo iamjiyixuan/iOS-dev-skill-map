@@ -150,11 +150,11 @@ Repo | Stars | Lang |
 [YYCache](https://github.com/ibireme/YYCache)</br>High performance cache framework for iOS.</br></br>[YYCache 设计思路](https://blog.ibireme.com/2015/10/26/yycache/) by ibireme | [![GitHub stars](https://img.shields.io/github/stars/ibireme/YYCache.svg?style=social&label=Star)](https://github.com/ibireme/YYCache) | OC |
 
 ## Model
-Repo | Stars | Lang |
----- | ----- | -------- |
+Repo | Stars | Lang | CLOC |
+---- | ----- | ---- | ---- |
 [Mantle](https://github.com/Mantle/Mantle)</br>Model framework for Cocoa and Cocoa Touch. | [![GitHub stars](https://img.shields.io/github/stars/Mantle/Mantle.svg?style=social&label=Star)](https://github.com/Mantle/Mantle) | OC |
 [MJExtension](https://github.com/CoderMJLee/MJExtension)</br>A fast, convenient and nonintrusive conversion between JSON and model. | [![GitHub stars](https://img.shields.io/github/stars/CoderMJLee/MJExtension.svg?style=social&label=Star)](https://github.com/CoderMJLee/MJExtension) | OC |
-[YYModel](https://github.com/ibireme/YYModel)</br>High performance model framework for iOS/OSX. | [![GitHub stars](https://img.shields.io/github/stars/ibireme/YYModel.svg?style=social&label=Star)](https://github.com/ibireme/YYModel) | OC |
+[YYModel](https://github.com/ibireme/YYModel)</br>High performance model framework for iOS/OSX. | [![GitHub stars](https://img.shields.io/github/stars/ibireme/YYModel.svg?style=social&label=Star)](https://github.com/ibireme/YYModel) | OC | 5 files, 2006 lines |
 [SwiftyJSON](https://github.com/SwiftyJSON/SwiftyJSON)</br>The better way to deal with JSON data in Swift. | [![GitHub stars](https://img.shields.io/github/stars/SwiftyJSON/SwiftyJSON.svg?style=social&label=Star)](https://github.com/SwiftyJSON/SwiftyJSON) | Swift |
 
 ## Util
