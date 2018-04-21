@@ -163,6 +163,7 @@ Repo | Stars | Lang | CLOC |
 [libffi](https://github.com/libffi/libffi)</br> A portable foreign-function interface library. | ![GitHub stars](https://img.shields.io/github/stars/libffi/libffi.svg?style=social&label=Star) | C | 124 files, 28k lines |
 [RxSwift](https://github.com/ReactiveX/RxSwift) | [![GitHub stars](https://img.shields.io/github/stars/ReactiveX/RxSwift.svg?style=social&label=Star)](https://github.com/ReactiveX/RxSwift) | Swift |
 [BlocksKit](https://github.com/BlocksKit/BlocksKit)</br></br>[神奇的 BlocksKit （一）](https://draveness.me/blockskit-1) by draveness </br> [神奇的 BlocksKit （二）](https://draveness.me/blockskit-2) by draveness | [![GitHub stars](https://img.shields.io/github/stars/BlocksKit/BlocksKit.svg?style=social&label=Star)](https://github.com/BlocksKit/BlocksKit) | OC |
+[KVOController](https://github.com/facebook/KVOController)</br>Simple, modern, thread-safe key-value observing for iOS and OS X.</br></br>[如何优雅地使用 KVO](https://draveness.me/kvocontroller) by draveness 2017 | ![GitHub stars](https://img.shields.io/github/stars/facebook/KVOController.svg?style=social&label=Star) | OC | 5 files, 554 lines |
 [MLeaksFinder](https://github.com/Tencent/MLeaksFinder) | [![GitHub stars](https://img.shields.io/github/stars/Tencent/MLeaksFinder.svg?style=social&label=Star)](https://github.com/Tencent/MLeaksFinder) | OC |
 
 ## Log
