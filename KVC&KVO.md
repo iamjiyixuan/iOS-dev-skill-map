@@ -1,8 +1,30 @@
 # Key-Value Coding & Observing
 
-## KVC
+## 1. KVC
 
-## References
+### 1.1. API
+``` ObjC
+@property (nonatomic, copy) NSString *name;
+
+// get
+NSString *name = [object valueForKey:@"name"];
+
+// set
+[object setValue:@"Daniel" forKey:@"name"];
+```
+
+### 1.2. 如何在 Swift 4 中使用 KVC
+
+## 2. KVO
+
+### 2.1. API
+
+### 2.2. 实现原理
+
+### 2.3. KVOController
+
+## 3. References
+- [Key-Value Coding Programming Guide](https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/KeyValueCoding/)
 - [Key-Value Observing Programming Guide](https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/KeyValueObserving/KeyValueObserving.html)
 - [如何优雅地使用 KVO](https://draveness.me/kvocontroller) by draveness 2017
 - [如何自己动手实现 KVO](http://tech.glowing.com/cn/implement-kvo/) by Glow 技术团队博客 2015
